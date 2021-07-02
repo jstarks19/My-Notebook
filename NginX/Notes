@@ -5,13 +5,88 @@ What is it?
     - It is an open-source web server written in C
     - It can also be used as a reverse proxy & load balancer 
 
+    Web Server
+        - Serves web content
+    
+    Proxy
+        - Server that receives a request for a web page, and then retrieves that web page on your behalf
+        - Has several benefits
+            - Privacy (retrieve pages without revealing what you are looking for)
+            - Speed (Proxy caches web pages to serve more quickly)
+            - Saves Bandwidth (same reason)
+            - Activity Logging (Companies can use this to log what websites employees visit)
+        - It cannot encrypt data 
+        - offers:
+            - Load Balancing
+            - Backend Routing 
+            - Caching
 
-Current & Desired Architecture
 
-Layer 4 & Layer 7 Proxying 
+Controlling NginX from CLI 
+    $ nginx -s <SIGNAL>
+        - signal types:
+            - quit      : shutdown gracefully 
+            - reload    : reload config files
+            - reopen    : reopen log files 
+            - stop      : shutdown immediately (fast)
+            - kill      : kill process
 
-Example
-    - NginX as a Web Server, Layer7 and Layer 4 Proxy 
-    - Enable HTTPS, TLS 1.3 & HTTP/2 on NginX 
+URI
+    - Uniform Resource Identifier
+        - unique sequence of characters that identifies a logical or physical resource used by web technologies
+    - URLS 
+        - a URL IS a URI that gives information about HOW to access the resource and WHERE
+            HOW         : http/https
+            WHERE       : domainName.org 
+            RESOURCE    : /api/dog.html
+        
 
-Summary
+
+
+
+NginX Configuration
+
+    Primary NginX config file
+         /etc/nginx/nginx.conf
+        
+        Directives & Parameters
+
+            Simple Directive
+                - these are one liners that end in a semicolom
+                ex. user    nobody;
+
+            Block Directives
+                - these are directives in which the paramters are a group
+                ex. location {
+
+                }
+            
+            - it is recommended that you split up the feature specific config files and place them in conf.d 
+                - then import them into nginx.conf with the simple directive "include conf.d/http;"
+
+        Contexts
+            - there are a few top level dirs for grouping together different types of traffic
+                - events    : general connections
+                - http      : http traffic
+                - mail      : mail traffic
+                - stream    : TCP & UDP traffic
+        
+        Virtual Servers
+            - for each of the above contexts, you include one or more server block
+                - these server blocks define virtual servers that control request processing
+            - for HTTP
+                - each server directive controls processing of requests for resources at a particular domain 
+                - the location context in a server defines how to process specific URIs
+
+    - after modifying a configuration file, run nginx -s reload 
+
+    Notes:
+        - nginx.conf is the standard config file for nginx 
+        - conf.d is useful in specifiying what to do when certain traffic is received
+        - sites-available: this is a directory which contains the configuration file for your website
+            - it also by default contains a default config file
+            - this file points to the /var/www/html directory which contains the default webpage
+        - in order to enable your site to be visited, you must create a symbolic link between the sites-enabled and sites-available
+            - specifically "ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default"
+            - is how you would make the default configuration (and in turn the site it points to) enabled for users to visit
+        

@@ -2,8 +2,16 @@
 A virtual Notebook for all of my Notes
 
 # Structure
-The structure of my notebook is as follows
-- <Main Topic Directory>
-   - Notes on Main Topic (labeled 'Notes')
-   - <Sub Topic Directory>
-      - Notes on Sub Topic (labeled 'Notes')
+<ul>
+<li>\<Main Topic Directory\></li>
+<ul>
+<li>Notes on Main Topic (labeled 'Notes')</li>
+<li>\<Sub Topic Directory\></li>
+<ul>
+<li>Notes on Sub Topic (labeled 'Notes')</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul> 
+

@@ -1,0 +1,63 @@
+
+MongoDB
+
+    - General purpose, document-based, distributed database built for modern application developers and for the cloud era
+    - Why use Mongo?
+        - well.. it is very commonly used with Node and Express (MEAN & MERN)
+        - it's easy to get started with, though can be quite tricky to master
+        - it plays quite well with javascript
+        - its popularity means there is a strong community for mongo, meaning you get your questions answered and your bugs squashed 
+    
+    Mongo Shell
+        - mongo                                     : start shell
+        - use <db name>                             : use database
+        - show dbs                                  : list databases
+        - db                                        : show our current in-use db 
+        - use <db name> + <db name>.dropDatabase()  : drop a database 
+        - show collections                          : that
+        - use <collection>                          : that
+        - db.<collection name>.drop()               : deletes collection 
+        
+        C
+        Insertion
+            - db.insertOne();
+            - db.insert();
+            - db.insertMany();
+        R
+        Finding
+            - db.collection.find()                  : returns everything in the collection 
+            - db.collection.find({name: 'jason'})   : returns every document where name = jason 
+                - find returns a cursor to the data returned
+                    - a cursor is like a pointer to the data
+        U
+        Updating
+            - db.collection.updateOne({name : "jason"}, {$set: {age:4, bord:1998}})
+            - db.collection.updateMany({age : "22"}, {$set {name: "Jason"}}) 
+            - db.collection.updateOne(
+                {name: "jason"},
+                {
+                    $set: {age:10},
+                    $currentDate: {lastChanged: true}
+                }
+            )
+
+        D
+        Delete 
+            - db.collection.deleteOne({name: 'jason'});
+
+
+        Additional Mongo
+            - other operators
+                $gt, $gte, $lt, $lte, $ne
+                $in, $nin ex. db.collection.find({name: {$in ['nic','jason']]}})
+
+
+
+
+    BSON
+        - Basically mongos version of JSON
+        - Why don't they just use JSON?
+            - JSON is inherentely slow because it is text based
+            - BSON is binary JSON, more compact version of JSON
+
+

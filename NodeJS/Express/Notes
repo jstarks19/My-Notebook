@@ -1,0 +1,35 @@
+
+
+Library vs. Framework
+    - Library
+        - a library provides YOU with a number of properties and methods, YOU are in control...
+    - Framework
+        - a framework the control is with the FRAMEWORK, you interface with the framework
+            - you are writing within the spec of the framework, you are a participant
+        - this is because frameworks are designed to allow you to create full-scale apps
+            - they don't just provide a few useful methods, they are the spec to which you create your app 
+
+Express
+    - A lightweight and fast minimalist web framework for Node.js
+    - It is an NPM package, which provides us with a number of methods and properties
+    - Helps us to:
+        - Start up a server to listen for requests
+        - Parse incoming requests
+        - Match those requests to particular routes
+        - Craft our http response and associated content
+    - app.use : with a callback this will call on any request 
+
+
+Requests & Response
+    - req: incoming  
+        - req.params
+        - req.query
+    - res: outgoing
+
+Serving Static Assets
+    - This is a middleware function 
+    - app.use(express.static('public'));
+    - This introduces the same issues that views does with being in the right directory during serving 
+    - To counter this, we do the same thing, that is app.set('public', path.join(__dirname, '/public'))
+
+Bootstrap in Express 

@@ -1,0 +1,20 @@
+
+Databases
+    - Why do we even want a database in an application?
+        - Persistence dummy
+        - Why don't we use files?
+            - We could, but databases are specifically designed to handle large amounts of data very efficiently
+            - They store the data rather compactly
+            - They already provide tools for insertion, deletion, updates, etc.
+            - They generally will provide security
+            - They (generally) scale well
+
+SQL vs. NO-SQL
+    - SQL 
+        - Structured Query Language dbs are relational databases
+        - we pre-define schema of tables before we insert anything
+        - ex. MySQL, Postgres, SQLite, Oracle, Microsoft SQL Server
+    - NO-SQL
+        - Do not use SQL 
+        - There are many types of NO-SQL DBs (document, key-value, graphs)
+        - ex. MongoDB, Couch DB, Neo4j, Cassandra, Redis

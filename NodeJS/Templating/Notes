@@ -1,0 +1,32 @@
+
+Templating
+
+    - In order to template you would use a templating engine
+        - Templating engines include (some):
+            - EJS (below)
+            - Pug
+            - HandleBars
+            - Jade
+            - Nunjucks
+        - to set the template
+            - app.set(name, value) :  set properties of the application
+
+    - Templates should be as stupid as possible, do not over complicate them
+        - put simple functional code snippets in them 
+        - handle the big boy logic in JS
+    
+
+EJS
+    - <%= %> : standard syntax for inserting a piece of embedded javascript into our ejs files 
+        - nod is that it is rendered, so anything in here, once evaluated, will be visible 
+    - <% %> : standard syntax for inserting a piece of JS code, which will not be rendered
+        - used for control flow, if this then that other wise this 
+
+    Loops
+        - <% for (let elem of elems)%>
+
+Partials
+    - include a piece of ejs code in a bunch of files, all templates 
+    - <%- include('<path name') %>
+    - the above includes that partial ejs code in the location of the tags and renders it 
+    - ex. footer buttons, navbars, sidebars, etc. 

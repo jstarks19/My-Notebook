@@ -1,0 +1,12 @@
+
+Protoypes
+    - How objects inherit methods and properties from other objects
+    - Basically these are build in methods of a class/object that are not specific to this instance of the object
+    - You can add other methods and properties to an object, but their built-in methods are from their protoypes
+    - They are objects though, so every object has another object which is called __proto__ which references the prototype object
+    - Such a cool system  
+
+
+Extends & Super
+    - extends gives a Class the properties of another (it inherits those properties)
+    - call super(params) if you want to use a new constructor for an object that extends another

@@ -1,0 +1,36 @@
+
+
+GET vs POST
+
+    - GET 
+        - used to retrieve information
+        - data is sent via query string
+        - information is plainly visible in the URL
+        - limited in the amount of data that we can send
+    
+    - POST
+        - used to post new data to the server
+        - used to write/create/update
+        - data is sent via request body, not through a query string
+        - can send anything (JSON, HTML, Text, etc.)
+
+    - req.body
+        - this holds the body data of our http request
+        - it is not populated by default
+        - in order to populate it, we must use middleware
+            - specifically we use 
+                app.use(express.json())                         : for parsing application/json formatted data
+                app.use(express.urlencoded({extended: true}))   : for parsing application/x-www-form-urlencoded
+            - by default, without this middleware, req.body will be undefined
+
+REST
+    - Representational State Transfer
+        - basically, it is a set of guidelines for how a client + server should communicate and perform CRUD operations on a given resource
+        - a 'Restful' system is one that adheres to these guidlines
+
+Express Redirects
+    - instead of res.send or res.render
+    - if we use res.redirect() and give it a route path, you can redirect to that route
+
+UUID
+    - an npm package for generating new unique ids

@@ -1,0 +1,55 @@
+
+NodeJS
+    
+Process
+    - a global object that provides information about, and control over, the current Node.js process
+    - available without needing a require
+
+    process.argv
+        - this represents the arguments passed to the node program at execution
+            - element 0 will always be process.execPath
+            - element 1 will always be the path to the file being executed
+            - anything after these will be additional command line args 
+            
+
+Module.exports
+    - this is how we can expose other objects, functions, files in general to our main program (app.js)
+    - module.exports is by defualt an object
+    - you can set the exports var to anything though, a function, string, object, etc.
+    - syntax is module.exports.name = 'Jason';
+        - stored as a key value pair in the exports object
+    - can just use exports as a shorthand for module.exports
+
+Requiring Directories
+    - The way Node works is that index.js is its entry point into the program, in the same way the main function in C is the entry point
+    - Say we have a directory with a number of modules to export, or objects, functions, etc. that we need 
+        - In order to export them:
+            - create an index.js
+            - require all of them
+            - in index.js, export the items required
+            - voila you have all of them by simply requiring the entire directory (that houses the modules + index.js)
+
+NPM
+    - Node Package Manager
+    - Two things are important here
+        - It is a library of thousands of packages published by other developers that we can use for free!!!
+        - It is a command line tool for easily installing and managing packages for Node projects
+
+    - Local vs Global install
+        - local:  npm i <package name>
+        - global: npm i -g <package name>
+        
+        - npm link <global package> : This will link the global module to the local one
+    
+    - Package.JSON 
+        - contains metadata about the application
+        - contains the dependencies for a module as well 
+        - typically found in the root dir of a project
+
+        - very useful use:
+            - Usually you do not include the node modules directory when shipping code/pushing it
+            - In order for a new user to get all of those modules to use in their project, which depends on them, you use the package.json file
+            - specifically from CLI call 'npm install' in the dir with package.json
+            - all of the dependencies will then be installed within your directory
+
+

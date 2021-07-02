@@ -1,0 +1,277 @@
+
+CSS Notes
+    - CSS : Cascading Style Sheet
+    - Used to style html elements
+    - Not necessarily a programming language
+    - The Cascade
+        - the order in which you define selectors matter
+        - future stylesheets will overwrite the current one
+    
+    CSS Rules:
+        basic template
+            selector {
+                property: value;
+            }
+    
+    Linking a CSS stylesheet
+        - you can always add a style attribute to an HTML element to add a style tag (but don't do this)
+        - can also include a <style> tag and detail your styling between the tags 
+        - in the head section you will include a <link> tag
+            - link has two attributes of note
+                rel : relationship (if css, "stylesheet")
+                href: link to the actual location of the stylesheet 
+
+    Specificity
+        - how the browser decides which rules to apply when there is a conflict
+        - usually when more than one style is applied to the same element
+        - generally
+            - The more specific a selector is, the more precedence it has
+            - Hierarchy
+                ID: Most Specific
+                    Class: Normal
+                        Element : Least Specific
+
+        (Try to Avoid These)
+        - Inline Styles
+            - the most specificity
+            - do not use them (at least try not to)
+        - Importance
+            - if you use !important after a style it will be the MOST specific rule
+                -ex. color: white !important 
+            - not recommended 
+
+    Inheritance
+        - usually a child element inherits a property from it's parent
+        - that is, as long as the child does not have styling
+
+
+
+    Selectors
+        - selector lists: you can use a comma seperated list of selectors to include them in the styling
+
+        Universal:
+            - ex. *
+            - not really used much, it will style literally everything
+
+        Element:
+            - ex. image, h1, p, table
+            - used to style every instance of a single element type on our page
+        
+        Class:
+            - ex. .classname, .user, .element
+            - one of the most commonly used selectors
+
+        ID:
+            - ex. #idname, #password, #user
+            - used to style an element with a particular id attribute
+            - since id's are unique, styling only a single one is possible with this selector
+            - don't overuse them
+
+        Descendant:
+            - ex. .classname h1, p b, .big-table tr
+            - this selector uses the list of selectors as a hierarchy to determine what to style
+            - each subsequent one is a 'descendant' of the previous one
+                - body h1 {} : this means all h1's within the body tag 
+
+        Adjacent:
+            - ex. h1 + p, tr + a
+            - example:
+                h1 + p {} : this means all p's that come immediately after an h1
+            - this selector is useful in a subheading or content that is often joined
+
+        Direct Descendant
+            - ex. div > li, table > tr
+            - example:
+                body > p {} : this means all p's that are direct descendants of the body
+
+        Attribute
+            - ex. input[type="text"] {} : all inputs with the type of text
+            - this is used to style elements based on a certain attribute
+
+        
+    Pseudo Classes
+        - this is a keyword added to a selector in order to specify a style during a certain state
+        
+        :active
+            - when an element is currently clicked
+            - effect goes away on release of mouse button 
+        :checked
+            - any checkbox or radio button that is checked/selected
+        :first
+            -
+        :first-child
+        :hover
+            - when an element is being hovered over
+        :not()
+        :nth-child()
+        :nth-of-type()
+            - select a specific element of a particular class
+            - can select multiple by specifying the number and n
+                - ex. .hello:nth-of-type(3n) : This means select every third element
+
+    Pseudo Elements 
+        - lets you style a particular part of an element
+
+        ::after
+        ::before
+        ::first-letter
+            - the first letter of a piece of text
+        ::first-line
+            - the first line of a piece of text 
+        ::selection
+            - lets you style the appearance of highlights
+
+
+
+    Units of Measurement
+        
+        Relative
+            - EM    :
+            - REM   :
+            - VH    :
+            - VW    :
+            - %     :
+            - etc.  :
+
+        Absolute
+            - PX    : Most commonly used unit, absolute pixels, not recommended for responsive sites
+            - PT    :
+            - CM    :
+            - IN    :
+            - MM    :
+
+
+    Properties to know
+    
+        COLOR
+            : colors can be specified in a number or ways 
+                - color name (red, paleviolet, black, etc.)
+                - rgb (red, blue, green)
+                - rgba (red, blue, green, alpha)
+                - hex (hex color code: #0102FF)
+                - hsl (hue, saturation, luminence)
+                - hsla (hue, saturation, luminence , alpha)  
+
+            color
+                - adjusts text color
+
+            background-color
+                - adjusts the background color 
+        
+        TEXT
+            : the properties used to style text
+
+            text-align
+                - used to align the text within it's box
+                - some options: center, right, left, start, end, justify (basically spaces the text evenly within it's box)
+
+            text-decoration
+                - controls the decorative appearance of text
+                - think underlines, overline, etc.
+                - options: underline, underline dotted, underline wavy red, dashed, line-through, 1px
+            
+            line-height
+                - controls the spacing of our lines in relation to eachother
+                - think doublespace
+                - options: 1px, 2em, normal
+            
+            letter-spacing
+                - controls the spacing between characters
+
+            font-weight
+                - used to determine how bold the text appears
+                - options: normal, bold, lighter, bolder, 100, 900, etc. 
+            
+            font-size
+                - controls the font size of the text
+                - options: px, em, rem, vh, ... 
+            
+            font-family
+                - used to change the actual font of a piece of text
+                - have to rely on websafe fonts if not using custom imported fonts
+                - usually you will see what is called a 'font stack'
+                    - this refers to a list of fonts you want to use in order of priority
+                    - seperated by commas 
+
+        TRANSITION
+            transition: <function to be transitioned> <time> <transition function>
+                - types of transition functions
+                    - ease-in
+                    - ease-out
+                    - ease-in-out
+                    - bezier();
+
+                - can also use all to select every property but this is discouraged
+                    - makes sense because if you have multiple specific selectors each of them will be transitioned identically
+        
+        TRANSFORMATION
+            transform: <transformation function>
+                - types of transformation functions
+                    - scale()
+                        - scaleX, Y, Z
+                    - translate()
+                        - translateX, Y, Z
+                    - rotate(20deg)
+                    - skew()
+                    - matrix()
+
+        BACKGROUND
+            background:
+                - this is the all encompassing property (think border:, font:, margin:)
+                - NOTE: if you use something like center and cover, you must do so as such:
+                    - background: url(blah) center/cover 
+                - some specific properties and what they mean
+                    - background-color: color 
+                        - sets color of the background of the element
+                    - background-image: url() 
+                        - allows for an image to be used as a background
+                    - background-size:
+                        - options 
+                            - contain
+                            - cover
+                            - 30%, 100px 200px, etc. 
+                    - background-repeat: 
+                        - no repeat
+                        - space
+                        - round
+                        - space repeat 
+                    - background-position
+                        - dictates where a background begins within the element
+        
+        SPACING
+            - calc() can be use to evaluate mathematical expressions (like 20%/3, 1/6 etc.)
+            margin: 
+                - outside of box
+            padding:
+                - inside of box
+
+    Flexbox
+        - made up of two axis
+            - Main Axis 
+                - default is horizontal
+                - it is formatted using justify content 
+            - Cross Axis 
+                - default is vertical 
+                - it is formatted using align items
+        flex: <grow> <shrink> <basis>
+        flex-wrap:
+            - wrap
+            - no-wrap
+        flex-basis:
+            - defines the initial size of an element before more space is distributed
+        flex-grow:
+            - controls the amount of available space an element should take up
+            - accepts a number value (unitless)
+        flex-shrink:
+            - controls how items shrink in their containers
+    
+    Media Queries
+        - modify css based on size of device
+        - all begin
+            @media 
+        - common options 
+            - width => more common is min-width & max-width 
+            - height
+            - orientation 
+        - and syntax
+            @media (height: 100px) and (width: 200px)

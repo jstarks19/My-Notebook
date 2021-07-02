@@ -1,0 +1,208 @@
+ THE DOM
+
+
+The Document Object Model
+    - A JS representation of a webpage
+    - Essentially the document serves as a container for a bunch of objects that you can interact with via JS
+
+The DOCUMENT
+    - document available in JS
+    - it is our entry point into the DOM
+    - it alone contains representations of all the content on a page
+        - also contains useful methods for accessing that content and modifying it 
+    - to view the object => console.dir(document)
+
+Selecting Elements
+
+    - useful methods
+        
+        Single Element
+            - document.getElementById();
+                - this will return the object representation of an id'd HTML element from the document
+                - since id's are unique, it can only be one element 
+                - returns null if it doesn't exist 
+                - only works if element has an ID 
+
+        Multiple Elements
+
+            - document.getElementsByTagName();
+                - returns a collection of HTML Elements
+                - NOT an array 
+                - it is iterable however, so you can use for of 
+                - Name of the HTML Element in JS is just
+                    Element
+            
+            - document.getElementsByClassName();
+                - same deal but for classes rather than tags
+        
+        NEW! Query Selector
+            - basically a combo 
+            - for:
+                - class:        document.querySelector('.className');
+                - id:           document.querySelector('#idName');
+                - element tag:  document.querySelector('h1');
+            - can use :nth-of-type();
+            - can select based on a specific attribute document.querySelector('a[title="Java"]') 
+            
+            Single
+                querySelector
+            Multiple
+                querySelectorAll
+
+            - basically can use all the CSS selectors (WHAT)
+        
+        Steps 
+            1) Select an Element
+                - querySelector
+                - getElementById
+
+            2) Modify/Use the Element 
+
+                    : display = none : will make your element invisible/not exist
+
+
+                Classes:
+                    - classList     : an object we can use to add or remove or modify the classes on an element
+                        - .classList.add('className')
+                        - .classList.remove('className')
+                        - .classList.toggle('className')
+
+                Attributes:
+                    - getAttribute()
+                    - setAttribute()
+
+                Parent/Child/Siblings:
+                    - parentElement  : returns parent of element
+                    - children       : returns iterable HTML collection of child elements
+                    - nextSibling    : returns the next node (text is a node)
+                        - nextElementSibling : returns the actual next element
+                    - previousSibling: returns the previous node (text is a node)
+                        - previousElementSibling : returns the actual previous element     
+
+                    
+                Removing an Element:
+                    - removeChild() : remove a child element from a parent element
+                        - need to be calling the method on the parent element
+                        - ex. 
+                            elem.parentElement.removeChild(elem);
+                    - remove()      : more flexible
+                        - call on element
+                        - ex.
+                            elem.remove()
+                
+                Creating an Element:
+                    - createElement()
+                        - ex. 
+                            let imageElem = document.createElement('img');
+                            imageElem.href = "https://google.com"
+                    - appendChild()  : add new child element to the end of the parents.children
+                        - ex.
+                            body.appendChild(imageElem)
+                    - append()       : very flexible appendChild basically
+                        - can append text directly (cannot do this in appendChild)
+                        - can append multiple nodes/elems at once
+                    - prepend()      : same thing as append(), but to the front
+                    - after()
+                    - before()
+                    - insertAdjacentELement()  : a way to insert without it being before or after (middle insert)
+                        - needs a (position, element)
+                        - position can be either:
+                            - 'beforebegin'
+                            - 'afterbegin'
+                            - 'beforeend'
+                            - 'afterend'
+
+
+
+                Content of Element:
+                    - innerText     : content between opening and closing tag 
+                    - textContent   : content between opening and closing tags (even if display=none)
+                    - innerHTML     : all of the html content between opening and closing tags
+                        - can also use this to add html content to a tag
+                    - value         : value held
+
+
+                CSS Styles:
+                    - style : allows you to diretly modify the css styles of the element selected
+                        - NOTE: this will not allow you to see the currently computes styles from your stylesheets
+                    - In order to get your current styles
+                        - use: window.getComputedStyle(element);
+                
+        
+DOM Events
+    - responding to user inputs
+    - Some Event Types:
+        - clicks
+        - drags
+        - drops
+        - hovers
+        - scrolls
+        - form submission
+        - key presses
+        - focus/blur
+        - mouse wheel
+        - double click
+        - copying
+        - pasting
+        - audio start
+        - screen resize
+        - printing
+
+    - Ways to add event listeners
+
+        Attribute
+        - on<name of event> : attribute of an HTML tag
+            - ex. onClick, onScroll, onHover 
+        
+        JS property
+            - ex. 
+                let btn = document.querySelector('button');
+                btn.onclick = ()=> {};
+        
+        JS addEventListener()
+            - ex. document.querySelector('button').addEventListener('click', ()=>{});
+            - one primary advantage to this is that you can have multiple function responses to the same action
+                - if you are just adjusting the property, it will overwrite the initial function assignment 
+    
+    - 'This' keyword
+        - in any callback for an event, this refers to the item that has the callback attatched
+            - as in this specifically. Not all buttons, just the one you clicked
+    
+    - The Event Object & KeyBoard events
+        - an event object is passed into the callback function by default
+        - the event object contains information about the event
+        - event.key : end result 'q' vs. 'Q'
+            - event.code : what is the keycode
+        - if you want to specifically have inputs for the entire page
+            - use window.addEventListener('keydown', ()=>{})
+    
+    - Form Events
+        - select the form & add an event listener for 'submit'
+        - in the callback, the event object has a method
+            - event.preventDefault();   : will prevent page redirects from form submissions
+        - value attribute of an input element will give the actual input
+    
+    - Input & Change Event
+        - Change is an event that is fired when you update an input and click off
+        - Input is an event that is fired when you updaye an input 
+    
+    - Event Bubbling 
+        - Events are triggered from the bottom up 
+            - if you have nested 'click' events
+                - the inner one is executed, then the outer, then the outer, ... and so on 
+                - it 'bubbles' from bottom to top 
+        - In order to prevent event bubbling we use 
+            - event.stopPropagation();
+            - similar to how we use event.preventDefault()
+
+    - Event Delegation
+        - the problem:
+            - events cannot be assigned to something before it is created
+            - so if you assign a prop to say, all paragraphs, any new paragraph created will not hold that eventListener 
+        - the solution:
+            - delegate the event handling to the parent element of the newly created element
+            - in order to check for the actual element of concern use event.target
+                - also event.target.nodeNode
+
+
+

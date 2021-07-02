@@ -1,0 +1,86 @@
+Bootstrap
+    - what is it?
+        - it is a CSS framework
+        - allows us to quickly create a responsive website with minimal CSS
+    - consists of 2 main things
+        - Components
+            - buttons, navbars
+        - Grid system
+            - layout
+    - including Bootstrap
+        - <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    - including bootstrap js parts
+        - <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    
+    - components to know
+        - container : contains content, adds responsiveness and padding and a font change
+            - container-fluid : same as standard container, but fills 100% width
+            - container-sm, md, lg, xl
+        - btn : a bootstrap styled button 
+            - btn btn-primary : a blue button 
+            - btn btn-outline-primary : a blue outlined button 
+            - btn btn-sm : samll button 
+        - lead : emphasizes text 
+        - mb-0 : margin bottom zero
+        - blockquote
+            - blockquote-footer
+        - text-center : center text  
+        - text-primary : primary colored text 
+        - bg-warning : yellow background element
+        - badge : creates a badge within an element 
+            - badge bage-secondary : grey badge 
+            - badge-pill 
+        - btn-group
+            - class="btn-group" role="group"
+        - alert
+            - alert alert-primary 
+            - alert-heading
+        - close
+        - fade
+        - show 
+
+    - colors to know
+        - primary: blue 
+        - secondary: grey 
+        - success: green 
+        - danger: red 
+        - warning: yellow
+        - info: teal 
+        - light: white 
+        - dark: black
+        - link: a link      
+
+    - grid system
+        - helps to layout content
+        - must be using a container anytime you want to use bootstrap grid
+        - sizes (size units)
+            - small: sm
+                - 540px
+            - medium: md 
+                - 720px
+            - large: lg 
+                - 960px
+            - extra large: xl 
+                - 1140px
+
+        - every row in bootstrap grid has 12 units to "give away"
+            - so if you have 3 columns, they each take up 4 units 
+        - classes
+            - col-2 : 2 units column
+            - no-gutters
+            - col-sm-4 : once the small break point is hit use 4 units
+            - justify-content : flex analog 
+            - align-self : flex analog 
+
+    - forms
+        - class
+            - form-control : base form contianer
+            - form-group : groups labels and inputs (doesn't do much)
+            - form-row
+
+    - navbars
+        - refer to docs  
+    
+    - icons
+        - free icons available to use in your components 
+        - they are svg's 

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="app.css">
+
+    <title>Museum of Candy</title>
+  </head>
+  
+  <body>
+
+    <!-- My Nav Bar
+        - collapsed when xs & sm, expanded when md or above
+        - dark background, dark text (white text, but it is text for a dark background)
+    -->
+    <nav class="navbar navbar-dark navbar-expand-md py-0 px-3 fixed-top" id="main-nav">
+      
+      
+      <!-- My Brand Embedded within my Navbar 
+          - links back to top of current page
+      -->
+      <a href="#" class="navbar-brand">CANDY</a>
+
+      <!-- Button responsible for toggling the collapsed vs. expanded view 
+          - data-bs-toggle = what should I do. In this case collapse 
+          - data-bs-target = what am I targeting, what should I collapse in this case
+          - inner span is necessary to produce burger looking icon 
+          - aria label is used to indicate to screen readers what this button even is
+      -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-links" aria-label="Toggle Navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- This is the actual collapsed/expanded content 
+          - you list the class as 'collapse' to indicate this is the content to collapse
+            - then, you state what sort of collapse you are doing, here it is a navbar collapse  
+          - id allows you to target this collapsable container (remember data-target above)
+      -->
+
+      <div class="collapse navbar-collapse justify-content-end" id="nav-links">
+        
+        <!-- Actual Navigation Content (your page links) 
+            - most often you will see these in a ul
+            - general hierarchy
+              ul: navbar-nav
+                li: nav-item
+                  a: nav-link 
+                    <your page name>
+            -->
+        <ul class="navbar-nav">
+          
+          <li class="nav-item text-uppercase">
+            <a href="" class="nav-link active" aria-current="">Home</a>
+          </li>
+          
+          <li class="nav-item text-uppercase">
+            <a href="" class="nav-link">About</a>
+          </li>
+          
+          <li class="nav-item text-uppercase">
+            <a href="" class="nav-link">Tickets</a>
+          </li>
+        
+        </ul>
+
+      </div>
+    </nav>
+
+    <!-- Container for Main Page Content
+        - by using container-fluid, rather than container, we are allowing the container to take up the entire width of the viewport 
+        - also, we are doing it using a container because that allows us to use bootstrap grid 
+    -->
+
+    <section class="container-fluid p-0">
+      <div class="row">
+
+        <!-- 
+          col-md-6 : once we have hit the md width, take up 6 units 
+          d-none : hide yourself by default (display: none)
+          d-md-block : once we have hit the md width, set display to block   
+         -->
+        <div class="col-md-6 d-none d-md-block align-self-center">
+          <h2 class="text-center text-white text-uppercase">MUSEUM OF Candy</h2>
+        </div>
+        <div class="col-md-6">
+          <!-- img-fluid: allows for the image to scale with the viewport -->
+          <img class="img-fluid" src="imgs/hand2.png" alt="">
+        </div>
+      </div>
+
+    </section>
+
+    
+    <section class="container-fluid p-0">
+
+      <div class="row align-items-center content-blurb">
+
+        <div class="col-md-6 order-2 order-md-1">
+          <img src="imgs/milk.png" class="img-fluid " alt="">
+        </div>
+
+        <div class="col-md-6 order-1 order-md-2">
+          <div class="row justify-content-center text-center">
+            <div class="col-10 col-8-lg">
+              <h2>MUSEUM OF CANDY</h2>
+              <img src="imgs/lolli_icon.png" alt="">
+              <p class="lead blurb">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio tempore excepturi praesentium perferendis maiores non? Voluptatibus, sapiente! Repellendus, hic eaque?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus repellendus consequuntur labore deserunt praesentium harum omnis commodi accusamus facilis ipsum?</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row align-items-center content-blurb">
+
+        <div class="col-md-6 order-2 order-md-2">
+          <img src="imgs/gumball.png" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-md-6 order-1 order-md-1">
+          <div class="row justify-content-center text-center">
+            <div class="col-10 col-8-lg">
+              <h2>MUSEUM OF CANDY</h2>
+              <img src="imgs/lolli_icon.png" alt="">
+              <p class="lead blurb">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio tempore excepturi praesentium perferendis maiores non? Voluptatibus, sapiente! Repellendus, hic eaque?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus repellendus consequuntur labore deserunt praesentium harum omnis commodi accusamus facilis ipsum?</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+      <div class="row">
+        <div class="col-6"></div>
+        <div class="col-6"></div>
+      </div>
+      <div class="row">
+        <div class="col-6"></div>
+        <div class="col-6"></div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+      $(function () {
+        $(document).scroll(() => {
+          var $nav = $("#main-nav");
+          $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+        });
+      });
+    </script>
+
+  </body>
+</html>

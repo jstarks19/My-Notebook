@@ -1,0 +1,263 @@
+
+HTML Notes
+
+- It is a Markup Language
+    - Not a programming language
+- HTML5 is the latest standard (how browsers conform)
+
+Block vs. Inline
+    Block 
+        - Takes up the entire content line (the entire width of the page) 
+    Inline
+        - Takes up on the space required for the element, does not break the page (unless too big)
+
+HTML Entities 
+    - Special sequences that result in different characters in HTML 
+    - begins with an '&' and ends in a ';'
+    - &copy;
+    - Reserved Characters
+        <, >, ', ", &
+        - must use character codes for these 
+
+
+
+Semantic HTML
+    - meaningful markup
+    Some tags
+        <main>      : main content of the page
+            - should exclude repeated content (i.e. sidebars, nav panel)
+            - should be unique to the document 
+
+        <header>    : header content
+            - introductory content
+            - navigational content
+
+        <nav>       : navigation
+
+        <section>   : a standalone section of an app or website
+            - think heading & paragraph 
+            - just a simple section of content
+
+        <article>   : a self contained composition
+            - independently usable or distributable piece of composition
+            - should have a heading 
+
+        <aside>     : non essential indirectly related content
+            - think a sidebar or aside quote
+            
+        <footer>    : footer content
+            - closing content
+            - contact
+            - navigation 
+            - can have more than one per page
+        
+        <time>      : wrap around date/times
+        
+        <figure>    : Self contained content with optional caption
+            <figcaption>
+        
+
+HTML Boilerplate
+    - Must include in every single document you create
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Document</title>
+        </head>
+        <body>
+            <!-- Page Content Goes Here -->
+        </body>
+        </html>
+
+
+Tags 
+    : Listed with notable/important attributes
+
+    <!-- --> : Comments
+        - used to denote an HTML comment
+
+    <p></p> : Paragraph
+        - used to group together sections of text
+        - considered a block level element (will line break after)
+        Attributes: 
+
+    <h1></h1> : Headings
+        - h2, h3, h4, h5, h6 : all alternative sized headings
+        - Should only ever have one h1 tag per page
+        - also a block level element
+        - the levels of heading follow a structure, follow it!
+        Attributes: 
+
+    <ol></ol> : Ordered List
+        - list that is ordered in some fashion
+        - by default it is numbered, but this ordering can be modified
+        - usually only supposed to contain li elements 
+        Attributes: 
+
+    <ul></ul> : Unordered List
+        - list that is unordered and uses bullets
+        - usually only supposed to contain li elements 
+        Attributes:     
+
+    <li></li> : List Item
+        - this is a child element of the ul or ol tags 
+        - it is used to fill in the list
+        - while ul and ol should contain li's, li's can contain anything
+        Attributes:     
+
+    <a></a> : Anchor
+        - used to embed links in a webpage, can be a ref to another html page, an email, an api request, etc. 
+        - considered an inline element 
+        Attributes: 
+            - href : link to be embedded (need to specify http:// www if not a local reference)
+
+    <image> : Image
+        - used to embed an image into the web page 
+        Attributes:
+            - src : link to the image that you are embedding 
+            - alt : text that represents the image, used for accessibility
+            - width/height: specify the size of the image (DO NOT DO THIS, USE CSS)
+    
+    <span> : Span
+        - a general container for inline elements 
+
+    <div>  : Div
+        - a general container for block level elements 
+    
+    <hr> : Horizontal Rule 
+        - thematic break between elements
+        - a single horizontal line that extends the full width of the page
+    
+    <br> : Break
+        - represents a line break on the webpage
+
+    <sub> : Subscripts
+        - think for log bases or chemical names
+            log<sub>2</sub> => log_2
+
+    <sup> : Superscript
+        - powers and the like 
+            x<sup>2</sup> => x^2
+    
+    TABLES
+        - tabular data
+        - rows and cols of information to display 
+        - Attributes
+            - rowspan
+            - colspan
+
+
+        <tr> : table row
+        <td> : tabular data
+        <th> : table header
+
+        <table> 
+            <thead>
+                <tr>
+                    <th>Col 1</th>
+                    <th>Col 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Col 1</td>
+                    <td>Col 2</td>
+                </tr>
+
+                <tr>
+                    <td>Col 1</td>
+                    <td>Col 2</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                
+            </tfoot>
+        
+        </table>
+
+    FORMS
+        - collecting input/data
+        - the action attribute specifies where the form data should be sent
+        - the method attribute specifies which HTTP method should be used
+
+        INPUT ELEMENTS
+            <input> : get user input
+                - no closing tag
+                - 20+ variations specified with attribute type
+                - check google: mdn input
+                - placeholder is a useful attribute (adds placeholder text)
+                - name attribute = the key for the key value pair that is submitted
+                
+                Types
+                    - checkbox, text, button, color, date, radio, select & option, range, url, email
+            <textarea>
+            
+            <label> : label an input element
+                - how to label an input
+                    - give the input an id
+                    - use <label for="id">Label</label>
+                    - always follow this pattern
+            
+            <button> : button input
+                - if type not specified, it will submit a form if it is within a form 
+
+        FORM VALIDATION
+            - required attribute will make a certain input required
+            - minlength attribute
+            - maxlength attribute
+            - min (numeric value) attribute
+            - max (numeric value) attribute
+            - pattern (using regex to match input)
+ 
+
+
+        <form action="http://www.google.com/api/lol">
+
+        </form>
+
+
+
+Global Attributes
+    - every HTML element has access to these global attributes
+
+    accesskey
+        - specify a key combination to use to jump to a particular link 
+            - Firefox: Alt + Ctrl + h
+
+    autocapitalize
+        - controls whether and how text input is automatically capitalized by the user
+            - off, on (sentences), words, characters 
+    
+    class
+        - a space seperated list of classes for the element
+
+    contenteditable
+        - dictates whether or not a piece of content should be able to be edited by the user
+            - true or false
+    
+    contextmenu
+        - 
+    data-*
+    dir
+    draggable
+    enterkeyhint
+    hidden
+    id 
+    inputmode
+    is
+    itemid
+    itemprop
+    itemref
+    itemscope
+    itemtype
+    lang
+    nonce
+    part
+    slot 
+    spellcheck
+    style
+    tabindex
+    title
+    translate
+
+    

@@ -1,0 +1,66 @@
+
+The Call Stack 
+    - This is a datastructure with finite memory used to keep track of the function calls in a program's execution
+    - Each nested function call pushes the subsequent function onto the call stack 
+    - Each function call is popped off the stack on return 
+
+WebAPI's
+    - The browser is written in C++ usually
+    - Javascript will hand off certain tasks to the actual browser to take care of 
+    - Browsers come with interfaces to these 'hand-offs' known as WebAPIs
+
+Promises
+    - objects that represent the eventual completion or failure of an async operation 
+    - Promises can be in three states
+        1) pending  : unresolved and not rejected yet, still in flight 
+        2) resolved : the promise returned a non error value 
+        3) rejected : the promise was not resolved and evaluates to an error 
+
+    - Keywords/Methods
+        - then() : this represents the callback executed on resolution
+        - catch(): this is the handler for a rejected callback 
+    
+    - Still requires callback hell style nesting if not using chaining or async await
+    - Promise Chaining
+        functionCall()
+        .then(()=>{console.log(1); return functionCall();})
+        .then(()=>{console.log(2); return functionCall();})
+        .then(()=>{console.log(3); return functionCall();})
+        .catch(()=>console.log('failed'));
+    
+    - Creating Promises
+        - to create a promise
+            new Promise((resolve, reject) => {
+                if (true) {
+                    resolve();
+                }
+                reject();
+            })
+
+            
+Async/Await
+    - basically just a way to work with promises VERY cleanly
+    - Async Await is not some crazy new idea or framework or set of ideas
+        - it is literally syntactic sugar for Promises
+    - However, they are important, as this is how we generally work with promises in production code
+    - The 'async' keyword
+        - async is used to declare asynchronous functions
+            - asynchronous functions return promises
+            - if it returns a value, the promise is resolved
+            - if it throws an exception, the promise is rejected
+            - can also declare arrow functions as async
+    - The 'await' keyword
+        - can only use await if we are within an async function 
+        - pauses the execution of the function, waiting for the promise to be resolved 
+
+    Error Handling 
+        - on await, when an error occurs the function execution is halted, so we need a way to handle the error
+        - how do we handle?
+            - try/catch 
+            - ex. 
+                try {
+                    let res = await asyncFunctionCall();
+                    console.log(res);
+                } catch(err) {
+                    console.log(err);
+                }

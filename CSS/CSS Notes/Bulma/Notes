@@ -1,0 +1,15 @@
+
+- A simple CSS framework with a lot of the same functionality as Bootstrap
+- Language/Syntax is a bit simpler
+- Doesn't force you to use anything like JQuery (Bootstrap 5 also doesn't but js)
+
+Some similar/useful classnames
+    - card-content 
+    - card
+    - card-image
+    - button
+    - button is-primary
+    - columns
+    - column
+    - is-rounded 
+    - is-inline

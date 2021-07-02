@@ -1,0 +1,101 @@
+
+AJAX
+    - stands for Async JavaScript And XML
+    - real-time network requests behind the scenes in JavaScript 
+    - Today this is actually AJAJ (Async JS and JSON), but its still called AJAX
+        
+
+APIs
+    - Application Programming Interfaces
+    - Usually means an interface from one software to another
+    - Kind of like a portal into another site, or dataset, or database
+    - There exist 'endpoints' which responed to AJAX requests with data 
+    - Most often returns a set of data as JSON
+
+Response Format Types
+    XML 
+        - eXtensible Markup Language
+        - basically like HTML but custom tag names
+        - not really used much, it can be found, but not as standard as JSON
+    JSON
+        - JavaScript Object Notation
+        - Some caveats as it is not exactly a JavaScript Object
+            - NEED to double quote the keys
+            - the value can be of a few types: object, array, string, number, "true", "false", "null"
+        - This is what we use almost exclusively to represent data transfer across web applications & apis
+
+        Parsing and Creating (Static Methods)
+            - JSON => JS Object
+                - JSON.parse(<JSON String>);
+            - JS Object => JSON
+                - JSON.stringify(<JS Object>)
+            
+Postman
+    HTTP Request/Response Components
+        - Body          : the content (the payload, JSON)
+        - Status Code   : Standard numeric codes to indicate status (404, 400, 200, 500)
+            2XX : generally fgood
+            3XX : redirect oriented
+            4XX : client errors (we did something wrong, we ask for something that doesn't exist)
+            5XX : server errors (server side did something wrong)
+        - Content-Type  : text/html, application/json
+
+Query Strings & Headers
+    - a colon indicates something the user is providing
+    - query string
+        - <base url>?name=Jason&age=22
+
+
+Making XHRs (Deprecated)
+    - XMLHttpRequest
+    - the originial way of sending requests via JS
+    - does not support promises, so... a lot of callbacks
+    - difficult syntax
+    - ex.
+        const req = new XMLHttpRequest();
+        req.onload = function() {
+            const data = JSON.parse(this.responseText);
+            console.log(data);   
+        }
+        req.onerror = function() {
+            console.log('error');
+        }
+
+        req.open('GET', 'https://api.cr');
+        req.send();
+
+The Fetch API
+    - newer way of making requests via JS
+    - supports promises!
+    - not supported by IE (who cares)
+    - json() method 
+        - used in response to a fetch call
+        - fetch returns a promise, and that promise is resolved as soon as ANY data comes in
+        - so in order to get out all of the data we use another async call
+            - here we call data.json(), which returns a promise with all of our data on resolve
+    - ex.
+        const fetchBitcoinPrice = async () => {
+            try {
+                const res = await fetch('<url to fetch from>');
+                const data = await res.json()
+            } catch (e) {
+                console.log(data);
+            }
+        }
+
+Axios 
+    - written on top of the fetch api
+    - easier than fetch generally
+    - copy the CDN script off github
+    - can use it both on client and server side
+    - ex. 
+        axios.get('url')
+        .then(res=> {
+            console.log(res);
+        })
+        // should use try catch for errors
+    
+    - how to set headers and add them to requests
+        - ex. 
+            let config = { headers: { Accept: 'application/json'}, params: { q: name} }
+            let resp = await axios.get('https://djdjdjd', config)

@@ -1,0 +1,142 @@
+
+Notes on key JS things to know
+
+
+
+String Methods
+    - can chain these methods together
+    - all inherit the same methods 
+    - some methods
+        - charAt()
+        - indexOf()
+        - toUpperCase()
+        - toLowerCase()
+        - trim() //remove leading & trailing whitespace
+        - slice() 
+            - str.slice(beginIndex[,optionalEndIndex])
+        - replace()
+            - str.replace(whatToReplace, whatToReplaceWith)
+        - repeat()
+            - str.repeat(count)
+
+Template Literals 
+    - using backticks to write strings
+    - can embed variables 
+        - let hello = `hello ${da}`;
+
+
+null vs. Undefined
+    - null : Intentional lack of value. It is assigned.
+    - undefined : I don't know what the value is. An unassigned variable.
+
+Math Object
+    - an Object with a number of available mathematic functions/constants 
+    - Math.
+        - round()
+        - abs()
+        - pow()
+        - floor()
+        - cos(), sin(), tan()
+        - PI 
+        - sqrt()
+        - random() : rand between 0 and 1
+
+Equality
+    ==  : non-type equality
+    === : strict-equality, checks type as well 
+    - they check the reference, not the contents
+
+Truthy & Falsey
+    - truthy 
+        - everything is truthy unless it is falsey 
+    - falsey 
+        - false
+        - undefined
+        - null
+        - 0
+        - ""
+        - NaN 
+
+Arrays & Array Methods
+    - push: adds to back
+    - pop: removes from back
+    - shift: removes from front
+    - unshift: adds to front
+    - concat: merge arrays
+    - includes: look for a value
+    - indexOf: checks for a value, returns index if found, -1 if not
+    - join: creates a string from an array
+    - reverse: reverses an array
+    - slice: copies a portion of the array
+    - splice: removes/replaces elements
+    - sort: sorts an array 
+
+
+Callbacks
+    - Functional JS
+        - map : applies to every elem and returns a new list
+        - reduce (fold)
+        - forEach : applies to every elem
+        - filter
+        - find
+    - Scheduling
+        - setTimeout(f, time(ms)) : after time ms execute f  
+        - setInterval(f, time(ms)) : every time ms execute f
+            - clearInterval(id of setInterval)  : stops the interval  
+    - Some & Every
+        - always return true or false
+        - some: 
+        - every: does every element when the function is applied return true
+        - some (any): do any of the elements when the function is applied return true
+    - Arrow functions
+        - use 'this' differently
+        - 'this' refers to their execution context
+
+Default Params
+    - if no value is passed in for numSides below, it will use 6
+    - default parameters MUST come after non default params 
+    - ex.
+        function rollDie(numSides = 6) {}
+
+Spread Operator ...ar
+    - basically flattens an array
+    - converts [1,2,3] => 1, 2, 3
+    - ...[1,2,3]
+
+Rest Operator ...
+    - think, "the rest"
+    - ex.
+        function fun(...args) {} 
+
+Destructuring
+    - getting individual fields from objects or arrays
+    - array
+        - const [head, ...tail] = [1,2,3,4,5,6];
+        - const [one, two, three] = [1,2,3,4,5,6,7];
+    - object 
+        - const {name, age} = {name:"Jason", age:22}; 
+        - function fun({param1, param2}) {   }
+        - arr.map(({name, age, height}) => console.log(name,age,height));
+
+
+Code Path
+    - Lexer => Parser => AST => Interpreter => profiler => compiler => Optimized Code
+                                            => bytecode ==============^
+    In the chrome V8 engine
+        - Interpreter = 'ignition'
+
+
+Babel & TypeScript
+    - Babel : this is a JavaScript compiler that converts modern JS code into older legacy JS code
+    - TypeScript : this is a superset of JavaScript that compiles directly into JavaScript
+        - both of these are compilers, they convert one language to another
+
+Compiler & Interpreter
+    - Compilers : fast but strict, they make sure every line of your code is accurate and error free. 
+        - usually convert a language into one that can be executed much quicker
+    
+    - Interpreter : slow and loose, they only show errors on lines that produce errors during real time execution
+        - execute a code file line by line in real time (before your very eyes)
+    
+    - JIT Compiler : The compiler interpreter hybrid that was developed to efficiently run complicated JavaScript in the browser 
+        - 

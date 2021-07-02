@@ -1,0 +1,145 @@
+
+Mongoose
+    - A module allowing us to connect node and JS with MongoDB
+    - Mongoose is an ODM
+        - Object Data Mapper / Object Document Mapper
+        - An ODM maps documents coming from a database into usable JavaScript Objects
+        - Provides us ways to model out our application data and define a schema
+        - Offers easy ways to validate data and build complex queries all from JS
+    - SQL Databases are provided what is known as an ORM
+        - Object Relational Mapper        
+    
+    Model
+        - these are just javascript classes to represent information in our database
+    
+    Schema
+        - each schema maps to a mongodb collection 
+        - a mapping of different collection keys from mongo to different types in JavaScript
+        - what a given Blog, Movie, etc. should 
+
+
+Using Mongoose with Node and MongoDB
+
+  > const mongoose = require('mongoose');
+        - import library
+
+  > mongoose.connect('mongodb://localhost:27017/<database name>, { useNewURLParser : true, useUnifiedTopology: true })
+        - this creates a connection between mongoose and mongodb in Node
+        - the database will be created if it does not already exist 
+        - mongoDB uses a default port of 27017
+        - the connection returns a promise so we can use .then() and .catch()
+  > .then(()=>console.log('success'))
+  > .catch(()=>console.log('error'));
+
+  > const movieSchema = new mongoose.Schema({
+        title: String,
+        year: Number,
+        rating: String
+  > }) 
+        - creates a mongoose schema, which indicates how we want to receive our 
+  
+  > const Movie = mongoose.model('Movie', movieSchema);
+        - creates a model for us using our schema
+        - this model is 'movies'
+        - when we create a model, we use a capitalized singular noun
+            - mongoose converts this into the plural lowercase for our collection
+  
+  > const fightClub = new Movie({title: 'Fight Club', rating: 'R'})
+        - creates a new Movie called fightClub
+        - this is a document for our database
+        - to save to the database, use fightClub.save()
+  
+  // Inserting
+  > Movie.insertMany([
+      {title: 'Fight Club', rating: 'R'},
+      {title: 'Fight Club', rating: 'R'},
+      {title: 'Fight Club', rating: 'R'}
+  > ]).then(data => {
+      console.log(data)
+  > }).catch(err => {
+      console.error(err)
+  > })
+
+  // Finding
+  > Movie.find({})
+        - to find all of them (select *)
+  > Movie.find({title: 'Fight Club'}).then(data => console.log(data))
+        - to find a specific movie
+  > Movie.find({year: {$gte: 2015}}).then(data => console.log(data))
+        - to find an movie based on criteria
+
+        - NOTE: find() returns an array of results, use findOne() if you want the result alone
+            - findOne() also returns the first match if there are multiple results
+
+  > Movie.findById(id).then(m=>console.log(m))
+
+
+  // Updating
+  > Movie.updateOne({title: 'Fight Club'}, {title: 'A Clockwork Orange'})
+  > Movie.updateMany({title: {$in: ['Amadeus', 'Fight Club']}}, {title: 'FOO'})
+  > Movie.findOneAndUpdate(query, change) => the thing that was updated
+    - you can set options in param 3
+        - these include 
+            new:true (to return the newly updated object)
+            runValidators:true (to use our validation schema)
+
+  // Deleting
+  > Movie.remove({title: 'Fight Club'})
+  > Movie.deleteOne();
+  > Movie.deleteMany();
+  > Movie.findOneAndDelete(); => we get back what was deleted
+
+Schema Validations
+    - Can define schemas using object options
+        ex.
+        const newSchema = new mongoose.Schema({
+            title: {type: String, required: true},
+            rating: {type: String}
+        })
+    - We can use these key value options, such as required
+        - others include:
+            - required  : needs to be included
+            - default   : sets a default value for this field
+            - select    : specifies default projections for queries
+            - validate  : function, adds a validator function to this prop.
+            - get,set   : defines custom getters, setters for the property
+            - enum      : defines a set of values it can be 
+        - also there are unique ones for each type, the ones above are the default options 
+
+Validating Updates
+    - while the validation practices above are good for adding new items, they do not validate updates 
+    - in order to validate updates, we have to pass an option to our update function 
+        - {runValidators:true}
+
+Custom Validation Errors
+    - when adding a validation property
+        - if you add it as an array with the second index containing a string
+            - that string will be your new error message on validation fail
+
+Model Instance Methods
+    - can create instance methods on a particular schema
+        ex. 
+        schemaName.methods.newMethod = function() {};
+
+Model Static Methods
+    - can create static methods on a particular schema
+        ex. 
+        schemaName.statics.newMethod = function() {};
+
+Virtuals
+    - basically synthetic properties that are user defined
+    - the user can synthesize two or more of a document's properties into a single property using virtuals
+        ex. 
+            schemaName.virtual('fullname').get(function () {
+                return `${this.firstName} ${this.lastName}`
+            })
+        - this is a getter, there is also setters (look it up if you need it)
+    - this is only available in moongoose/node/JS, this does not 'change' anything in mongo 
+
+
+Mongoose Middleware
+    - using the pre and post keywords we can add Middleware to our mongoose apps
+    - these allow for us to execute other functions or do other general tasks when certian conditions have been met
+        ex.
+            schema.pre('save', async callback);
+    

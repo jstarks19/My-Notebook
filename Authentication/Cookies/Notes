@@ -1,0 +1,17 @@
+Cookies
+    - These are text files with small pieces of data within them
+    - They are stored on your computer's browser
+    - They are very simple key value storage mediums
+
+    - Working with cookies in Node
+        - const cookieParser = require('cookie-parser');
+        - app.use(cookieParser());
+        - Setting Cookies
+            - res.cookie('key', 'value', options);
+            - options = {
+                httpOnly: true, // only allow http to access the cookie data
+                secure: true, // use on secure connections to encrypt
+                maxAge: 1000 * 60 * 10 // measured in ms 
+            }
+
+    

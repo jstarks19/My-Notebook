@@ -1,0 +1,35 @@
+JWT
+    - These are JSON Web Tokens
+    - They are used in the process of Authorization
+    - Authorization is the process of ensuring a particular user is still that user after they have been authenticated
+
+    - usually Authorization is achieved through session ids in the cookies of the browser
+        - they are sent between the server and client to verify requests 
+        - ex.
+            CLI => SRV : POST /user/login {email, password}
+                SRV : Stores User In Session Server Memory 
+                SRV => CLI : Sends a Session ID as a Cookie
+            CLI => SRV : Send Request with Session ID Cookie 
+                SRV : Get User From Session Based On ID And Verify Them
+                SRV => CLI : Sends Response
+    
+    - jwt is for the same use case
+        - ex. 
+            CLI => SRV : POST /user/login {email, password}
+                SRV : Creates a JWT for user with secret
+                SRV => CLI : Sends JWT to client
+            CLI => SRV : Send Request with JWT  
+                SRV : Verify JWT signature and get user from JWT 
+                SRV => CLI : Sends Response
+        
+        - nothing is stored on the server
+        - the JWT is used to authenticate itself 
+        - very useful for multi server applications 
+
+Bcrypt
+    - this is a node module that gives us access to cyptographic tools
+    - hash : this is a one-way function 
+        - useful in hashing passwords
+        - however, if multiple users have the same password, the hash will be the same, not good for security
+    - salt : this is a small string used to make hashes unique
+        - this fixes the password issue 

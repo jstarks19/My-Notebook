@@ -89,4 +89,15 @@ NginX Configuration
         - in order to enable your site to be visited, you must create a symbolic link between the sites-enabled and sites-available
             - specifically "ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default"
             - is how you would make the default configuration (and in turn the site it points to) enabled for users to visit
+        - need to add two fields to the default config file
+            - ssl_certificate 
+            - ssl_certificate_key
+        - also uncomment the listen 443 fields
+        - to generate a certificate 
+            - sudo snap install core; sudo snap refresh core
+            - sudo snap install --classic certbot
+            - sudo ln -s /snap/bin/certbot /usr/bin/certbot
+            - sudo certbot certonly --nginx 
+        - test automatic renewal
+            - sudo certbot renew --dry-run
         

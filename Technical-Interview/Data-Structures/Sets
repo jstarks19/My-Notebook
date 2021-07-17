@@ -1,0 +1,4 @@
+Sets
+
+    - A set is an unordered list that maintains the property that it does not possess duplicates
+    - Useful for checking for existence of an item

@@ -1,0 +1,9 @@
+
+Arrays 
+    - Usually if you see a problem in which the input is sorted or pre-modified
+        - it is an indication you can do a one-pass solve
+    - Sometimes it is possible to create a new array and insert items into it as you go
+        - this would be an O(N) for space, but if space is not constrained, or a new array is expected, what's stopping you 
+
+Trees
+    - Often when people, in interviews and alogexpert, say things like the "depth" of the tree, they often mean, the depth of the deepest lead node in a tree

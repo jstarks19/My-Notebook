@@ -1,0 +1,47 @@
+Object Oriented Programming
+
+    - A paradigm based on the concept of Objects 
+        - we divide programs into smaller pieces, which are each responsible for managing their own state
+
+    
+    Interfaces
+        - basically like blueprints for a given object
+            - it says that this object needs to have these methods and these properties
+        
+        JavaScript: No real notion of Interfaces. JavaScript is SO dynamically typed that there is no real ability to make the objects conform
+            - typescript supports them
+
+    Methods
+        - a method is a function assigned to a specific object
+        - when calling a method the 'this' keyword references the instance calling the method
+        - you can explicitly define what this is referring to by using call, obj.call(obj, name);
+        - the function keyword creates "this"
+            - using arrow functions always delegates to the scope above 
+
+
+
+
+    - Points
+        - you can remember with "APIE"
+        
+        1) Abstraction
+            - only exposing necessary details for anyone using the object 
+            - decouples the user from the implementation 
+        2) Polymorphism
+            - this is basically the notion that multiple sub classes can hold different properties
+                - however, when using the parent class to reference these, you still get out different properties
+                - despite a car and plane being vehicles, they have another form in that their methods for move() differ
+            
+        3) Inheritance
+            - Utilizing the methods and properties of another class in the one you are creating
+                - ex. a vehicle moves, so subclasses such as Car, Train, Bike, Plane all could inherit that property
+                    - however, the method of movement might differ between them, so you would add something specific to each of the classes
+                    - but they all still 'inherit' that initial move state/property 
+            - Classes which extend others are called 
+                - sub class, child class, extended class
+            - Classes which are extended to others are known as 
+                - super class, parent class, base class 
+
+        4) Encapsulation
+            
+            

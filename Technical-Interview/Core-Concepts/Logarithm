@@ -1,0 +1,27 @@
+Logarithm
+
+    - A very important topic in regards to coding interviews
+    
+    - Definition of a Logarithm
+        - Log_b(x) = y      iif     b^y = x 
+    
+    - Computer Science and conversely coding interviews we ALWAYS assume the base of an Logarithm is 2
+        - So Log(N) == Log_2(N)
+        - and as a result:
+            2^y == N 
+            - So the question we are saying is N scales with the powers of 2
+        - Further, y only increases by 1 for each doubling of N.  
+        - 2^20 = 1 Million
+        - 2^30 = 1 Billion
+    
+    - Tying it back to complexity analysis
+        - If an algorithm has a complexity of log(N) it is exceedingly good 
+        - This is because as N increases, Log(N) only increases by 1 for EACH doubling of N
+            - VERY slow growth rate
+
+    - ex. Image you had an array
+        [1,2,3,4,5,6,7,8]
+        - now every step of your 'algorithm' divides the number in half
+        - it would only take 3 steps to process the entire list
+            - log(8) = 3, log(16) = 4, ... 
+            - way less than the 8 steps it would take to traverse it 

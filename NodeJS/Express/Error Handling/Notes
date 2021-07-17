@@ -1,0 +1,67 @@
+
+Error Handling in Express
+    - more complicated than it might seem
+
+
+    Built-in Error Handler
+        - if you have an error in one of your routes
+            - the error message is returned to the user in the form of HTML 
+            - the status code sent to the user is 500
+        - if you explicitly throw a new error
+            - express will do the same as the above 
+
+    Defining Custom Error Handlers
+        - in order to define an error handling function in express
+            - you must have 4 params (err, req, res, next)
+        - for any route, or just for the main pipeline
+            app.use((err, req, res, next) => {
+                console.log('there was an errrrrrror');
+                res.status(500).send('Internal Error');
+            });
+
+            also, you can pass next(err) if you want the error to be propogated and handled through express
+
+    Defining Custom Error Classes
+        - new file.. say AppError.js 
+        class AppError extends Error {
+            constructor(message, status) {
+                super();
+                this.message = message;
+                this.status = status;
+            }
+        }
+        module.exports = AppError;
+
+
+    Handling Async Errors
+        - anything with async/await
+        - you can throw an error in an async function/route
+            - the only issue with this, is that the error is not propogated up
+            - in order to propogate the error, simply add a field to the parameters called next (think middleware!)
+            - call next with the error, i.e. next(err)
+            - since the page will still be rendered after this call, make sure to 'return next(err)' so as to close the pipeline
+        - as an alternative, you can wrap the calls in a try catch block 
+            - have your catch pass the error on to next
+            - in this way, you wouldn't need to return next()
+        
+        - as a much better alternative
+            - you can actually define an async handler utility for error handling
+            - the basic idea here is to wrap the main express route callback into another function
+            - that function calls the route function and handles the errors
+            - in this way, you can generalize error handling, and use the same wrapper for all of these
+
+    Working with Mongoose Errors
+        - Mongoose can throw specific errors that it throws
+            - common ones
+                - validation errors
+                - cast to object failed
+            - there are many types/names
+        - can insert a logging middleware to log the error names
+            - console.log(err.name)
+            - this is useful with a switch case, where you can pass off the log handling to more specific functions
+        - ex. 
+            app.use((err,req,res,next) => {
+                console.log(err.name);
+                if (err.name === "validationError") err = handleValidationErr(err);
+                next(err);
+            });

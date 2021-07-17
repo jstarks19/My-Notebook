@@ -1,0 +1,66 @@
+Trees
+
+    - One of the most prominent data structures in all of computer science and coding interviews
+    - Usually this is canonical 'Data Structure' for most people
+    - Mathematical definition
+        - very complicated
+        - In the context of coding interviews
+            - pretty easy
+            - just manipulation of the tree 
+
+    - A tree is a rooted graph
+        - each node possesses a number of child nodes
+        - structure is directed, edges usually point downward 
+        - asyclic
+        - each node can only have one parent 
+        - cannot be disconnected 
+        - so rooted, directed, asynclic, disconnected
+    
+    - some tree types
+        - binary tree
+        - ternary tree
+        - k-ary trees
+            - every tree has at most k child nodes 
+        - binary search tree
+            - every node also satisfies the bst properties
+        - heaps
+            - min/max heaps
+            - every node satisfies the heap property
+        - tries
+            - a tree like data structure
+            - stores characters of strings
+        - some trees have nodes point to their parents
+        
+
+
+    complexity
+
+        - a tree is considered balanced if it maintains a log(N) complexity during traversal
+
+
+        storing a tree
+            - N is for # of Nodes
+            SPACE: O(N)
+
+        traversing a tree
+            - all nodes 
+                TIME: O(N)
+
+            - half of the nodes (BST going down branches)
+                TIME: O(Log(N))
+                    - cuts the search space in half 
+                    - in a balanced tree only 
+
+        NOTE
+            - during an interview
+            - ensure that the tree is balanced, otherwise do not assume it has a log(N) complexity for traversal
+
+
+    terminology
+        - Branch    : any path starting from the top of the tree and ending at a bottom Node 
+        - Leaf      : The bottom most child nodes in a tree 
+        - Level     : The "rows" of a tree, level of parents, depth 
+        - Complete  : Fully filled tree left to right, doesn't need all children
+        - Full      : Any child has either k Nodes or 0 Nodes
+        - Perfect   : All of the leaf Nodes are on the same level 
+        - Depth/Height : # of levels in a tree  

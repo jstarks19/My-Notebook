@@ -84,3 +84,6 @@ Bootstrap
     - icons
         - free icons available to use in your components 
         - they are svg's 
+    
+    - form validation
+        - a nice clean way to show invalid fields/forms

@@ -1,0 +1,44 @@
+Graphs
+
+    - Incredibly important and common in coding interviews
+    - Actually pretty simple, even in coding interviews
+
+    - It is a collection of nodes, that may or may not be connected together
+    - Data points are referred to as Nodes 
+        - The Nodes and Connections between them have names as well
+            - the Nodes are called vertices
+                - They might contain values
+            - the Connections are called edges
+                - They might be directed
+                - They might be weighted 
+    
+    - Important Graph Concepts
+        - Connected/Unconnected
+            - is every node reachable
+        - Directed/Undirected
+            - direction of connections exists
+        - Weighted/Unweighted
+            - edges have a weight/value to them
+        - Cyclic/Acyclic
+            - allows cycles or doesn't
+
+    - Graphs pop up a lot in coding interviews and it is important to be able to recognize when a certain situation can be mapped to a graph problem 
+
+    Representing a graph in code
+        - Adjacency List
+            - just a list of Nodes with edges to who is its adjacent neighbors
+        - Generally you will just represent this structure using a hash table/map
+        - As is obvious, under the hood these nodes are memory locations, with pointers to one another
+    
+
+    Creating a Graph
+        - storing V vertices
+        - storing E edges
+
+        SPACE: O(V + E)
+
+    Traversing a Graph
+        - DFS : Depth-First Search
+            - TIME: O(V + E)
+        - BFS : Breadth-First Search 
+            - TIME: O(V + E)

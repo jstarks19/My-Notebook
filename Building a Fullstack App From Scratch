@@ -1,0 +1,14 @@
+Steps
+
+    - set up express/modules needed
+    - set up routes for resources
+    - build schemas and models for our DB
+    - link those models to our routes
+    - add rendering to our routes, or add requests from our front end for the data
+    - incorporate and error class / error handling (DONT SKIP)
+    - incorporate data/schema/form validation
+    - authentication & authorization
+    - find hosting service
+    - install node,npm, and all dependencies
+    - install pm2 to handle running and restarting processes while away from remote machine
+    - deploy app using hosting service

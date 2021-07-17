@@ -1,0 +1,27 @@
+Middleware in Express
+
+    - Basically the building block of express
+    - they are middlemen in between the request and response 
+    
+    Overall
+        - they are just functions
+        - each middleware has access to the req and res
+        - middleware can end the HTTP request by sending back a response with methods like res.send()
+        - OR middleware can be chained together, one after another by calling next()
+    
+
+    Example Middleware
+        - morgan
+            - a logging module that will log to console http requests
+            - a number of options you can use to improve the usefulness of the logging
+    
+    Creating Middleware
+        app.get((req,res,next) => {
+            next();
+        });
+
+        404 Not Found Middleware
+            - place a the end of your app
+            app.use((req,res) => {
+                res.send('Not Found');
+            });

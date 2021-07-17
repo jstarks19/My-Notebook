@@ -1,0 +1,42 @@
+Stacks 
+    - Stacks are data structures, that are in essence arrays with ordering
+    - Whereas you can add a value to any index in an array, a stack is specifically an array with a LIFO order
+        - LIFO = Last in first out
+        - You must push new data on to the top, and pop data off the top
+            - push and pop
+    - literally implemented as a dynamic array
+    - inserting and deleting
+        - push and pop 
+
+Queues
+    - These are analogous to stacks, except here we have a FIFO ordering
+        - FIFO = First in first out
+        - You must remove the item in the queue that has been there the longest
+            - think of it as a ticketing system or a line of people
+        - You can only add to the back, and only take from the front  
+    - usually implemented as a linked list with a reference to the head and the tail     
+    - inserting and deleting
+        - enqueing and dequeueing 
+
+
+Notes
+    - Stacks and queues are very basic, but don't have to be
+        - max stacks, min stacks
+        - priority queues 
+    - This has serious ramifications for coding interview questions as these structures can be used in clever ways to save space and time
+    - the 'Peek' method is often implemented for both of these structures
+        - bascially a pop or dequeue without actually removing the item  
+        - just letting you peek at it
+
+
+
+
+Time complexity
+    - luckily for both of these data structures, we have insertion and deletion taking constant time
+        - insertion/deleteion : O(1)
+    - searching : O(N) 
+
+
+Space complexity
+    - O(1) for any operation 
+    - O(N) space to store the stack or queue 

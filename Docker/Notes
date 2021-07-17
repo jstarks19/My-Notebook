@@ -1,0 +1,36 @@
+Docker
+
+
+    - when VMs came around they revolutionized everything in computing
+    - no longer did companies need to scale infinitely horizontally, they could simply virtualize more servers 
+
+    - however, Virtualization is EXPENSIVE
+        - Kernel for each guest OS 
+        - resources for each machine (significant)
+
+
+
+    Enter Docker
+        - very light weight 
+        - very portable, you can use configuration files to spin these up anywhere 
+        - very very fast 
+        - There is NO HYPERVISIOR (No seperate kernels)
+
+        - Containerization & Virtualization
+            - Containers
+                - [ BARE METAL ] => [ OS ] => [ Docker Daemon ] => [ bins/libs and guest apps]
+                - Same Host
+                - Better use of resources
+                - Fast & Portable
+                - Better for Dependency Management
+                    - all of them are part of the image
+                - Super light weight 
+            - Virtualized Machines
+                - [ BARE METAL ] => [ OS ] => [ Hypervisor ] => [all of our guest os's, guest kernels, guest apps]
+
+    What is it?
+        - a way to package software so that it can run on any machine
+        - 3 crucial concepts
+            1) Dockerfile   : Blueprint for building a docker image  
+            2) Image        : A template for running docker containers
+            3) Container    : A running process

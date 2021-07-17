@@ -1,0 +1,35 @@
+Strings
+
+    - More of a datatype
+    - But we can still manipulate them
+        - and with that manipulation does come space and time complexity
+        - so they are still worth discussing
+
+
+    - a string is usually stored as an array of integers
+    - these integers are mapped to a character in a particular character encoding
+        - ex. ASCII (1 Byte), Unicode (2 Bytes)
+    
+    - all operations on a single character in a string is considered constant
+
+
+    string traversal 
+        TIME    : O(N)
+        SPACE   : O(1)
+
+    copying a string
+        TIME    : O(N)
+        SPACE   : O(N)
+
+    get a character using an index
+        TIME    : O(1)
+        SPACE   : O(1)
+
+
+    string mutation (inserting into a string, or removing)
+        - mutating is something that is language dependant
+            - in C++, strings are mutable, but in JS, GOlang, Python, java, etc. etc. they are immutable
+        - so in some languages you need to copy the entire string into a new string
+            - using string concatination or mutation is O(N) under the hood
+            - for these languages, a lot of the time the better method of dealing with strings is to break it into an array of characters
+                - mutate that array, and then re stringify it

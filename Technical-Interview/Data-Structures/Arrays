@@ -1,0 +1,102 @@
+Arrays
+
+
+    - Arrays are contiguous sections of memory 
+    - There are technically 2 kinds of arrays that exist
+        1) Static 
+            - this is essentially a fixed-length array
+            - when you declare the array, you are asking the OS to find x slots in memory in which this array can be stored
+            
+        2) Dynamic
+            - an array that is often allocated additional memory and dynamically adjusts its own allocated memory to account for insertions
+
+    
+    - Common Operations
+        - read a value at a given index
+            - accessing an element in an array at a given index is considered 'instant' 
+            - what it actually is is constant
+                - you can retrieve that value in constant time, no matter the index 
+                - this is because the index is calculated as an offset from the start of the array using the index
+            
+            TIME    : O(1) 
+            SPACE   : O(1)
+        
+        - overwriting a value at a given index 
+            - this is identical to the read operation in that you are able to, in constant time, find the index
+            - in this case you replace the value at the index, but the principle is the same
+            - no additional space or time is needed to do this
+
+            TIME    : O(1)
+            SPACE   : O(1)
+
+        - initializing an array of length N 
+            - in this case, the time that it would take to initialize the array would be O(N*<size of 1 unit of the type>) => O(N)
+            - likewise, the space taken would have to be a function of N, in this case again O(N*<size of 1 unit of the type>) => O(N)
+            
+            TIME    : O(N)
+            SPACE   : O(N)
+
+        - array traversal
+            - if you are walking down (traversing) an array you are logically going through N items
+            - going through N items means that you would be taking N time to traverse the entire thing
+            - however, in this case, we are not using additional space, just iterating over existing space
+            - ex. filtering, maps, findEach, etc. etc. these all traverse the entire array, and thus would be taking N time
+
+            TIME    : O(N)
+            SPACE   : O(1) ; however if you were say, copying an array into another location, you would need O(N) space 
+            
+        - copying an array
+            - in order to copy an array over, you must traverse it while copying the data into another location 
+            - because of this, it would take N time to traverse the array, and N space available to copy over
+
+            TIME    : O(N)
+            SPACE   : O(N)
+        
+        - insertion into an array 
+            - For Static Arrays
+                - in a static array there is a defined size of N
+                - so if we wanted to insert something into the array we would have to essentially ask for N + 1 space from the OS
+                - we give up our N block of memory, ask for a new N + 1 block of memory, and copy the array over 
+                - now something to note is that the old memory can be freed, because we no longer need it, we are situated in our new memory location
+                - thus, while we need N time to copy the array (technically N + 1), we only need constant space, since the relative size of the memory used only changes by 1
+
+                TIME    : O(N)
+                SPACE   : O(1)
+
+            - For Dynamic Arrays  
+                - to note, in Java and C++ we have vectors and ArrayLists, in JS, Python, Ruby. etc. the standard arrays are dynamic arrays
+                - basically for a Dynamic Array, the difference lies in the space allocated
+                    - also, just generally dynamic array insertion does not take any additional space
+                    - it actually takes N + N space to resize the array, which is 2N, which is N, which is how much memory we freed to get this new blog, so O(1)
+                - for dynamic arrays, often when you need to insert a new item, if there is not space available, you will be allocated 2x the space you actually need.
+                - the 2x can vary, but this is done so that all subsequent insertions (up to a point) will be done in constant time
+                - so you can think of dynamic array insertion as this chain of
+                    O(1), O(1), O(1), O(N), O(1), O(1), O(1), O(1), O(1), O(1), O(N) .... 
+                - because it is structured in a sequence like this, the time can actually be written as the series O(N) + O(N/2) + O(N/4) ... which converges to O(2N)
+                - along with this, you can see the constant time insertions add up quite fast
+                    - if we do something called AMORTIZED ANALYSIS (when we consider the picture as a whole), we can actually see all of the constant insertions as cancelling the non constant copying. 
+
+                - So for the sake of Coding Interviews and in turn complexity analysis
+
+                TIME    : O(1) to insert into a dynamic array, O(N) if we solely focus on worst case
+                        : also, if we insert at the beginning or in the middle, it is guaranteed O(N)
+                SPACE   : O(1)   
+
+        - deletion of an item from an array 
+            - popping the element : this is when you remove from the back of the array 
+                - this is O(1) for both SPACE and TIME, since you are simply removing the last indexed item
+            - removing from the middle : so you would have to remove and shift everything
+                - this is O(N) for TIME, since shifting N items is considered taking N time, though no extra space is needed 
+                - so O(1) for SPACE
+            - removing from the beginning 
+                - this one is a little tricky, only in the context of coding interviews
+                - in general it would be an O(N)T operation (where T is time), because you have to shift the entire array after removal
+                - however, during an interview it is common practice to treat the list as a linked list where removing the head is a constant operation
+                    - make sure to mention that "I am going to treat this array as if internally it were a linked list"
+                
+            TIME    : O(1)
+            SPACE   : O(N) mostly, the outliers are mentioned above
+
+
+    Something to NOTE: 
+        - even if an algorithm operates on half of an N sized array, O(.5N) is still O(N)

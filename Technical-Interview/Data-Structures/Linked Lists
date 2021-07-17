@@ -1,0 +1,86 @@
+Linked Lists
+
+    - Very similar conceptually to an array
+    - Specifically conceptually similar to a singly linked list
+    - Where they differ is in how they handle storage
+        - While an array is stored contiguously in memory
+        - A Linked List is not constrained in this way
+        - A Linked list is made up of Nodes divided into two parts
+            1) The Data
+            2) The Pointer
+        - In a linked list, we store data at each node, and then adjacent to that data in memory, is a pointer to the next node in the list
+            - what this creates is a chaining effect where in order to traverse the list, you follow the pointers until null
+        - In this way, a linked list is not stored contiguously, but rather it is stored based on available memory locations
+    - First Node == HEAD
+    - Last  Node == Tail
+
+    - Let's look at common operations
+        
+        - retrieving data from the linked list based on an index
+            - well, unfortunately since the memory is not contiguous, there is no easy offset calculations we can do
+            - we are literally required to traverse the entire list until we find our element
+            - because of this, you could say it takes i time, where i is the index value you are looking for
+            - space would not be affected here since we are not storing anything
+
+            TIME    : O(i) ; where i is the index value
+            SPACE   : O(1) 
+            
+            - likewise setting a value at an index is identical 
+            
+            TIME    : O(i)
+            SPACE   : O(1)
+
+            - NOTE: while the above is true, generally we don't really think about linked lists as having indices
+                    - it just doesn't make sense as the memory isn't contiguous, its more about nodes / hops
+        
+        - initialize a linked list
+            - in order to initialize a linked list, you are basically doing exactly what you do in the array
+            - you have memory for all of the elements in your list, and you work through your nodes joining them using pointers
+            - because of this entire traversal and the memory needed for your list
+                - if you have N nodes, it will be O(N) for both space and time complexity
+
+            TIME    : O(N)
+            SPACE   : O(N)
+        
+        - copy a linked list
+            - full traversal is still necessary here to gather all of the elements
+            - need another N space to store the new linked list
+
+            TIME    : O(N)
+            SPACE   : O(N)
+        
+        - traversal of a linked list
+            - well if a full traversal is needed, then we iterate over all N nodes
+            - in this case, we do not need additional memory
+
+            TIME    : O(N)
+            SPACE   : O(1)
+
+        - adding data into a linked list
+            - this is where the real power of linked lists comes into play
+                - unlike an array, due to the structure of the linked list (being made up of pointers and data), insertions can be accomplished in constant time
+                - now the catch here is that only when inserting into the front can we achieve constant insertion
+                    - this is because in order to insert an item into the front of our linked list, we simply reassign the current head to our new node, and have our new node point to the old head. Easy.
+                - unless you have an index of all of your nodes, insertion in the middle or end will be a factor of either index value or list size
+
+
+        - deletion of data from a linked list 
+            - this is the same situation as 
+
+
+    Singly Linked List
+        - Lists are structured as follows 
+            [1 | *-]---> [2 | *-]---> [3 | *-]---> [4 | *-]---> 0 
+        
+    Doubly Linked List
+        - Lists are structured as follows
+           0 <--[1 | *-]---> [2 | *-]---> [3 | *-]---> [4 | *-]---> 0 
+                 ^----------/ ^----------/ ^----------/ 
+
+    Terms To Know
+        - Head : This is the front of the linked list, it is the first Node 
+        - Tail : This is the end of the linked list, it is the last Node
+        - Next : This is generally used as the name for the pointer to the next Node in a linked list
+        - Prev : This is generally used as the name for the pointer to the previous Node in your linked list
+
+

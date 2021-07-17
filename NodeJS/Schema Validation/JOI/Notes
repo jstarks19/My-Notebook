@@ -1,0 +1,7 @@
+Joi
+
+$ npm i joi 
+
+
+    - a schema validation module for nodeJS
+

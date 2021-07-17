@@ -1,0 +1,59 @@
+Hash Tables
+
+    - Very common and very useful
+    - VERY common in interviews
+    - Hash Tables are quite complex under the hood
+        - but when it comes to coding interviews, we are more concerned with the easy stuff
+    
+    What is it?
+        - A key-value store
+        - A value is accessed, given a key 
+        - Considered one-way, value for key not the other way around
+        - It is a VERY efficient
+            - insertion, deletion, lookup, and modification are all considered constant operations
+    
+    How do key value pairs work
+        - When you give the hash table a key (String or other) it uses a hashing function on that key 
+        - This hashing function outputs an index
+        - This index is used to store the value
+        - On lookup, the process is repeated
+    
+    - If two keys map to the same value, this is called a collision
+        - It is one of the weaknesses of hash tables
+        - To overcome this weakness, when we implement a hash table, you make the data at that location a linked list
+            - In this way we have near instant indexing and traversal to find our item
+            - In order to differentiate between collision keys, you have the node holding the valu, point back to the key used to store it
+        - However, what if all of your keys collide?
+            - Well in that case, you basically just a have a linked list
+            - This means insertion, deletion, traversal goes from constant to potentially O(N)
+
+
+
+    General Time and Space complexity of Hash tables
+        On Average: 
+            - assuming a fair distribution of hash outputs
+            - TIME: O(1)
+
+        Worst Case:
+            - assuming everything falls into a single bucket and you just have a linked list
+            - TIME: O(N)
+
+        NOTE FOR CODING INTERVIEWS:
+            - In the industry, enough exceptionally smart people worked on creating significantly better hash functions
+                - collision percentage is reduced by a lot 
+            - Because of this, in coding interviews, unless explicitly stated otherwise
+                - you generally assume hash tables have a constant lookup, insertion, and deletion
+            - You also generally treat the hashing function itself as a constant time operation
+
+    Resizing
+        - Inevitably, your underlying array is going to need to be resized when the tradeoff is not in your favor/not constant
+        - So in general, a good way to do this would be to double in size the array
+            - rehash all of your existing keys and re store them
+        - luckily, even though this has to occur, we treat it like a dynamic array
+            - through AMORTIZED analysis, we can still say with confidence that the insertion, deletion and lookup are constant
+
+
+
+
+
+

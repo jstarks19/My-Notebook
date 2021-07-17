@@ -1,0 +1,34 @@
+Depth First Search
+
+- This is an algorithm that is quite useful and easy to implement
+- It is a must-know for programming interviews
+
+
+How does it work?
+
+    - we explore one branch of our graph/tree, and then the next branch, and the next
+    
+    - say we wanted to explore a tree with DFS and store all the values in DFS order
+        - we would:
+        1) Add the current node value to the array
+        2) For each of our children, we call the function recursively, passing in our array 
+
+
+Space & Time Complexity
+
+    variables
+
+        V : vertices
+        E : edges
+
+
+    Space : O(V)
+        - We are traversing all of the branches, meaning we have (V) frames on the callstack in worst case
+        - In general it would likely be under this, but in worst case O(V) for sure
+
+    Time : O(V + E)
+        - This is really subtle
+        - At every level we are iterating through E children, since we have E outgoing edges
+        - Additionally, we are visting every node in the tree, every vertice V
+        - Thus, we spend O(V + E) on our algorithm 
+    

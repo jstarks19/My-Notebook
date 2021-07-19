@@ -61,3 +61,23 @@ MongoDB
             - BSON is binary JSON, more compact version of JSON
 
 
+    Relationships
+        
+        - one-to-few
+            - only have a couple things associated with the one 
+            - store the few associated properties/objects directly in the one's document 
+        - one-to-many
+            - have a relatively decent sized number of associated documents
+            - store the many Object ID's somewhere in the one's document
+        - one-to-bajillions (alot)
+            - it's more efficient to store a reference to the parent on the child document
+        - use populate in order to fill in object IDs
+
+    
+    Rules of Thumb for Modeling Relationships (from Mongo team themselves)
+        1) Favor embedding unless there is a compelling reason not to
+        2) needing to access an object on its own is a compelling reason not to embed it 
+        3) arrays should not grow without bound
+            - if there are more than a hundred many documents, don't embed them
+            - if there are more than a thousand, don't store a reference to them, store a reference in the child
+    

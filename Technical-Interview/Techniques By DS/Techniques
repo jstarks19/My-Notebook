@@ -1,0 +1,19 @@
+General
+    - come up with a brute force solution regardless
+    - think of a simpler version of the problem 
+    - think using simpler examples => try to notice a pattern 
+    - use a bigger example to gain insight 
+
+
+Arrays
+    - Sorting the input array
+    - Using pointers, sometimes more than one
+    - Using the properties of a sorted array to do work for you 
+        - think smallest difference
+            - you use the fact that it is sorted to decrease the difference of elements at pointers by determining the next pointer movement
+        - think smallest amount of change that can't be made
+            - you use the fact that you can make n change for each n, so if the next number is > n+1, you immediately are able to say you cannot make n + 1 change 
+    - CONSIDER multiple loops
+        - using 2 loops one after another is O(N), not O(n^2)        
+            - or 100 loops, it's okay
+        - very useful for dynamic programming / caching values

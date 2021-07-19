@@ -18,3 +18,18 @@ SQL vs. NO-SQL
         - Do not use SQL 
         - There are many types of NO-SQL DBs (document, key-value, graphs)
         - ex. MongoDB, Couch DB, Neo4j, Cassandra, Redis
+
+
+Terminology: Relational vs. Document Oriented 
+
+R           : D
+Database    | Database
+Table       | Collection
+Row         | Document
+Index       | Index
+Join        | $Lookup
+Foreign Key | Reference
+
+
+Database Relationships
+

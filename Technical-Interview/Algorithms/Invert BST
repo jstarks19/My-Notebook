@@ -1,0 +1,14 @@
+
+
+function invertBST(tree) {
+    if (tree) {
+        let left    = tree.left;
+        let right   = tree.right;
+
+        tree.right  = left;
+        tree.left   = right;
+    
+        invertBST(tree.left);
+        invertBST(tree)
+    }    
+}

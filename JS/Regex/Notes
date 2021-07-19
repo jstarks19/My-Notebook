@@ -1,0 +1,54 @@
+Regular Expressions in JavaScript
+
+
+    - can be defined in two different ways
+        1) let reg = new RegExp("abc");
+        2) let reg = /abc/
+
+    - number of methods associated with regular expressions
+        - test()
+            /abc/.test("abc");
+            - returns true if they match, and false if not
+        - exec()
+            /\d+/.exec("one two 3");
+            - returns an object with information about the matches
+            - use parens to create groups
+                - these groups will be returns as match groups in a part of the match array that's returned
+            - cool destructuring syntax
+                - let [_, gp1, gp2, gp3] = /(hello).*(name).*(Jason)/.match("hello my name is Jason")
+    
+    - some character grouping shortcuts
+        - \d : Any digit character
+        - \w : Any alphanumeric character (word character)
+        - \s : Any whitespace character (space, tab, newline, and similar)
+        - \D : A character that is not a digit
+        - \W : A nonalphanumeric character
+        - \S : A nonwhitespace character
+        - .  : Any character except for newline
+
+    - brackets [] indicates an OR 'set'
+        - anything within those brackets is considered a match 
+        - within brackets special characters like . or + lose their special meaning
+        - to 'invert' the set
+            - we use a caret in the beginning i.e. [^012] === not 0 1 or 2
+    
+    - special characters and their meaning
+        ^   : start of string
+        $   : end of string
+        +   : one or more
+        *   : 0 or more
+        ?   : 0 or 1
+        |   : OR character, matches either the left OR the right
+        {}  : indicate a specific number of times 
+                - \d{3}   : three digits
+                - \d{2,4} : two, three, or four digits (this is a range) 
+                - \d{2,}  : two or more digits (this is a range with no ending)
+        ()  : indicate a grouping, used to treat a group of characters or patterns as a single instance
+        //i : adding an i to the end of a regex makes the matching group case insensitive
+        \b\b: this is a word boundary, it denotes that if anything matches this, it must be a word (space or \n or \t separated)
+
+    - String functions of use
+        - .replace()
+            - allows you to replace a char or pattern with something else 
+            - adding a g to the end of the regex pattern will replace all matches, g => global 
+            - using $1 and $2 and so on is how we can grab out our match groups in replace

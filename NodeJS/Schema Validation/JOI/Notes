@@ -4,4 +4,21 @@ $ npm i joi
 
 
     - a schema validation module for nodeJS
+    - basically it is a data validator for anything in JavaScript
+    - works using the concept of 'schemas'
+        - you define a schema for expected input
+        - and validate the input before accessing mongo or any db 
+    - utilizes chaining in order to validate input
+        - i.e.
 
+        const personSchema = Joi.object({
+            person: Joi.object({
+                name: Joi.string().required(),
+                age: Joi.number().required().min(1)
+            }).required()
+        });
+        const result = personSchema.validate(req.body);
+        if (result.error) {
+            const det = result.error.details;
+            throw new Error();
+        }

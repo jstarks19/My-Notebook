@@ -1,0 +1,112 @@
+Modules
+
+    - 'big ball of mud' 
+        - a term given to a program that is so entangled that reusing some of its functionality would be more of a hassle than just rewriting the entire thing
+    - Modules
+        - this is an attempt to solve that issue
+        - a module is a piece of program/code that specifies which other pieces it relies on and which functionality it provides, like an interface
+        - relationships between modules are referred to as dependencies
+    - general principle is to write your code, once it is sound, then consider breaking it down into a more modular system
+
+    - Packages
+        - this solves the issue of version control with modules
+        - it allows for pieces of code to be 'packaged' and reused by other systems
+            - it is distributed
+        - A package can contain multiple modules and usually comes with documentation to explain what it does and how to interact with it
+    
+    - In order to use Packages & in turn Modules, we must have some central repo in which we can submit our packages and update/use them
+        - in the case of JavaScript, this is what NPM is used for
+    
+    - NPM is two things:
+        - an online service where one can download (and upload) packages
+        - and a program (bundled with Node.JS) that helps you install and manage them 
+    - NPM provides solid, well-tested implementations for a number of different programs/modules with varying use cases
+        - allows us to avoid reinventing the wheel 
+    
+    Evaluating Data as Code
+        - for a long time, JavaScript has needed the concept of modules 
+        - originally since there was really no concept of modules, programmers had to create their own using functions that would contain data and interface bindings
+        - however, if we want to actually utilize a module system, we would have to load dependencies
+            - that involves executing strings as code, something JavaScript is able to do
+
+        'eval'
+            - using eval(string) allows you to execute the string (in the CURRENT scope) as if it were a piece of code
+            - this is usually a bad idea
+                - because it is possible to reassign bindings and create unintended side effects in that evaluated code
+                - this is an issue because it hinders readability & predictability
+        
+        'Function' constructor
+            ex. let plusOne = Function("n", "return n + 1;");
+            - first argument is a string, containing a comma seperated list of argument names to the function
+            - the second argument is a string containing the function body
+            - best of all
+                - this function maintains its own scope, thus will not impact the rest of the code
+                - this is precisely the functionality needed for a module system 
+
+    CommonJS
+        - most widely used approach to adding JavaScript modules, called CommonJS Modules
+        - this is what NPM uses 
+        - the main concept with CommonJS modules is the function 'require'
+            - when you call require with a module name, it makes sure to
+                - load the module
+                - return its interface
+        - the module that is loaded gets its own scope
+            - it only has to call require to get its own dependencies
+            - it then has to bind its interface to the object bound to exports
+
+    ECMAScript Modules
+        - a new standard, developed in 2015, on how to work with modules
+        - the idea behind the dependencies and interfaces remains the same, however it is in the details where we see the difference
+        - rather than calling a function to access our dependency, es modules have been incorporated directly into the language with the import keyword 
+            ex. import ordinal from "ordinal";
+            ex. import {ordinal as ord} from "ordinal";
+        - the export keyword is used a little differently as well
+            ex. export function hello()
+            ex. export i
+        - the es modules interfaces are simply bindings to the values, or references if you will 
+            - this means if the module changes a variable/binding, the import will see it
+        - there is a default binding that can be set for any es module
+            ex. export default [1,2,3];
+        - module scripts are loaded before anything else in the file
+            - thus, you cannot import modules in functions nor later in the program
+                - it is best practice to do it in the beginning, as this is how it will be executed anyways
+        
+    The Shake
+        - both modules systems are still used today
+        - while it is obvious that ES modules are superior, like everything in JavaScript, the community has been slow to transition and often modules written in ES syntax are converted to another (CommonJS) format before being published
+        - it is important to know both syntaxes and how to read/write both 
+    
+
+    Building and Bundling 
+        - Many JavaScript projects aren't even, technically, written in JavaScript
+        - there are written using extensions of the language that are then transpiled into JavaScript
+        - When working on a web application, often you divide your main file into a number of modules/dependencies which all work together to achieve your functionality
+            - what is the issue with this?
+                - well if it takes 50ms to load one of your files, it will take 10s to load all 200 of your interconnected files
+                - how do we fix this?
+                    - now web programmers have begun to use a tool known as a 'bundler'
+                    - this takes all of their seperated programs, and rolls them back up into a single big file, which only has to be retrieved once
+            - further, the size of the files determines how long they will take to transfer
+                - how do we fix this?
+                    - web programmers have also begun using 'minifiers'
+                    - this converts their big interconnected program into a much smaller representation by removing comments, renaming bindings, etc.
+
+    Module Design
+        - do not rely on the "well it just has to be this complicated" mentality
+            - often times we can improve our logic and structure with some added thought
+        - the BEST way to learn about well structured programs is to work on them, read them
+        - one big aspect of module design is ease of use
+            - if you, or a number of others are using your module, you want to be able to revisit it later and have it be relatively easy to jump back in 
+            - make the interface small and familiar, it should not be overly complicated to use your tool   
+
+
+
+
+
+
+
+
+
+
+
+        

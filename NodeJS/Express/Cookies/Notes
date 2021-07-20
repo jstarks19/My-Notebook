@@ -1,0 +1,47 @@
+Cookies
+
+    - little bits of information, able to be stored in a user's browser 
+    - once you set a particular cookie, a user's browser will send the cookie on every subsequent request to the site 
+    - HTTP by nature is a 'stateless' protocol
+        - cookies add some level of 'state' back in 
+    
+    - Useful for:
+        - personalization
+        - session management
+        - tracking 
+    
+    - Adds statefulness to browsing sessions
+    
+    Express and Cookies
+        - we can use res.cookie() in order to set a cookie we are sending back to the user
+            ex. res.cookie('name', 'jason', { domain: '.example.com', path: '/admin', secure: true });
+        - note at the very end we should still call res.send()
+    
+    Cookie Parser Middleware
+        - in order to parse cookies, we have to use the cookie-parser middleware
+            $ npm i cookie-parser 
+            const cookieParser = require('cookie-parser');
+            app.use(cookieParser());
+        - to parse out the cookies in a particular route, we use
+            - const cookies = req.cookies;
+    
+    Signed Cookies  
+        - what is it?
+            - we take a cookie we send to a user, send it as a signed cookie 
+            - on the browsers end, it receives the signed cookie
+                - it then sends this cookie back on subsequent requests
+            - our express app then verifies the integrity of the cookie by checking the signature  
+            - not about hiding information or anything like that, more about making sure it is the same cookie we sent 
+        - how to do it?
+            - need to pass in a secret into app.use(cookieParser(<secret string>));
+            - we can then when setting a cookie, specify { signed: true }
+        - NOTE:
+            - req.cookies will not returned ANY signed cookies
+            - signed cookies are found in the signedCookies field of req
+                ex. req.signedCookies
+        - SOLELY FOR INTEGRITY
+
+
+    HMAC
+        - Hashed Message Authentican Code
+         

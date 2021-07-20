@@ -1,0 +1,16 @@
+Router
+
+    - obviously we could put all of our routes in the same file, but this is difficult as the application grows
+    - you can think of it as a mini application that is combined with other routes to build your application
+
+    Syntax 
+        const express = require('express');
+        const router = express.Router();
+
+        router.get('/person' (req, res) => {
+            res.send("ALLL");
+        });
+
+    - adding middleware to a specific route
+        - use 
+            router.use((req,res,next)=>{ // some middleware function })

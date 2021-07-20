@@ -126,19 +126,18 @@ CSS Notes
     Units of Measurement
         
         Relative
-            - EM    :
-            - REM   :
-            - VH    :
-            - VW    :
-            - %     :
-            - etc.  :
+            - EM    : related to font size 
+            - REM   : related to font size of the root element
+            - VH    : view height 
+            - VW    : view width 
+            - %     : percentage of container
 
         Absolute
             - PX    : Most commonly used unit, absolute pixels, not recommended for responsive sites
-            - PT    :
-            - CM    :
-            - IN    :
-            - MM    :
+            - PT    : 
+            - CM    : Centimeters 
+            - IN    : Inches
+            - MM    : Milimeters
 
 
     Properties to know

@@ -1,0 +1,33 @@
+React JS
+
+    - Developed by and sponsored by Facebook
+    - refers to itself as a library
+
+    - what is react's selling point?
+        - components!
+        - these are modular pieces of reusable code that encapsulate the logic and HTML into a single class
+        - make it very easy to build modular applications
+    
+    - what is different about components?
+        - unlike the standard big three (HTML, CSS, yadda yadda)
+            - react's components often incorporate all three of these in a single 'component'
+    
+    Library vs. Framework
+        - a framework for web dev is characterized by
+            - Larger JS Libraries
+            - Provide "blueprint" for apps 
+            - "Opinionated"
+                - "This is how you should design a JS app"
+            - often provide a templating system 
+    
+    Popular Frameworks
+        - Angular
+        - Vue
+        - React?
+            - I would consider React to be a Library on its own
+                - it is good at creating components
+                - aside from this, it is relatively unopinionated
+            - However, very few people just use plain old react
+            - Usually it is combined with other tools such as React Router, Webpack, Redux, etc.
+            - The standard "React Ecosystem" with all of the mixins would be considered a Framework
+            - Next.js is actually a framework built around React 

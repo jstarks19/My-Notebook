@@ -1,4 +1,258 @@
 
+Problem Solving Approaches
+    - what is an algorithm?
+        - a process or set of steps to accomplish a certain task 
+        - the foundation for being a successful problem solver and developer 
+    - how do you improve?
+        - Devise a plan for solving problems
+        - Master common problem solving patterns 
+    
+    Steps
+        1) Understand the Problem
+            - Can I restate the problem in my own words?
+            - What are the inputs that go into the problem?
+            - What are the outputs that should come from the solution?
+            - Can the outputs be determined from the inputs?
+                - Do I have enough information to solve the problem at this point
+                - If you don't it is okay, keep moving 
+            - How should I label the important pieces of data that are a part of the problem?
+
+        2) Explore Concrete Examples 
+            - Examples provide sanity checks
+            - You can often learn more about the problem by testing examples 
+            - steps:
+                - Start with simple examples, input and output 
+                - Progress to complex examples
+                - Explore examples with empty inputs
+                - Explore examples with invalid inputs  
+
+        3) Break It Down 
+            - explicitly write out the steps you need to take
+                - forces you to actually think about your code you write before you write it
+                - helps you catch any lingering conceptual issues or misunderstandings before you dive in and need to worry about the details
+
+        4) Solve and Simplify
+            - solve the problem if you can
+                - if you can't solve the whole thing, solve a simpler problem 
+            - Simplify
+                - find the core difficulty in what you are trying to do
+                    - temporarily ignore that difficulty
+                        - write a simplified solution
+                            - then go back and incorporate the difficulty back in 
+            - If you get stuck, but get 90% of the way there
+                - it is waaaay better than spending most of your time trying to figure out the 10% without writing the 90%
+
+        5) Look Back and Refactor 
+            - Can you check the result?
+            - Can you derive this result differently?
+                - think of other approaches
+            - Can you understand it at a glance?
+                - how intuitive is the solution
+            - Can you use the result or method for some other problem?
+                - is there a similarity between this and another problem 
+            - Can you improve performance?
+            - Can you think of other ways to refactor (variable names, function functionality, iteration over recursion)?
+            - How have other people solved this problem?
+
+
+Problem Solving Patterns 
+    14 top patterns to learn and consider
+        1) Sliding Window
+            - using a 'window' and moving it through a data structure in order to modify or count or etc. for a specific problem
+            - in some problems, this window will shrink or grow
+            
+            Common Identifiers: 
+                - problem input is a linear data structure such as a linked list, array, or string
+                - you're asked to find the longest/shortest substring, subarray, or desired value
+
+            Common Problems:
+                - maximum sum subarray of size 'K' (easy)
+                - longest substring with 'K' distinct characters (med)
+                - String anagrams (hard)
+        
+        2) Two Pointer/Iterators
+            - using two pointers to iterate through a data structure in tandem until one or both hit a certain condition
+            - useful when searching pairs in a sorted array or linked list
+            - for instance when comparing each element to others
+
+            Common Identifiers:
+                - It will feature problems where you deal with sorted arrays (or linked lists) and need to find a set of elements that fulfill certain constraints
+                - The set of elements in the array is a pair, a triplet, or even a subarray 
+
+            Common Problems:
+                - Squaring a sorted array (easy)
+                - Triplets that sum to zero(medium)
+                - Comparing strings that contain backspaces (medium)
+
+        3) Fast and Slow Pointers
+            - also known as the "Hare & Tortoise Algorithm" is a pointer algorithm that uses two pointers which move through the array (or sequence/linked list) at different speeds (VERY USEFUL FOR CYCLIC LINKED LISTS OR ARRAYS)
+            - by moving at two speeds, (say in a cyclic linked list) the alg proves that the two pointers are bound to meet at some point in the cycle 
+
+            Common Identifiers:
+                - The problem will deal with a loop in a linked list or array
+                - When you need to know the position of a certain element or the overall length of the linked list
+            
+            When to use over Two Pointer:
+                - a singly linked list where you can't move in a backwards direction
+                - when trying to determine if a linked list is a palindrome
+            
+            Common Problems:
+                - Linked List Cycle (easy)
+                - Palindrome Linked List (medium)
+                - Cycle in a Circular Array (hard)
+        
+        4) Merge Intervals
+            - an efficient technique to deal with overlapping intervals
+            - in a lot of these problems, you will have to find overlapping intervals or merge intervals if they overlap
+            - Six Different Ways Two Intervals can relate
+                1) no overlap a b
+                2) a and b overlap, b ends after a
+                3) a completely overlaps b
+                4) a and b overlap, a ends after b
+                5) b completely overlaps a
+                6) no overlap b a
+
+            Common Identifiers:
+                - If you are asked to produce a list with only mutually exclusive intervals
+                - If you hear the term "overlapping intervals"
+
+            Common Problems:
+                - Intervals Intersection (medium)
+                - Maximum CPU Load (hard) 
+
+        5) Cyclic Sort
+            - an interesting approach to deal with problems involving arrays containing numbers within a given range
+            - iterates over the array one number at a time, if a number is not the correct index, you swap it with the value at the correct index 
+
+            Common Identifiers:
+                - The problem will involve a sorted array with numbers in a given range
+                - If the problem asks for the missing/duplicate/smallest number in a given sorted or rotated array 
+
+            Common Problems:
+                - Find the Missing Number (easy)
+                - Find the Smallest Missing Positive Number (medium) 
+
+        6) In-place reversal of a linked list
+            - reverse the links between a set of nodes in a linked list
+            - often the constraint is doing this in place
+            
+            Common Identifiers:
+                - you are asked to reverse a linked list without using extra memory
+            
+            Common Problems:
+                - Reverse a sub-list (medium)
+                - Reverse every K-element sublist (medium)
+
+        7) Tree BFS 
+            - Breadth First Search
+            - uses a queue to keep track of all the nodes of a level before jumping onto the next level 
+            - any problem involving moving through a tree level by level can be solved efficiently with this
+            
+            Common Identifiers: 
+                - Asked to traverse a tree in a level-by-level fashion
+            
+            Common Problems:
+                - Binary Tree Level Order Traversal (easy)
+                - Zig Zag Traversal (medium)
+
+
+        8) Tree DFS
+            - Depth First Search
+            - Can use recursion or a stack to keep track of all the previous nodes while traversing
+            
+            Common Identifiers:
+                - Asked to traverse a tree with in-order, preorder, or postorder traversal
+                - If the problem requires searching for something where the node is closer to a leaf
+
+            Common Problems:
+                - Sum of Path Numbers (medium)
+                - All Paths for a Sum (medium) 
+
+        9) Two Heaps
+            - In some problems we are given a set of elements such that we can divide them into two parts
+            - To solve the problem, we are interested in knowing the smallest element in one part and the biggest element in the other
+            - pattern generally uses two heaps, a min heap and a max heap
+                - store parts of the list in each
+            
+            Common Identifiers:
+                - Useful in situations like Priority Queue, Scheduling
+                - If the problem states that you need to find the smallest/largest/medium element of a set
+                - Sometimes useful in problems involving Binary Tree data
+            
+            Common Problems:
+                - Find the Median of a Number Stream (medium)
+
+       10) Subsets
+            - dealing with permutations and combinations of a given set of elements
+            - the pattern describes an efficient BFS approach to handle these problems 
+                1) Start with an empty set: [[]]
+                2) Add the first number (1) to all the existing subsets to create new subsets: [[], [1]];
+                3) Add the second number (5) to all the existing subsets: [[], [1], [5], [1,5]];
+                4) Add the third number (3) to all the existing subsets: [[], [1], [5], [1,5], [3], [1,3], [5,3], [1,5,3]].
+
+            Common Identifiers:
+                - Problems where you need to find the combinations of a given set
+            
+            Common Problems:
+                - Subsets with Duplicates (easy)
+
+       11) Modified Binary Search
+            - whenever given a sorted array, linked list, or matrix, and need to find a certain element, Binary Search is the best alg
+            
+            Common Problems:
+                - Order-agnostic Binary Search (easy)
+                - Search in a Sorted Infinite Array (medium)
+
+       12) Top K elements
+            - Any problem that asks us to find the top/smallest/frequent 'K' elements among a given set falls under this pattern 
+            - the best data structure to keep track of K elements is a heap
+            - no need for a sorting algorithm because the heap will keep track of the elements for you
+
+            Common Identifiers:
+                - Asked to find the top/smallest/frequent 'K' elements of a given set
+                - If you are asked to sort an array to find an exact element
+            
+            Common Problems:
+                - Top 'K' Numbers (easy)
+                - Top 'K' Frequent Numbers (medium)
+            
+       13) K-way merge 
+            - whenever given K sorted arrays, you can use a heap to efficiently perform a sorted traversal of all the elements of all arrays
+            - Pattern
+                1) Insert the first element of each array in a Min Heap 
+                2) After, take the smallest out (top) from the heap and add it to the merged list
+                3) After removing the smallest element from the heap, insert the next element of the same list into the heap 
+                4) Repeat Steps 2 and 3 to populate the merged list in sorted order 
+            
+            Common Identifiers:
+                - problem features sorted arrays, lists, or a matrix
+                - if the problem asks you to merge sorted lists, find the smallest element in a sorted list 
+            
+            Common Problems: 
+                - Merge K Sorted Lists (medium)
+                - K Pairs with Largest Sums (hard)
+
+       14) Topological Sort
+            - used to find a linear ordering of elements that have dependencies on one another 
+            - ex. if event b is dependent on event a, a comes before b in topo ordering
+    
+            Common Identifiers:
+                - The problem will deal with graphs that have no directed cycles
+                - If you're asked to update all objects in a sorted order
+                - If you have a class of objects that follow a particular order
+            
+            Common Problems 
+                - Task Scheduling (medium)
+                - Minimum Height of a Tree (hard)
+
+
+HOW DO YOU IMPROVE???
+    - DEVISE a plan for solving problems
+    - MASTER common problem solving patterns 
+
+
+
+
 Arrays 
     - Usually if you see a problem in which the input is sorted or pre-modified
         - it is an indication you can do a one-pass solve

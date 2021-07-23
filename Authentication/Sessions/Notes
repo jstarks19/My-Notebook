@@ -1,0 +1,18 @@
+Sessions
+    
+    - Sessions are similar to cookies in that they add statefulness to HTTP communication (which is a stateless protocol)
+    - Essentially, sessions are a server side technology allowing for the server to maintain state during execution of multiple HTTP requests
+        - they are most often used for authorization when making privelaged api calls/requests 
+    - Why use them when we have cookies???
+        - The size of cookies are actually limited to 4096 Bytes so storing more complicated information is not feasible
+        - Also, you cannot exceed 50 cookies per domain, so it's not a scalable solution
+        - Cookies are not very secure when it comes to storing a lot of information 
+    
+    - We store info about a user as a session on the server side 
+        - we then send the user a cookie with a key for their particular session
+        - every time they need their session data (maybe it is a shopping cart, or google fonts) they send the cookie to the server
+        - the server then responds with their session data
+        - not usually stored in the main database, more likely to find it in a session store or fast lightweight db like redis 
+    
+    - Note: Sessions are not exclusive to express nor do they only exist within the node environment
+        - sessions are found all throughout web development and you can find implementations in other languages/frameworks very easily

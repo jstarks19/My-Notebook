@@ -34,7 +34,7 @@ Postman
     HTTP Request/Response Components
         - Body          : the content (the payload, JSON)
         - Status Code   : Standard numeric codes to indicate status (404, 400, 200, 500)
-            2XX : generally fgood
+            2XX : generally good
             3XX : redirect oriented
             4XX : client errors (we did something wrong, we ask for something that doesn't exist)
             5XX : server errors (server side did something wrong)

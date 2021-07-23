@@ -26,10 +26,3 @@ JWT
         - the JWT is used to authenticate itself 
         - very useful for multi server applications 
 
-Bcrypt
-    - this is a node module that gives us access to cyptographic tools
-    - hash : this is a one-way function 
-        - useful in hashing passwords
-        - however, if multiple users have the same password, the hash will be the same, not good for security
-    - salt : this is a small string used to make hashes unique
-        - this fixes the password issue 

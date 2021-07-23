@@ -15,7 +15,7 @@ Mongoose
     Schema
         - each schema maps to a mongodb collection 
         - a mapping of different collection keys from mongo to different types in JavaScript
-        - what a given Blog, Movie, etc. should 
+        - what a given Blog, Movie, etc. should look like
 
 
 Using Mongoose with Node and MongoDB
@@ -36,7 +36,7 @@ Using Mongoose with Node and MongoDB
         year: Number,
         rating: String
   > }) 
-        - creates a mongoose schema, which indicates how we want to receive our 
+        - creates a mongoose schema, which indicates how we want to receive our data
   
   > const Movie = mongoose.model('Movie', movieSchema);
         - creates a model for us using our schema
@@ -75,6 +75,7 @@ Using Mongoose with Node and MongoDB
 
 
   // Updating
+  BY DEFAULT UPDATES ARE NOT VALIDATED
   > Movie.updateOne({title: 'Fight Club'}, {title: 'A Clockwork Orange'})
   > Movie.updateMany({title: {$in: ['Amadeus', 'Fight Club']}}, {title: 'FOO'})
   > Movie.findOneAndUpdate(query, change) => the thing that was updated
@@ -89,9 +90,6 @@ Using Mongoose with Node and MongoDB
   > Movie.deleteMany();
   > Movie.findOneAndDelete(); => we get back what was deleted
   > Movie.findByIdAndDelete();
-
-  // Filtering
-  > 
 
 
 Schema Validations

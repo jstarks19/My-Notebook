@@ -82,4 +82,3 @@ MongoDB
             - if there are more than a thousand, don't store a reference to them, store a reference in the child
     
 
-    Relationships in express

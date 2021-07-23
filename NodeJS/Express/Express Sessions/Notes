@@ -1,0 +1,19 @@
+Express Session 
+    $ npm i express-session
+    - no longer need cookie-parser to use sessions
+    - this is a module for managing sessions in express 
+
+    const session = require('express-session');
+    app.use(session({ secret: 'thisisnotagoodsecret' })) 
+
+    - now every time you get a request, there will be a session object attatched to it
+        - you can access it with req.session
+        - you can also assign properties to it, in order to keep stateful information 
+            - req.session.name = "Jason"
+        - all stored serverside 
+
+    - two primary settings associated with sessions
+        - resave
+            - basically this says that regardless of if the session object was updated, resave it to the session store on every request
+        - saveUninitialized
+            - forces a new and unmodified session to be stored in the session store on creation 

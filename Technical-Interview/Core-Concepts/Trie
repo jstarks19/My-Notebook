@@ -1,0 +1,22 @@
+Trie
+
+    - a type of 'tree', sometimes called a prefix tree
+    - often used to store characters and in turn words
+    
+
+    ex.
+
+    *
+   / \
+  c   a 
+ /
+a 
+|\
+t \
+|  r
+*   \
+     *
+
+    - * is used to indicate a complete word
+    
+    - a valid use case could be checking if a particular word is in a dictionary 

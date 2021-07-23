@@ -9,7 +9,7 @@ Block vs. Inline
     Block 
         - Takes up the entire content line (the entire width of the page) 
     Inline
-        - Takes up on the space required for the element, does not break the page (unless too big)
+        - Takes up only the space required for the element, does not break the page (unless too big)
 
 HTML Entities 
     - Special sequences that result in different characters in HTML 
@@ -111,7 +111,7 @@ Tags
         Attributes: 
             - href : link to be embedded (need to specify http:// www if not a local reference)
 
-    <image> : Image
+    <img> : Image
         - used to embed an image into the web page 
         Attributes:
             - src : link to the image that you are embedding 

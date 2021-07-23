@@ -184,7 +184,7 @@ DOM Events
     
     - Input & Change Event
         - Change is an event that is fired when you update an input and click off
-        - Input is an event that is fired when you updaye an input 
+        - Input is an event that is fired when you update an input 
     
     - Event Bubbling 
         - Events are triggered from the bottom up 

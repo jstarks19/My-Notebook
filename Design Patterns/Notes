@@ -27,7 +27,7 @@ Design Patterns
             - basically creating an adapter to a particular interface
             - think database driver, mongo adapter
             Pro: It allows for the single interface to be used by a wide variety of users, provided a wide variety of bridges exist
-            Con: Overusing the pattern. If an interface has 10 different adapter points, well they you get 10 different groups making 10 different bridges for 10 different adapter points. It alters the usability of your interface, because there is so much modification that can occur and needs to occur. It's not simple anymore. 
+            Con: Overusing the pattern. If an interface has 10 different adapter points, well then you get 10 different groups making 10 different bridges for 10 different adapter points. It alters the usability of your interface, because there is so much modification that can occur and needs to occur. It's not simple anymore. 
         4) Strategy Pattern
             - essentially this pattern is about dividing complex tasks into simpler strategies
             - implement these strategies as seperate tasks and integrate them 

@@ -40,15 +40,15 @@ Bootstrap
         - show 
 
     - colors to know
-        - primary: blue 
-        - secondary: grey 
-        - success: green 
-        - danger: red 
-        - warning: yellow
-        - info: teal 
-        - light: white 
-        - dark: black
-        - link: a link      
+        - primary:      blue 
+        - secondary:    grey 
+        - success:      green 
+        - danger:       red 
+        - warning:      yellow
+        - info:         teal 
+        - light:        white 
+        - dark:         black
+        - link:         a link      
 
     - grid system
         - helps to layout content

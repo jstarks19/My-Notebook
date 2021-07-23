@@ -70,7 +70,7 @@ Arrays & Array Methods
     - slice: copies a portion of the array
     - splice: removes/replaces elements
     - sort: sorts an array 
-
+        - arr.sort((a,b) => (a-b)) // ascending 
 
 Callbacks
     - Functional JS
@@ -85,7 +85,6 @@ Callbacks
             - clearInterval(id of setInterval)  : stops the interval  
     - Some & Every
         - always return true or false
-        - some: 
         - every: does every element when the function is applied return true
         - some (any): do any of the elements when the function is applied return true
     - Arrow functions
@@ -139,4 +138,4 @@ Compiler & Interpreter
         - execute a code file line by line in real time (before your very eyes)
     
     - JIT Compiler : The compiler interpreter hybrid that was developed to efficiently run complicated JavaScript in the browser 
-        - 
+        

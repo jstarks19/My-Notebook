@@ -36,7 +36,7 @@ Cookies
             - need to pass in a secret into app.use(cookieParser(<secret string>));
             - we can then when setting a cookie, specify { signed: true }
         - NOTE:
-            - req.cookies will not returned ANY signed cookies
+            - req.cookies will not return ANY signed cookies
             - signed cookies are found in the signedCookies field of req
                 ex. req.signedCookies
         - SOLELY FOR INTEGRITY

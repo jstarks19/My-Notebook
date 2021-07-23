@@ -31,3 +31,13 @@ React JS
             - Usually it is combined with other tools such as React Router, Webpack, Redux, etc.
             - The standard "React Ecosystem" with all of the mixins would be considered a Framework
             - Next.js is actually a framework built around React 
+    
+    Why would you want to use it?
+        - Structure the 'view' layer of your application 
+        - Provides reusable components with their own state
+        - JSX - Dynamic Markup
+        - Interactive UIs w/ Virtual DOM
+        - Performance & Testing
+        - Very very popular in the industry right now
+    
+    

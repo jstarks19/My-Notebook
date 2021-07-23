@@ -28,10 +28,14 @@ Object Oriented Programming
             - only exposing necessary details for anyone using the object 
             - decouples the user from the implementation 
         2) Polymorphism
-            - this is basically the notion that multiple sub classes can hold different properties
-                - however, when using the parent class to reference these, you still get out different properties
-                - despite a car and plane being vehicles, they have another form in that their methods for move() differ
-            
+            - Run time
+                - can take a different form during run time
+            - Compile time 
+                - can take different forms during compilation 
+            - ensures the proper method will be called depending on the type of the value passed in 
+            - think, 
+                - if a dog calls move(), it will result in something very different if a plane calls move()
+
         3) Inheritance
             - Utilizing the methods and properties of another class in the one you are creating
                 - ex. a vehicle moves, so subclasses such as Car, Train, Bike, Plane all could inherit that property
@@ -43,5 +47,8 @@ Object Oriented Programming
                 - super class, parent class, base class 
 
         4) Encapsulation
-            
+            - implementation deatils are hidden
+            - think API here
+            - the only thing that is exposed to the user is the methods they may use to accomplish tasks
+                - we don't tell them anything about the implementation
             

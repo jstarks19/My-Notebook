@@ -1,0 +1,9 @@
+Flash
+
+    $ npm i connect-flash
+
+    - this is a middleware for express which allows for the showing of temporary messages which do not persist on refresh/revisit
+        ex. you create a new product, or login, you get a message that "flashes" for creating the product, but it shouldn't persist
+    
+    - before sending a response or rendering
+        - req.flash('success', 'Successfully Added Item')

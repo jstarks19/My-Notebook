@@ -114,12 +114,26 @@ CSS Notes
 
         ::after
         ::before
+            - these allow you to insert content onto a page without it needing to be HTML
+            - while the result is not in the DOM, it still appears as if it is 
+            - you have to specify content for these in order to display something more meaningful
+                - content types:
+                    - A string
+                    - An image
+                    - Nothing 
+                    - A counter
+            - cannot insert HTML
+
+
         ::first-letter
             - the first letter of a piece of text
         ::first-line
             - the first line of a piece of text 
         ::selection
             - lets you style the appearance of highlights
+        ::marker
+            - for styling the bullest/markers of a list
+            - if you add 'display: list-item' to any element, you will be able to style the marker, even if it is a paragraph or soemthing else
 
 
 

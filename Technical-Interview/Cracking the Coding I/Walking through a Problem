@@ -1,0 +1,38 @@
+Walking through a Problem
+
+
+    1) Listen
+        - pay attention & ask questions
+        - get all of the information you can
+    2 ) Example
+        - find a good set of examples
+        - start with a normal ex. and maybe add the others later
+        - small, large, mid, special cases
+    3) Brute Force
+        - find this solution as soon as possible
+        - state the naive algorithm and its runtime
+        - don't code this one up, it is more important to discuss it
+    4) Optimize 
+        - Use BUD 
+            B ottlenecks
+            U nnecessary Work
+            D uplicate Work
+        - look for unused information
+        - solve it manually on an example and reverse engineer your thought process
+        - if you solve it incorrectly and think about why that algorithm fails
+        - Make a time vs. space tradeoff
+            - hashmaps are key in a space tradeoff usually
+    5) Walk Through
+        - Once you have a more optimal solution
+            - walk through it in detail
+    6) Implement
+        - Write beautiful code, that is the goal
+        - Modularize your code from the beginning and refactor after as well 
+    7) Test
+        - in this order
+            1) Conceptual Test, walk through the code
+            2) Unusual or non-standard code
+            3) Hot spots, like arithmetic or null cases
+            4) Small test cases, much faster than larger ones and usually just as good
+            5) Special and Edge Cases
+                - fix bugs 

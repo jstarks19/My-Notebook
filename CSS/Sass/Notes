@@ -1,0 +1,69 @@
+Sass
+
+     - Syntactically Awesome StyleSheets
+     - It is a CSS PreProcessor/Extension
+     - Sass files (.scss) files are compiled down to regular CSS
+    
+
+    Variables in CSS 
+        - prefixed with a '$' 
+            ex. $primary-color: blue
+    
+    Nesting
+        - instead of styling children using the same parent selector over and over again, you can simply nest the children
+            ex. 
+                nav {
+                    color: red;
+                    a {
+                        color: blue
+                    }
+                    p {
+                        color: green
+                    }
+                }
+    
+    Modules 
+        - you can separate your scss files, allowing for styling individual components if needed 
+        - start the class with "_name.scss"
+            - this makes it so the scss file will not compile on its own and can be imported into another scss file
+            - to do the import, "use @use 'name';"
+    
+    Mixins
+        - these are basically chunks of CSS that can be modified based on an input
+        - think of a function, but more about the block of code it provides
+        - you substitute in a mixin at a particular location, rather than calling a function 
+    
+    Function
+        - actually returns something to use, rather than swap out for a css block like a mixin
+    
+    Inheritance 
+        - you can extend a given piece of scss using the @extend directive
+            ex. 
+                %box {
+                    border: 1px solid black;
+                }
+
+                .message {
+                    @extend %box;
+                    color: red; 
+                }
+    
+    Conditionals
+        - can use @if and @else to have conditional statments within our scss
+        - very useful and more programmatic 
+
+    
+    - if you have classes with the same base name, that are nested, you can use '&' syntax 
+        ex. <div class="box"> <p class="box-paragraph"> Howdy </p> </div>
+
+            .box {
+                margin: 0;
+                &-paragraph {
+                    color: red; 
+                }
+            }
+
+    Lighten & Darken
+        - basically you can lighten or darken a given color using the lighten and darken functions
+        ex. background-color: lighten(red, 10%);
+            color: darken(blue, 10%);

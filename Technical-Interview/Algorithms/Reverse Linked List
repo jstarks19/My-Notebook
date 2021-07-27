@@ -1,5 +1,40 @@
 
+// Iterative Approach
+function reverseSinglyLinkedList(head) {
+    let curr = head;
+    let prev = null;
+    let next = null;
 
-function reverseLinkedList() {
-    
+    while(curr) {
+        next = curr.next;
+        curr.next = prev;
+        
+        prev = curr;
+        curr = next;
+    }
+    return prev;
+}
+
+
+// Recursive Approach
+function reverseSinglyLinkedList(head) {
+    if (head === null || head.next === null) {
+        return head;
+    }
+
+    let newRevList = reverseSinglyLinkedList(head.next);
+
+    // add ourselves to the list
+        // at this point, head is us, newRevList is a reference to the head of the reversed list
+        // we add ourselves, then return that head
+
+    // set the value after us to point to us
+    head.next.next = head;
+
+    // set our next reference to be null, since it will be reassinged on the next stack frame
+    head.next = null;
+
+
+    // return that original reverse head
+    return newRevList;
 }

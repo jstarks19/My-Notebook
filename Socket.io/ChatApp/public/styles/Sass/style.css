@@ -1,0 +1,86 @@
+body {
+  background: black;
+}
+
+.container {
+  background-color: #5e60ce;
+  width: 25%;
+  margin: 0 auto;
+  padding: .1rem 1rem 1rem 1rem;
+  border-radius: 10px;
+  position: relative;
+  top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  font-family: arial;
+  color: white;
+}
+
+#chat-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.chat-window {
+  width: 100%;
+  height: 200px;
+  margin: 0 0 1em 0;
+  background: #72efdd;
+  color: black;
+  padding: .5em;
+  border-radius: 10px;
+}
+
+.name-container {
+  font-family: arial;
+  background-color: #5390d9;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.name-container label {
+  font-weight: bold;
+}
+
+.name-container input[type="text"] {
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  margin: 0 10px;
+  text-indent: 5px;
+}
+
+.name-container input[type="submit"],
+.name-container button {
+  border: none;
+  height: 2rem;
+  border-radius: 5px;
+  background: #6930c3;
+  padding: 0 .5em;
+  cursor: pointer;
+  color: white;
+}
+
+.name-container button:hover {
+  background: #8452d4;
+}
+/*# sourceMappingURL=style.css.map */

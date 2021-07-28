@@ -1,0 +1,36 @@
+Quicksort
+
+j is the investigator
+i is keeping track of memory  
+
+
+
+    - two major functions/components of the algorithm
+        1) Split
+        2) Partitioning
+
+
+    - Partitioning
+        - the job of the partitioning algorithm
+            - choose a pivot
+        - 'Pivot'
+            - the value within the paritioning space, that I want to find a position for
+            - think of pivot as the item I want to find a position for
+        - what is the job at each iteration
+            - to find the position for my pivot value
+
+    - Worst Case Scenario for the Partitioning step
+        - the pivot we select is the greatest or least value in the set 
+        - because then the list is not partitioned evenly
+            - Left Half = 0 elements
+            - Right Half = n-1 elements
+            - or vice-versa
+        - this is why the worst case scenario for quicksort is O(N^2)
+            - if we constantly choose the greatest or least element in the set
+                - the next iteration is by default doing n-1 work, and then n-2 work, and then n-3 work .... 
+                - so if you have n steps in the algorithm (to sort n elements)
+                    - and you are doing n-1 work on each subsequent step
+                    - you are doing basically O(N^2) work for the whole algorithm
+
+    - Best Case Scenario for the Partitioning step
+        - the pivot we select is the median of the set of data/partitioning space

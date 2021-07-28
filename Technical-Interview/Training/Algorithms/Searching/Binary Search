@@ -1,0 +1,30 @@
+
+Binary Search
+
+    - This is an extremely fast algorithm that is used very often in coding interviews
+    - It's main constraint is that our input needs to be SORTED
+        - we can either be given sorted input
+        - or we can sort the input ourselves
+            - though if this is the case, binary search wouldn't be that advantageous since its complexity would be dominated by the sort
+    
+    - In general, Binary sort runs in O(log(N)) time complexity and O(1) space complexity
+
+
+    The Algorithm
+        - we have a sorted input array: arr 
+        - we take the middle element of arr 
+            - to do this we define two values
+                - low & high
+                    - where low is the lower bound (0 initially) 
+                    - and high is the upper bound (length - 1 initially)
+            - using these two values we compute the middle index
+                - often you will see people compute the middle index as : mid = Math.floor((low + high) / 2)
+                    - however, this is flawed
+                    - since low will not always be 0, low + high has the potential to overflow in our language/architecture
+                - the correct way to compute the middle index is : mid = Math.floor(low + ((high-low)/2))
+            - now that we have the middle index, we compare this to our target value
+                - if our target is less than the middle, we adjust our high to be mid - 1
+                    - then recurse on this new set of bounds
+                - if our target is greater than the middle, we adjust our low to be mid + 1
+                    - then recurse on this new set of bounds
+                - if our target is equivalent to the middle, we return true/that element

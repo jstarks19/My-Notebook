@@ -1,7 +1,7 @@
 Trees
 
     - One of the most prominent data structures in all of computer science and coding interviews
-    - Usually this is canonical 'Data Structure' for most people
+    - Usually this is the canonical 'Data Structure' for most people
     - Mathematical definition
         - very complicated
         - In the context of coding interviews
@@ -14,7 +14,7 @@ Trees
         - asyclic
         - each node can only have one parent 
         - cannot be disconnected 
-        - so rooted, directed, asynclic, disconnected
+        - so rooted, directed, asyclic, disconnected
     
     - some tree types
         - binary tree
@@ -56,11 +56,23 @@ Trees
             - ensure that the tree is balanced, otherwise do not assume it has a log(N) complexity for traversal
 
 
-    terminology
-        - Branch    : any path starting from the top of the tree and ending at a bottom Node 
-        - Leaf      : The bottom most child nodes in a tree 
-        - Level     : The "rows" of a tree, level of parents, depth 
-        - Complete  : Fully filled tree left to right, doesn't need all children
-        - Full      : Any child has either k Nodes or 0 Nodes
-        - Perfect   : All of the leaf Nodes are on the same level 
-        - Depth/Height : # of levels in a tree  
+    Terminology
+        Terms
+        - Branch        : any path starting from the top of the tree and ending at a bottom Node 
+        - Leaf          : The bottom most child nodes in a tree 
+        - Level         : The "rows" of a tree, level of parents, depth 
+        - Depth/Height  : # of levels in a tree  
+         
+        Types
+        - Complete      : Fully filled tree top to bottom, left to right, doesn't need all children
+        - Full          : Any child has either k Nodes or 0 Nodes
+        - Perfect       : All of the leaf Nodes are on the same level 
+
+    Traversals
+        - Pre-Order     : Handle Current Node, Recurse Left, Recurse Right
+        - In-Order      : Recurse Left, Handle Current Node, Recurse Right
+        - Post-Order    : Recurse Left, Recurse Right, Handle Current Node
+
+        Since a tree is an Asyclic Connected Graph we can do DFS & BFS 
+        - Level-Order   : This is basically doing a BFS traversal on a Binary Tree
+        

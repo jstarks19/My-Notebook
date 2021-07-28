@@ -1,0 +1,73 @@
+Depth First Search & Breadth First Search 
+
+
+    Preface on DFS & BFS:
+        - these searching algorithms are for SEARCHING and finding RELATIONSHIPS
+        - they have nothing to do with graphs specifically
+            - though most often we see them associated with graphs
+        - just keep that in mind
+            - even if the problem isn't about a graph persay, it doesn't mean you can't use DFS or BFS
+            - ex. Graph, String Distances, A Tree, etc.
+
+
+    DFS
+        - utilizes a Stack data structure
+        - this is either a stack we define and use, or the call-stack itself (which is why DFS can be done recursively)
+        - a stack is a LIFO data structure
+            - Last In First Out
+            - The last item placed on the stack, is the next item removed/processed
+        
+        When to use DFS?
+            - Backtracking, Complete Search, Exhausting all possible PATHS
+            - all about going deep, deep into a path, and then decides to explore another path
+            - GOES DEEP
+        
+        Implementation (high-level)
+            - create our stack
+            - create a 'visited' set
+            - push our starting node onto the stack
+            - while (there are still elements on the stack)
+                - pop the first element off the stack
+                - if (it is not in the visited set)
+                    - add the element to the visited set
+                    - process the current element
+                        - this can be printing, logging, passing into a function, etc.
+                - for (all elements that are adjacent/siblings/children of the current element)
+                    - if (they are not in the visited set)
+                        - push them onto our stack
+
+
+        Space & Time
+            - Time: O(|V| + |E|)
+            - Space: O(|V|)
+
+
+    BFS
+        - utilizes a Queue data structure
+        - takes an iterative approach
+        - a queue is a FIFO data structure
+            - First In First Out
+            - The first item that was placed in the queue, is the first item to be removed/processed
+    
+        When to use BFS?
+            - Great for checking IF a path exists between two nodes
+            - finding 'hops' or distance out/'levels' away
+            - GOES WIDE
+
+        Implementation (high-level)
+            - create our queue
+            - create a 'visited' set
+            - enqueue our starting node
+            - while (there are still elements in the queue)
+                - dequeue the first element in the queue, poll()
+                - if (it is not in the visited set)
+                    - add the element to the visited set
+                    - process the current element
+                        - this can be printing, logging, passing into a function, etc.
+                - for (all elements that are adjacent/siblings/children of the current element)
+                    - if (they are not in the visited set)
+                        - enqueue the element
+
+        Space & Time
+            - Time: O(|V| + |E|)
+            - Space: O(|V|)

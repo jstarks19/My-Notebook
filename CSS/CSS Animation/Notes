@@ -1,0 +1,21 @@
+Animations
+
+    - this is basically a more powerful transition
+    
+
+
+
+
+    animation-name
+        - a css property for declaring a given selection has an animation
+    animation-duration
+        - a css property for declaring the length of a given animation
+    animation-fill-mode
+        - dictates how an animation will behave on completion
+        options:
+            - forwards : locks the animation at the 100% mark
+    animation-iteration-count
+        - specifies how many animation you want to occur
+        options:
+            - number - loops animation number times
+            - infinite - allows the animation to loop indefinitely

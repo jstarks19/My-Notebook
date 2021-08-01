@@ -1,0 +1,43 @@
+React Hooks
+
+    - This is a way of creating components in React using functions or 'hooks'
+    - Function components were originally refered to as dumb components, but with the introduction of hooks ...
+        - we now have a way to keep stateful representation in our functions
+    - When we think of working with hooks, we should think of them as low level primitives that give us features not available in vanilla javascript
+    - they always begin with 'use'
+    - they only work at the top level of a component
+        - they cannot/should not be called on when inside loops/regular javascript
+            - except with custom hooks
+    
+    - React has 10 built in hooks
+        - they are divided into two categories
+            1) Basic Hooks
+                - useState(initial-state)
+                    - the most important and most often used hook
+                    - takes in one argument, an initial state value
+                    - it returns an array of two values 
+                        ex. const [count, setCount] = useState(0)
+                        
+                        - here the 'count' represents our current state
+                        - the 'setCount' represents a function for updating our state
+                            - to update it, you must use the current count
+                            - you treat count as an immutable object, so you set it as setCount(count + 1);
+
+                - useEffect
+                    - the second most important hook
+                    - this is basically a function that will be called on any update to a component
+                    - there are 3 main stages of a component lifecycle 
+                        1) Mount (creation)
+                        2) Update
+                        3) Unmount (delete)
+
+                - useContext
+
+            2) Additional Hooks
+                - useReducer
+                - useCallback
+                - useMemo
+                - useRef
+                - useImperativeHandle
+                - useLayoutEffect
+                - useDebugValue

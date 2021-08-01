@@ -40,4 +40,24 @@ React JS
         - Performance & Testing
         - Very very popular in the industry right now
     
+    What Problem does React Solve?
+        - In vanillaJS, there are two primary ways of manipulating the DOM/generating UIs
+            1) manage state using the dom itself
+                - basically all of your data is kept as part of the dom itself
+                - if you want to add something, you make a new element and append it to the DOM
+                - if you remove something, simply remove it from the dom
+                    - the issue here is that all of our UI is disconnected
+                    - some of it is handled in JS, some of it is handled in HTML, on every call we have to process and create DOM elements
+            2) using only JS to render our content
+                - basically, anytime something is added or removed, etc. we rerender the content on our page
+                - this way, all of our rendering info is in a single JS file, and not spread amongst our project
+                    - the issue with this is we would be repainting the DOM everytime we update ANYTHING, not good
+                        - DOM operations are expensive, and will slow our app significantly if we rerender everything all the time
+
+        - React aims to solve all of these issues and take advantage of all of their benefits
+            - combines blazing fast page updates & UI centralization
+            - now React is not the only tool that solves this problem elegantly
+                - Vue and Angluar also do this
+                - React is just the simplest and most unopinionated version of them
+            - it lets us keep our data outside of the DOM and rerender the single elements that change
     

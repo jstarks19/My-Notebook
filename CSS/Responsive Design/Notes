@@ -1,0 +1,13 @@
+Responsive Design
+
+
+    Media Queries
+        - modify css based on size of device
+        - all begin
+            @media 
+        - common options 
+            - width => more common is min-width & max-width 
+            - height
+            - orientation 
+        - and syntax
+            @media (height: 100px) and (width: 200px)

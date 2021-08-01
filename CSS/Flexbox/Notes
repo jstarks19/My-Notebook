@@ -1,0 +1,19 @@
+Flexbox
+    - made up of two axis
+        - Main Axis 
+            - default is horizontal
+            - it is formatted using justify content 
+        - Cross Axis 
+            - default is vertical 
+            - it is formatted using align items
+    flex: <grow> <shrink> <basis>
+    flex-wrap:
+        - wrap
+        - no-wrap
+    flex-basis:
+        - defines the initial size of an element before more space is distributed
+    flex-grow:
+        - controls the amount of available space an element should take up
+        - accepts a number value (unitless)
+    flex-shrink:
+        - controls how items shrink in their containers

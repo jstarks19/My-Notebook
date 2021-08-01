@@ -1,0 +1,84 @@
+WebPack
+
+    - In essence, WebPack is a module bundler
+        - it takes different dependencies, creates modules, and bundles the entire group up into manageable output files
+    
+    - It is especially useful in Single Page Applications (SPAs)
+        - which is the current 'de facto' standard for Web Apps
+
+    - In general, when adding script files to an HTML doc, order matters
+        - if one file depends on another, the latter must come first
+        - now scaling this up to a full blown application will result in a nightmare web of dependencies
+        - WebPack helps us convert these dependencies into modules
+            - which provide a tighter scope 
+            - webpack can help manage our dependencies as well 
+    
+    - WebPack also offers bundling
+        - where it will take all of our dependencies and bundle them into a single file
+        - this allows for only a single file to be needed & downloaded
+            - much faster and more reliable 
+    
+    - So, in general, WebPack provides two main services
+        - Modularisation
+        - Bundling
+
+    Configuration
+        - filename for a WebPack config file is
+            webpack.config.js
+
+    Initial Configuration 
+        ex. 
+        var path = require('path');
+        module.exports = {
+            entry: './src/index.js',    
+            output: {
+                path: path.resolve(__dirname, './dist/),
+                filename: 'bundle.js
+            }
+        }
+
+        entry           : the main entry point of the application, where the application logic will live
+        output.path     : an output path (absolute) for the resulting bundle
+                            - by using node's path module, we can make this simple and cross-platform 
+        output.filename : the filename of the resulting bundle
+                            - by convention, this is called "bundle.js"
+        __dirname       : a Node utility variable, which is the directory name of the current file
+
+        Watch 
+            - we can also include a 'watch' key and set it's value to true to continuously 'watch' our changed and rebundle
+
+        Dev Server
+            $ npm i webpack-dev-server
+            - new key in config called
+                devServer: {
+                    port: 8080,
+                    contentBase: path.resolve(__dirname, 'dist')
+                }
+            - 'hot':true
+                - will hotswap out the modified files in memory without refreshing our pages
+            - NOTE: devServer does not actually output the bundled file into our dist directory
+                - it simply creates a file in memory for us to use 'live'
+                - so while we don't get a bundled output, we get much faster live updates 
+
+        Mode (DEV vs. PROD)
+            - we can also specify a key "mode" to indicate what state our current project is in/should be bundled as
+                mode: "production"
+                mode: "development"
+
+    Loaders
+        - what is a loader?
+            - a loader is a way to preprocess a file
+            - think converting scss to css, typescript to javascript, etc. 
+            - they are essential for packing/bundling any file that is not vanilla javascript
+            - a loader exists for pretty much any file type you could think of
+    
+    Plugins
+        - allows you to tap into the lifecycle of the bundler compilation
+
+
+
+
+
+    NPM scripts 
+        - specify a script in package.json
+        - npm run <script name>

@@ -1,0 +1,51 @@
+Database Paradigms
+
+    Seven Database Paradigms (there are more than 7)
+        1)  Key-Value Database
+                - structured like a JavaScript Object where you use keys to access values
+                - unlike most databases, redis stores its data in RAM
+                    - this limits the amount of data able to be stored
+                    - but increases the speed at which you can access data significantly
+                - the queries available are rather simple
+                    - you tradeoff more complicated data aggregation for speed
+                - should not be used for the main data in your application
+                    - but is very useful as a cache storage to more readily serve content
+                ex. Redis, Memcached
+
+        2) Wide Column Database
+                - this is basically a key value store, except with the values acting as more of a list of data
+                - keys are within the keyspace, they point to column families which point to ordered rows
+                - uses its own structure language called CQL
+                    - advantage     : very similar to SQL syntax 
+                    - disadvantage  : no complex join operations or fancy queries
+                - much easier to scale up
+                    - can scale horizontally
+                - good for scaling time data, such as timestamps, or in netflix's case, watch trends
+                ex. Cassandra, Hbase
+
+        3) Document Database
+                - in this paradigm, you have documents
+                    - each document is a container for key value pairs
+                    - they are unstructured and don't require a schema 
+                - each document is stored in a collection
+                    - fields within a collection can be indexed  
+                    - and collections can be placed in a logical hierarchy
+                - we can model and retrieve relational data very easily
+                    - advantage     : Schema Less, Relational Queries 
+                    - disadvantage  : No Join operation
+                - they do not have normalized forms
+                    - so there is more object embedding going on
+                    - good for a lot of reads, but writing is more complex
+                - a very general purpose style of database
+                    - good for mobile games, IOT, most apps
+                    - not ideal for Graph structures
+                        - as in social networks 
+                ex. MongoDB, Firestore, DynamoDB
+
+        4) Relational Database 
+                ex. PostgreSQL, MySQL, SQLite
+        5) 
+        
+        6) 
+        
+        7) 

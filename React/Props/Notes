@@ -1,0 +1,16 @@
+Properties in React
+
+    - in order to pass properties down to components, we use the standard HTML syntax for setting attributes
+        ex. <Hello to="Ringo" />
+    
+    - properties are immutable
+        - CRUCIAL!
+        - you cannot change these, they are read-only
+        - we also cannot add values to props
+    
+    - what types of data can we pass as properties?
+        - basically anything
+        - use braces to pass more complicated data into our components
+
+    - defining default props
+        - create a static defaultProps object containing the default properties

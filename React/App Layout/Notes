@@ -1,0 +1,6 @@
+Layout Out a React App
+
+    - It is a general convention to have a single top level component called App
+        - App is responsible for rendering all of the other components
+
+    - For every component, you should create a class called <Component name>.js

@@ -1,0 +1,82 @@
+JavaScript Design Patterns
+
+    The most popular design patterns can be categorized in a number of ways
+        
+        Creational design patterns
+            - these patterns are responsible for optimizing object creation
+            - standard object creation can often lead to added unecessary complexity
+            - some popular pattens:
+                
+                Abstract Factory Method
+                    - used to provide the client with a  set of related or dependant objects
+                    - the family of objects created by the factory are determined at run-time
+                
+                Builder
+                    - used to create complex objects with constituent parts that must be created in the same order
+                    - external class controls the construction
+                
+                Factory Method
+                    - used to replace class constructors
+                    - 
+
+                Prototype
+                
+                Singleton
+
+
+        Structural design patterns
+            - these patterns have more to do with object relationships
+            - they ensure that if one portion of the system needs to change, that it does not rock the entire system
+            - some popular patterns:
+
+                Adapter
+
+                Bridge
+
+                Composite
+
+                Decorator
+
+                Facade
+
+                Flyweight
+
+                Proxy
+
+        Behavioral design patterns
+            - these patterns recognize, implement, and improve communication between disparate objects in a system
+            - ensure all parts of the system have synchronized information
+
+                Chain of Responsibility
+
+                Command
+
+                Iterator
+
+                Mediator
+
+                Memento
+
+                Observer
+
+                State
+
+                Visitor
+
+        Concurrency design patterns
+            - these patterns help manage multi-threaded programs 
+
+                Active Object
+
+                Nuclear Reaction
+
+                Scheduler
+
+        Architectural desing patterns
+            - patterns used for architectural purposes
+
+                MVC (model-view-controller)
+
+                MVP (model-view-presenter)
+
+                MVVM (model-view-view model)

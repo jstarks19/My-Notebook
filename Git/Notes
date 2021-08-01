@@ -1,0 +1,76 @@
+Git
+
+
+    "origin"    : this is both the default and convention for the remote repository 
+    "staging"   : the staging of a file, is basically "getting it ready" to be committed, it is in the waiting room 
+    "HEAD"      : the symbolic name for the currently checked out commit
+
+    Commands
+        
+        BASIC BNBs
+            $ git --version
+                - check git version
+                
+            $ git config --global init.defaultBranch main 
+                - set default git branch to main
+            
+            $ git remote -v 
+                - display current git repo 
+            
+            $ git clone <repo URL>
+                - this will clone the URL repo into the current repository
+
+            $ git status 
+                - shows the current status of your staging area
+                - "red" - this means the files are unstaged
+                - "green" - any files highlighted in green are in the staging area
+            
+            $ git add <file>
+                - this adds your file to the staging area 
+                - the "staging area" is like a waiting room for your commits
+                
+                Alt Cmnds
+                    $ git add .
+                        - adds all files in the current directory to the staging area
+                    $ git add -A
+                        - adds ALL unstaged files to the staging area
+
+            $ git commit -m "commit message"
+                - this commits your staging area
+                - it takes a snapshot of your staging area
+                - git considers this your most recent state for this repo  
+            
+            $ git log 
+                - gives you a list of all commits
+                    - when they were made
+                    - what the message was with them 
+                
+            $ git push origin main
+                - pushing your commit to the main branch
+                - this takes your latest snapshot, and sends it to your main git repo as the "defacto" version
+        
+        BRANCHING - division of labor
+            $ git branch <name>
+                - creates a branch with provided name
+            
+            $ git checkout <name of branch>
+                - checkout a particular branch
+
+            $ git checkout -b <name of branch>
+                - create a new branch AND checkout that branch
+        
+        MERGING - combining branches
+            $ git merge <branch name>
+                - merges the branch into the current branch
+            
+            $ git checkout <branch name>; git merge main
+                - checkout the branch, merge it into main
+        
+        REBASING - copy commits of master onto a branch
+            $ git rebase main
+                - updates your branches commit history with main
+                - this means that when main merges your branch in, your commit history will be entirely linear
+                - removes the unecessary commit caused by mergining immediately
+
+            $ git rebase <branch name>
+                - will update main's commits with that of the branch

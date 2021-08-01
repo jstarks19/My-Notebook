@@ -1,0 +1,62 @@
+Grid
+
+    A CSS display format that is specifically built for laying out content
+
+
+    Terminology:
+
+        Grid Container 
+            - direct parent of all of the grid items
+            - whichever element has the display: grid property set
+
+        Grid Item
+            - children of the grid container
+            - direct descendants of the grid container
+
+        Grid Line
+            - The dividing lines that make up the structure of the grid
+            - can be vertical (column grid lines) or horizontal (row grid lines)
+
+        Grid Cell
+            - Basically any naturally divided cell produced from the grid lines
+            - most often these will contain elements (grid items)
+
+        Grid Track
+            - space between two adjacent grid lines
+
+        Grid Area 
+            - total space surrounded by four grid lines
+            - not simply a cell or a block of four, ANY four grid lines that form a box
+
+
+    Properties for Parent
+
+        display: grid | inline-grid
+            - this creates a grid element/container
+        
+        grid-template-columns
+        grid-template-rows
+            - defines the columns and rows of the grid with space seperated values
+            - the values represent track sizes while the space between could be representative of the grid lines
+            options:
+                <track-size> : can be a length, percentage, or fraction of free space
+                <line-name>  : an arbitrary name of your choosing
+            - in order to add names to grid lines, you must use bracket syntax
+                i.e : grid-template-columns: [first] 10px [line2] 10px [line3]
+            - you can include: repeat(3, 20px) to repeat a 20px track 3 times 
+
+        grid-template-areas
+            - defines a template by referencing the names of the grid areas
+                - grid areas are specified using the grid-area property name
+            options
+                <grid-area-name> : name of the grid area 
+                .       : an empty grid cell
+                none    : no grid areas 
+        
+        grid-template
+            - shorthand for grid-template-rows, grid-template-columns, and grid-template-areas
+
+
+
+    Properties for Children
+        

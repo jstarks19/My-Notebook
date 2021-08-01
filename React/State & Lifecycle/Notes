@@ -1,0 +1,15 @@
+State
+
+    - state is similar to props, however it is private and fully controlled by the given component
+
+    - in a component class
+        - you initialize state in the constructor
+            ex. this.state = etc. 
+        - and you update state using
+            this.setState({statename: value})
+        - there is a second form of setState that is needed when 
+
+    - methods
+        - componentDidMount
+            - to be used to set up state values on creation of a component
+        - componentWillUnmount

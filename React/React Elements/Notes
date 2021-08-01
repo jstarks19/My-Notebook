@@ -1,0 +1,20 @@
+Elements
+
+    An element describes what you want to see on the screen
+
+    Note: elements are not components, components are composed of elements
+
+
+    An Example
+        - if there is a div in your HTML file
+            i.e. <div id="root"></div>
+        - we refer to this as a 'root' DOM node, because everything within it will be managed by the React DOM
+        
+    - react elements are immutable
+        - meaning, once they are created, they and their children cannot be changed (nor can their attributes)
+        - think of an element as a single frame of a movie
+    
+    - in practice, most react apps only call ReactDOM.render() once 
+    - react will only ever update what is necessary to update
+        - react compares it's current state to it's previous state and makes minimum adjustments to the DOM 
+        - in general, it is better to think about the current state & states in general as frames in an animation

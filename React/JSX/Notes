@@ -1,0 +1,19 @@
+JSX - JavaScript Syntax Extension
+
+
+
+    This is basically JavaScript and XML/HTML combined
+        - it looks a lot like a templating language, though it offers the full power of JavaScript
+    
+    - instead of seperating technologies, by including their markup & logic in seperate files
+        - React decides to seperate concerns, by using Components which contain both the Markup and the Logic for elements
+    - JSX is always escaped before rendering
+        - this entirely prevents XSS attacks from occurring
+
+    - Babel is what helps us compile JSX calls down to pure JavaScript
+
+    - To embed regular JavaScript into JSX we must use curly braces 
+        i.e. <h1> My name is {getName()} </h1>
+    
+    - Common practice for inserting a number of items from a list
+        - is to use array.map(fn)

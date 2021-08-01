@@ -1,0 +1,115 @@
+React Components
+
+    - the main building blocks of react 
+    - "Components let you split the UI into independent, reusable pieces, and think about each piece in isolation"
+    - combine UI and view logic
+    - they are classes that know how to render themselves into HTML
+    - the main idea is to compose entire functional components from smaller self contained components
+
+    
+    Setting up a Server 
+        - use vscode liveserver
+    
+    Writing a component
+        - if not using 'create react app'
+            - we have to manually include script tags for react and react dom CDN
+            - also have to include babel
+                - allows us to use JSX in javascript
+            - include a final script tag with our component reference
+                ex. <script src="index.js" type="text/jsx></script>
+
+        - two main ways of writing a component
+            1) Class
+                - the "traditional" React component
+                - write logic in a JS Class
+                - must include a 'render' method 
+            2) Function
+                - Historically used for dumb or simpler components 
+                - Write logic in a JS Function
+                - No render method needed, just return content 
+            
+            What is the difference?
+                - Both can accept props and render content
+                - Historically, function components couldn't use important features like
+                    - State
+                    - Lifecycle Methods 
+                - With the introduction of Hooks, we can now write full-featured function components!!
+
+        
+        - every react component class we create needs to extend React.Component  
+
+        ex. 
+            class Hello extends React.Component {
+                render() {
+                    return <h1>Hello, World!</h1>;
+                }
+            }
+
+            ReactDOM.render(<Hello />, document.getElementById('container-name'));
+        
+        - note, we can only return a single element
+            - that said, we can certainly enclose other elements within a single element
+            - but in the end, we should only be returning a single enclosed element 
+    
+    Functions vs. Classes
+        - components render/return JSX (JavaScript Syntax Extension)
+        - components can also take in "props"
+
+        ex. 
+            class Hello extends React.Component {
+                render() {
+                    return <h1>Hello, World!</h1>;
+                }
+            }
+
+            const Hello = () => {
+                return (
+                    <h1>Hello, World!</h1>
+                )
+            }
+    
+    State
+        - Components can have "state" which is basically just an object that determines how a component renders and behaves
+        - "App" or "Global" state refers to state that is available to the entire UI, not just a single component
+        - Prior to React 16.8 we had to use class based components to use state
+        - Now we can use functional components with "hooks"
+
+        - You can use something like ContextAPI or 3rd party Redux to manage global states 
+    
+    React Hooks
+        - These are functions that let us 'hook' into the React state and lifecycle features from function components 
+        - useState - Returns a stateful value and a function to update it
+        - useEffect - Perform side effects in function components
+        - useContext, useReducer, useRef - other ones (look it up!)
+
+    Returning From a Function
+        - when returning JSX from a react hook or class, you must return a single element
+        - it can have nested elements, but there should only be a single encapsulating element returned 
+        - you can also technically return multiple elements if you use an empty set of angle brackets
+            ex.
+                function App() {
+                    return (
+                        <>
+                            <h1>Hello From React</h1>
+                        </>
+                    )
+                }
+
+    Inserting JS variables into JSX
+        - you can evaluate variables to their actual values in JSX by using {varName}
+        - neat: can use ternary operators within these {condition ? "Hi" : "hello" }
+
+    Note: always begin your component names with a Capital letter
+        - lowercase elments are treated as pure DOM elements in react
+    
+    A good rule of thumb
+        - if part of your UI is used often or is complex enough on its own
+            - it is a good time to start abstracting them to components
+    
+
+    Props
+        It is recommended that you name props for components from their own point of view
+            - rather than from the app's point of view
+        
+        - ALL react components must act as pure functions with respect to their props
+            - they are read only & you must not modify the value of a prop

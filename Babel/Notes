@@ -1,0 +1,28 @@
+Babel
+
+    What is it????
+        - Babel is a JavaScript Transpiler
+        - It converts the current JavaScript into the older (and more compatible) ES5 format
+
+    How to install it?
+        $ npm i -D @babel/core @babel/cli
+
+        Why install it as a local dependency?
+            1) Different projects on the same machine can depend on different versions of Babel allowing you to update one at a time
+            2) No implicit dependency on the environment you are working in. Making your project far more portable
+    
+    How to use it?
+        - often you will want to include a script for babel in your package.json config
+            i.e. 
+            "scripts":{
+                "build": "babel src -d lib"
+            }
+        
+        - after that, you want to install the preset environment for babel
+            - the preset-env is a general environment set up for ES2015+
+            $ npm i -D @babel/preset-env
+        
+        - after that, you need to setup a babel.config.json file
+            {
+                "presets": ["@abbel/preset-env"]
+            }

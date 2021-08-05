@@ -67,3 +67,64 @@ Sass
         - basically you can lighten or darken a given color using the lighten and darken functions
         ex. background-color: lighten(red, 10%);
             color: darken(blue, 10%);
+
+    Partials 
+        - seperate files used to hold segments of CSS 
+        - good way to keep similar code seperate
+        - names for partials start with an underscore
+        - use the @import directive to import the partial file
+
+
+    
+    EXAMPLES
+
+    Variables
+        $color-primary: red;
+
+    Mixin
+        @mixin mixin-name($p1, $p2) {
+            background-color: $p1;
+            color: $p2;
+        }   
+
+        usage: @include mixin-name(red, blue);
+
+    Looping
+        for directive
+            @for $i in 1 through 10 {
+                .class-#{$i} {
+                    width: 10px * $i;
+                }
+            }
+
+            through vs. to
+                - 1 through 3   => 1,2,3
+                - 1 to 3        => 1,2
+
+
+        each directive 
+            @each $color in red,black,blue {
+                .bg-#{$color} {
+                    background-color: $color;
+                }
+            }
+
+            can also loop through a var list
+
+        while directive
+            $x: 1;
+            @while $x < 6 {
+                .text-#{$x} {
+                    font-size: 15px * $x;
+                }
+                $x: $x + 1;
+            }   
+    
+    Extending
+        .class1 {
+            height: 10px;
+        }
+        .class2 {
+            @extend .class1;
+            width: 10px;
+        }

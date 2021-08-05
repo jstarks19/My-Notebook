@@ -56,6 +56,8 @@ WebPack
                 }
             - 'hot':true
                 - will hotswap out the modified files in memory without refreshing our pages
+                - need to include a line in the module
+                    if (module.hot) { module.hot.accept() }
             - NOTE: devServer does not actually output the bundled file into our dist directory
                 - it simply creates a file in memory for us to use 'live'
                 - so while we don't get a bundled output, we get much faster live updates 
@@ -71,6 +73,39 @@ WebPack
             - think converting scss to css, typescript to javascript, etc. 
             - they are essential for packing/bundling any file that is not vanilla javascript
             - a loader exists for pretty much any file type you could think of
+
+        Some Important Loaders
+            - Babel
+                $ npm i babel-loader @babel/core @babel/preset-env @babel/preset-react
+                - preset env is the standard for using the newest features/file types of babel
+                - preset react is specifically looking for jsx code
+            - CSS
+                $ npm i css-loader       : needed for importing css files
+                $ npm i style-loader     : needed to load actual css into the browser
+            - SASS
+                $ npm i sass sass-loader : needed to use SASS 
+
+
+        How to use it
+            - in webpack.config.js
+                module: {
+                    rules: [
+                        {
+                            test: /\.scss/,
+                            use: ['style-loader', 'css-loader', 'sass-loader']
+                        },  
+                        {
+                            test: /\.js$/,
+                            exclude: /(node_modules)/,
+                            use: {
+                                loader: "babel-loader",
+                                options: {
+                                    presets: ['@babel/preset-env', '@babel/preset-react']
+                                }
+                            }
+                        }
+                    ]
+                }
     
     Plugins
         - allows you to tap into the lifecycle of the bundler compilation

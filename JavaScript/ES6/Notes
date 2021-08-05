@@ -1,0 +1,27 @@
+EcmaScript 6 Additions
+
+    - Published in 2015, the EcmaScript 6 standard gave way to a number of QOL improvements in JS
+    - Here are the notable ones
+
+
+
+        1) Constants
+        2) Block Scoped Variables and Functions
+        3) Arrow Functions
+        4) Default Function Parameters 
+        5) Rest function parameters 
+        6) String Templating
+        7) Object Properties
+            ex. let x = 1, y = 2;
+                let a = {x, y} 
+        8) Formal Class Definitions 
+            - syntactic sugar on Object prototypes
+            - Getters and Setters (use _varname when declaring the set or get vars)
+            - Inheritance (extends & super)
+            - Static (method & props)
+            - Class expressions
+            - 
+        9) ES6 Modules
+        10) Iterators & Generators & yield
+        11) Promises, Promise Chaining, Promise all, Promise race
+        12) Map & Set 

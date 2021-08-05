@@ -11,8 +11,8 @@ React Hooks
     
     - React has 10 built in hooks
         - they are divided into two categories
-            1) Basic Hooks
-                - useState(initial-state)
+            I) Basic Hooks
+                1) useState(initial-state)
                     - the most important and most often used hook
                     - takes in one argument, an initial state value
                     - it returns an array of two values 
@@ -23,21 +23,58 @@ React Hooks
                             - to update it, you must use the current count
                             - you treat count as an immutable object, so you set it as setCount(count + 1);
 
-                - useEffect
+                2) useEffect
                     - the second most important hook
                     - this is basically a function that will be called on any update to a component
                     - there are 3 main stages of a component lifecycle 
                         1) Mount (creation)
                         2) Update
                         3) Unmount (delete)
+                    - you can use this to replace the whole
+                        - componentDidMount
+                        - componentWillUnmount
+                    - since useEffect can be optionally passed a dependence array
+                        - if you pass nothing in, it will only be called once on mount
+                    - in order to add an unmount function, you must return a function from the useEffect call 
+                    - can have multiple use effects mounted one after the other, they cascade 
+                    - practical use cases
+                        - api fethces 
+                        - logging mouse movement/inputs
 
-                - useContext
 
-            2) Additional Hooks
-                - useReducer
-                - useCallback
-                - useMemo
-                - useRef
-                - useImperativeHandle
-                - useLayoutEffect
-                - useDebugValue
+                    ex. 
+                        useEffect(() => {
+                            console.log('Mounted');
+
+                            return () => {
+                                console.log('Unmounted');
+                            }
+                        }, [])
+
+
+                3) useContext
+
+            II) Additional Hooks
+                4) useReducer
+                5) useCallback
+                    - good for preventing a function from being created on every render
+                6) useMemo
+                7) useRef
+                    - used to store a refrence to another Component
+                    - can also be used to store primitive values
+                        - what's interesting is that you can directly update these values, unlike useState
+                            - and the update does not cause rerenders
+                    - check if a component is currently mounted 
+                        - if you go to update a component when it is not mounted, react will throw an error
+                    - treat the ref as more of an instance variable that you can use during mounting
+                        - as opposed to state to maintain for the entire class
+
+                8) useImperativeHandle
+                9) useLayoutEffect
+                    - niche use case
+                    - it provides the same functionality as useEffect
+                        - however, the difference is that useLayoutEffect fires synchronously after all DOM mutations
+                    - it is useful for measuring element sizes after render
+                        - or essentially anything that requires us to grab DOM information post render 
+
+                10) useDebugValue

@@ -22,30 +22,116 @@ WebPack
         - Modularisation
         - Bundling
 
-    Configuration
-        - filename for a WebPack config file is
-            webpack.config.js
+    Key Concepts to Know
 
-    Initial Configuration 
-        ex. 
-        var path = require('path');
-        module.exports = {
-            entry: './src/index.js',    
-            output: {
-                path: path.resolve(__dirname, './dist/),
-                filename: 'bundle.js
-            }
-        }
 
-        entry           : the main entry point of the application, where the application logic will live
-        output.path     : an output path (absolute) for the resulting bundle
-                            - by using node's path module, we can make this simple and cross-platform 
-        output.filename : the filename of the resulting bundle
-                            - by convention, this is called "bundle.js"
-        __dirname       : a Node utility variable, which is the directory name of the current file
+        Creating a Config
+            $ touch webpack.config.js
 
+        Entry
+            - the entry point for your application
+            - where you want webpack to begin developing its dependency graph 
+            
+            defaults:
+                location: ./src/index.js 
+            
+            example:
+                entry: './src/index.js'
+
+        Output
+            - tells webpack where exactly to emit these bundles 
+            - also tells webpack how to name the output files
+
+            defaults:
+                location: ./dist
+                bundled filename: main.js    
+
+            example:
+                ^ const path = require('path') ^
+
+                output: {
+                    path: path.resolve(__dirname, './dist') 
+                    filename: 'webpack.bundle.js'
+                }
+
+        Loaders
+            - out of the box, WebPack only supports JSON and JavaScript files
+            - loaders circumvent this by allowing webpack to process other types of files
+                - & convert them into valid modules that can be added to the dependency graph
+            - loaders in general have two properties
+                - test => identifies which file(s) should be transformed (use regex here)
+                - use  => idicates which loader should be used to do that transforming
+
+            example:
+                module: {
+                    rules: [ 
+                        {
+                            test: /\.jsx?$/,
+                            use: 'babel-loader',
+                        },
+                        {
+                            test: /\.css$/,
+                            use: [
+                                { loader: 'style-loader'}, 
+                                { loader: 'css-loader'},
+                            ],
+                        }
+                    ],
+                }
+
+            Some Notable Loaders
+                Raw (for text files)
+                    name: raw-loader
+                    cmd : $ npm i raw-loader
+
+                Babel (for working with ES6+ imports & JSX)
+                    name: babel-loader
+                    cmd : $ npm i babel-loader 
+                    note: will also likely need @babel/core @babel/preset-env @babel/preset-react
+
+                Stylesheets (for injecting stylesheets into the app)
+                    name: style-loader
+                    cmd : $npm i style-loader
+                    note: cannot use style-loader on its own (must use with a stylesheet loader)
+                    
+                CSS (for importing css files)
+                    name: css-loader
+                    cmd : $npm i css-loader
+
+                SASS (for using the SASS preprocessor)
+                    name: sass-loader
+                    cmd : $npm i sass-loader
+                    note: will also likely need to install sass 
+
+        Plugins
+            - a plugin offers a wider variety of functions compared to loaders
+                - including but not limited to
+                    - bundle optimization, asset management, and injection of environment variables 
+            - in order to use a plugin you must require it at the top of your config file and add it to the plugins array
+            - everytime a plugin is used within your config, you must call it with the new operator 
+                - this is because you can use it multiple times in the same config 
+            
+            example:
+                ^ const HTMLWebpackPlugin = require('html-webpack-plugin') ^
+
+                plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })]
+
+                // this plugin injects your bundled modules into a dist html file 
+        
+        Mode 
+            - the mode parameter is used to determine what mode this config is for (what optimizations will take place)
+                modes: none, production, development
+            
+            example: 
+                mode: 'production'
+        
+        
+
+
+
+    Additional Options to Add to Config
         Watch 
-            - we can also include a 'watch' key and set it's value to true to continuously 'watch' our changed and rebundle
+            - we can also include a 'watch' key and set it's value to true to continuously 'watch' our changes and rebundle
 
         Dev Server
             $ npm i webpack-dev-server
@@ -62,58 +148,3 @@ WebPack
                 - it simply creates a file in memory for us to use 'live'
                 - so while we don't get a bundled output, we get much faster live updates 
 
-        Mode (DEV vs. PROD)
-            - we can also specify a key "mode" to indicate what state our current project is in/should be bundled as
-                mode: "production"
-                mode: "development"
-
-    Loaders
-        - what is a loader?
-            - a loader is a way to preprocess a file
-            - think converting scss to css, typescript to javascript, etc. 
-            - they are essential for packing/bundling any file that is not vanilla javascript
-            - a loader exists for pretty much any file type you could think of
-
-        Some Important Loaders
-            - Babel
-                $ npm i babel-loader @babel/core @babel/preset-env @babel/preset-react
-                - preset env is the standard for using the newest features/file types of babel
-                - preset react is specifically looking for jsx code
-            - CSS
-                $ npm i css-loader       : needed for importing css files
-                $ npm i style-loader     : needed to load actual css into the browser
-            - SASS
-                $ npm i sass sass-loader : needed to use SASS 
-
-
-        How to use it
-            - in webpack.config.js
-                module: {
-                    rules: [
-                        {
-                            test: /\.scss/,
-                            use: ['style-loader', 'css-loader', 'sass-loader']
-                        },  
-                        {
-                            test: /\.js$/,
-                            exclude: /(node_modules)/,
-                            use: {
-                                loader: "babel-loader",
-                                options: {
-                                    presets: ['@babel/preset-env', '@babel/preset-react']
-                                }
-                            }
-                        }
-                    ]
-                }
-    
-    Plugins
-        - allows you to tap into the lifecycle of the bundler compilation
-
-
-
-
-
-    NPM scripts 
-        - specify a script in package.json
-        - npm run <script name>

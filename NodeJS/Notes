@@ -52,4 +52,6 @@ NPM
             - specifically from CLI call 'npm install' in the dir with package.json
             - all of the dependencies will then be installed within your directory
 
+    - NPM Scripts 
+        - call npm run <script name>
 

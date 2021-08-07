@@ -1,15 +1,24 @@
 State
 
     - state is similar to props, however it is private and fully controlled by the given component
+    - it is the internal data specific to a given component
 
-    - in a component class
+    Component Class
+        
         - you initialize state in the constructor
             ex. this.state = etc. 
         - and you update state using
             this.setState({statename: value})
-        - there is a second form of setState that is needed when 
+        - you will often want to keep track of several states at a time within a component 
+        - if the component you are working with is stateless
+            - you can omit the constructor
+        - should call super(props) in your component's constructor
+            - this will 'register' this component as an actual React component
 
-    - methods
-        - componentDidMount
-            - to be used to set up state values on creation of a component
-        - componentWillUnmount
+        Methods
+            - componentDidMount
+                - to be used to set up state values on creation of a component
+            - componentWillUnmount
+                - to be used to clean up values on unmounting/destruction of a component
+            - setState
+                - to be used to update the state of our components 

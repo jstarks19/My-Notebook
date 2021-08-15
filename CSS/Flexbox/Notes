@@ -6,6 +6,59 @@ Flexbox
         - Cross Axis 
             - default is vertical 
             - it is formatted using align items
+
+
+
+    Parent Flex Container Properties
+        
+        display: flex;
+            - creates the flexbox parent container
+        
+        flex-direction: [ row (default) | column | row-reverse | column-reverse ]
+            - determines which axis is what
+            - i.e. if direction is row, the main axis is horizontal & the cross axis is vertical
+                   if direction is col, vice versa
+
+        flex-wrap: [ wrap | nowrap | wrap-reverse ]
+            - by default flex items try to squish onto a single line
+            - this allows items to wrap onto the next line
+                - this happends when space is not available for the item
+        
+        justify-content: [ flex-start | center | space-between | space-around | space-evenly | flex-end ]
+            - position items on the MAIN axis
+        
+        align-items: [ flex-start | center | baseline | stretch | flex-end ]
+            - position items on the CROSS axis
+
+        flex-flow: 
+            - very nice shorthand for both flex-direction and flex-wrap
+            
+            
+
+    Children Flex Item Properties
+
+        order: [ number value ]
+            - allows you to assign an order to flex items within a flex container
+        
+        flex-grow: [ number value ]
+            - defines the ability for a flex item to grow if necessary 
+            - number value represents a proportion
+                - dictates the amount of available space inside the flex container the item should take up 
+        
+        flex-shrink: [ number value ]
+            - defines the ability for an item to shrink
+        
+        flex-basis: [ any length value ]
+            - defines the default size of an element before remaining space is distributed 
+        
+        flex: [ flex-grow flex-shrink flex-basis]
+            - shorthand for all three of the previous ones
+            - preferred & common syntax
+        
+        align-self: [ flex-start | center | ... ]
+            - allows a derived child element to overrride the existing alignment options for itself 
+
+
     flex: <grow> <shrink> <basis>
     flex-wrap:
         - wrap

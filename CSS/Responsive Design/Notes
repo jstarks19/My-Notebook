@@ -11,3 +11,77 @@ Responsive Design
             - orientation 
         - and syntax
             @media (height: 100px) and (width: 200px)
+        
+    Breakpoints
+        - 0px   - 480px  : smaller smartphones
+        - 481px - 768px  : tablets & larger smartphones
+        - 769px - 1279px : laptops & larger tablets in landscape & small desktops
+        - 1280px+        : larger desktops & monitors  
+
+    
+    Best Units for Responsive Design
+        - rem
+            - relative to the root element 
+            - commonly used for font sizes 
+            - default font size is 16px
+        - em
+            - related to the font size of the current element
+            - often used with padding and margin bc of font differences
+        - %
+            - relative to the parent element
+            - often used as the width and height of an element 
+            - rarely used for font sizes
+            - very useful for responsive layouts
+
+        -vw & vh
+            - % of the current viewport height/width
+            - vh useful for dividing content on a page
+            - useful for an element whose size is dependant on the viewport
+                - like a sidebar
+                - or navbar
+    
+    Flex vs. Grid vs. Floating
+        - THEY ARE ALL USEFUL
+        - consider them all tools in your toolbelt 
+    
+        Flexbox 
+            - lining things up in one direction
+            - one line at a time
+        
+        Grid 
+            - good for lining up things in more than one direction 
+            - 2 directions at a time
+            - one thing that grid brings to the table that flex does not
+                - overlapping of elements
+    
+    Move away from standard 12 column bullshit
+        - DESIGN
+            - color palettes 
+            - typography palettes
+            - LAYOUT palettes
+    
+
+    Newer Concepts to Learn
+        - CSS Grid
+        - CSS Flexbox
+        - Alignment
+        - Writing Modes
+        - Multicolumn
+        - Viewport Units
+        - Transforms
+        - Object Fit
+        - Clip-path
+        - Masking
+        - Shape-outside
+        - Initial-letter
+
+    Older Concepts that are still worth Learning
+        - Flow
+        - Floats
+        - Block
+        - Inline
+        - Inline-block
+        - Display: table
+        - Margin
+        - Negative Margins
+        - Padding

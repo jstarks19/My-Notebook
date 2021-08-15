@@ -2,6 +2,40 @@
 Notes on key JS things to know
 
 
+JS Types
+    Primitives
+        - number
+        - bigint     type: bigint NOTE: end numbers with 'n' to be declared a big int, or wrap them in BigInt()
+        - string     type: string 
+        - boolean    type: boolean
+        - null       type: object
+        - undefined  type: undefined
+    Reference Types
+        - object     type: object
+        - array      type: object
+        - function   type: object
+
+Function Types
+    Standard : binds this
+        function fun() {
+
+        }
+
+    Expression : binds this
+        let fun = function() {
+
+        }
+    
+    Arrow Functions : does not bind this
+        let fun = () => {
+
+        }
+        OR 
+        () => console.log('true')
+
+
+    a function declaration is hoisted, but a function expression is not
+
 
 String Methods
     - can chain these methods together
@@ -43,8 +77,9 @@ Math Object
 
 Equality
     ==  : non-type equality
+            - it will try to coerce both values to be the same type
     === : strict-equality, checks type as well 
-    - they check the reference, not the contents
+            - they check the reference, not the contents
 
 Truthy & Falsey
     - truthy 

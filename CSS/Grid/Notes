@@ -31,7 +31,7 @@ Grid
 
     Properties for Parent
 
-        display: grid | inline-grid
+        display: [ grid | inline-grid ]
             - this creates a grid element/container
         
         grid-template-columns
@@ -55,8 +55,53 @@ Grid
         
         grid-template
             - shorthand for grid-template-rows, grid-template-columns, and grid-template-areas
+        
+        justify-items: [ start | end | center | stretch ]
+            - aligns items along the inline axis (horizontally)
+        
+        align-items: [ start | end | center | stretch ]
+            - aligns items along the perp axis (vertically)
+        
+        place-items: [start | end | center | stretch ]
+            - basically a shortcut for both justify & align items in one line
 
+        justify-content: [ start | end | center | stretch | space-around | space-between | space-evenly ]
+            - if your items don't take up the entire grid container HORIZONTALLY
+            - this will let you place them within the parent 
+        
+        align-content: [ start | end | ... ]
+            - if your items don't take up the entire grid container VERTICALLY
+                - you can align the items with this 
+        
+        place-content: [ start | end | center | ... ]
+            - shorthand for both align & justify content 
+
+
+        grid-auto-columns: 
+        grid-auto-rows: 
+            - used to specify the size of any auto-generated grid tracks 
+                - those not explicitly defined 
+        
+        grid-auto-flow: [ row | column ]
+            - tells grid when making a new implicit space to either choose a new row or col to add
 
 
     Properties for Children
+        grid-column-start: [ number | name | span number | span name | auto ]
+        grid-column-end: ...
+        grid-row-start: ...
+        grid-row-end: ...
+            - specifies the location for the grid item within the grid container
         
+        grid-column: [ start line / end line | start line / span value ]
+        grid-row: ...
+            - shorthand for grid-col/row-start/end but in one line 
+
+        grid area: [ name | row start / column start / row end / column end ]
+
+        justify-self:
+            - aligns an individual grid item horizontally within their grid cell
+        align-self:
+            - aligns an individual grid item vertically within their grid cell 
+        place-self:
+            - shorthand for both justify & align self 

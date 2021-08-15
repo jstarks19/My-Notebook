@@ -128,3 +128,29 @@ Sass
             @extend .class1;
             width: 10px;
         }
+
+
+    IMPORTANT NOTES ABOUT NEW SCSS 
+
+        - Do not use @import anymore, it is not going to be supported
+            - why?
+                - pollutes the global namespace
+                - gives access to any previously imported files to newly imported ones
+                - just clunky
+        - Use @use instead
+            - the syntax is nearly identical
+            - the big difference is, now the scss file your are "using" is a namespace
+            - so you import a file
+                ex.
+                    @use "./file"
+
+                - now we do, file.$name or file.$color
+                - it is a namespace
+        
+        - @forward allows for you to export uses as if they were all a part of a single file
+            - needs to be done in an index file of a directory
+            - ex. 
+                _index.scss
+
+                @forward "./file"
+                

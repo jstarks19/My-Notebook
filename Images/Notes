@@ -38,30 +38,95 @@ Images
     
     Formats & More
 
+        Raster Images
+            - Pixel-based graphics 
+            - Resolution dependent
+            - Photos & Web Graphics
+
+            JPG/JPEG
+                - a "lossy" format
+                - it will compress images at varying quality levels (user specified)
+                - does not support transparency
+                - file sizes are very small in comparison to other compression formats
+                - use cases
+                    - photographs, artwork, emailing graphics (since file sizes are smaller), large banner ads 
+                - don't use for
+                    - transparent images, multiple image layers (everything in a jpg is saved as a single layer)
+
+            PNG
+                - a "lossless" compression format
+                - no variance in quality as quality is preserved
+                - supports transparency
+                - file sizes are smaller than the original, but significantly larger than say JPG 
+                - use cases
+                    - text, high quality transparent graphics, line art, limited color palette, small file size 
+                - don't use for
+                    - photos or artwork (file sizes will be way too big), need to print the image
+
+            GIF
+                - a "lossless" raster format 
+                - used to include animated clips
+                - very customizable w/ respect to colors & frames to reduce file sizes
+                - supports transparency
+                - use cases
+                    - animated graphics, banner ads, very small file size needs, and social media memes 
+                - don't use for 
+                    - high quality images, printing an image, need layers to be editable
+
+            TIFF/TIF
+                - a "lossless" raster format
+                - extremely high quality images
+                - typically very large file sizes 
+                - use cases
+                    - high-quality graphics to print out, making a high quality scan
+                - don't use for
+                    - web graphics (file sizes too large and they are meant to be printed)
+            
+            Raw 
+                - unprocessed data captured by a digital camera
+                - typically raw images are processed and then converted to another format (TIFF, JPG)
+                - unprocessed & processed data are stored separately allowing for non destructive editing 
+                - typical raw formats are CRW, NEF, DNG
+                - use cases
+                    - shooting & editing photos
+                - don't use for
+                    - web graphics
+
+            PSD
+                - proprietary layered image format that stands for Photoshop Document
+                - multiple layers that are editable 
+                - useful because you can export into any of the previous formats
+                - use cases
+                    - retouching photos, edit artwork, digital images for the web, website or app mockup, animation & video
+                - don't use for
+                    - posting a photo online, sending a preview to a client (just use JPEG), you want to print your photos
 
 
-        JPG
-            - a "lossy" format
-            - it will compress images at varying quality levels (user specified)
-            - does not support transparency
-            - file sizes are very small in comparison to other compression formats
-            - use cases
-                - photographs
 
-        PNG
-            - a "lossless" compression format
-            - no variance in quality as quality is preserved
-            - supports transparency
-            - file sizes are smaller than the original, but significantly larger than say JPG 
-            - use cases
-                - text, simple graphics, line art, and transparent images
+        Vector Images
+            - Curve-based graphics 
+            - Resolution independent
+            - Logos, icons, & type
 
-        GIF
-            - animated artwork
-            - use cases
-                - animations
 
-        SVG 
+            PDF
+                - Portable Document Format
+                - used to display graphics correctly, regardless of device or web browser 
+                - use cases 
+                    - to print your images, displaying documents on the web
+                - don't use for
+                    - you need to edit your design
+
+            SVG
+                - vector image format for 2D graphics
+                - can be searched, indexed, scaled and compressed 
+                - generally have smaller file sizes 
+                - use cases 
+                    - computer generated graphs, diagrams, logos
+                - don't use for 
+                    - needing a file format for a print workflow
+
+        
 
         WebP
             - can save w/ or w/out compression (lossy or lossless)

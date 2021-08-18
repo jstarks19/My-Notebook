@@ -206,6 +206,13 @@ CSS Notes
                 - usually you will see what is called a 'font stack'
                     - this refers to a list of fonts you want to use in order of priority
                     - seperated by commas 
+            font
+                - shorthand property for all font styling
+                - font-size & font-family are required
+
+                ex. 
+                    font: font-style font-variant font-weight font-size font-family
+
 
         TRANSITION
             transition: <function to be transitioned> <time> <transition function>

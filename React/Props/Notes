@@ -14,3 +14,10 @@ Properties in React
 
     - defining default props
         - create a static defaultProps object containing the default properties
+    
+    Props
+        It is recommended that you name props for components from their own point of view
+            - rather than from the app's point of view
+        
+        - ALL react components must act as pure functions with respect to their props
+            - they are read only & you must not modify the value of a prop

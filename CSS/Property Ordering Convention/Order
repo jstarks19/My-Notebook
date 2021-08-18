@@ -1,0 +1,42 @@
+Selector {
+    Display Information 
+        - display: flex
+                   grid
+                   inline
+                   block
+                   inline-block
+                   etc.
+
+    Positioning
+        - position
+        - top
+        - bottom
+        - left
+        - right
+        - z-index 
+
+    Box Model
+        - background
+        - height
+        - max-height
+        - width
+        - max-width
+        - padding
+        - margin
+        - borders
+
+    Typography
+        - fonts
+        - line-height
+        - letter-spacing
+        - text align
+        - text decoration
+
+    Manipulation
+        - transform
+        - transition
+        - filter
+        - opacity
+
+    Misc
+}

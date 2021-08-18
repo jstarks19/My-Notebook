@@ -1,0 +1,18 @@
+The "this" keyword
+
+    - In react, in order to call even handlers that reference the "this" keyword, we must bind the handler 
+        - this is because, in JS the value of "this" is based on execution context 
+        - so if you simply call a function in JSX, without a 'this' binding on the function
+            - the function has no reference for what 'this' refers to
+
+    - 3 main ways to bind "this" in Class Based Components
+        1) Calling the function with an arrow function
+            - the arrow function refers to it's execution context's 'this'
+            - in the case of a return w/ JSX 'this' would refer to the exclosing Class
+            - meaning no explicit binding would need to take place
+        2) Binding 'this' on function call
+            - by calling the function with a .bind(this)
+            - you are calling the function and letting it know that in the function's context
+                - 'this' is referrering to what you passed in
+        3) Binding 'this' within the Class constructor
+            - if you bind 'this' in your class constructors, it will be bound for all future calls to that function   

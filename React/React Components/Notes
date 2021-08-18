@@ -68,13 +68,7 @@ React Components
                 )
             }
     
-    State
-        - Components can have "state" which is basically just an object that determines how a component renders and behaves
-        - "App" or "Global" state refers to state that is available to the entire UI, not just a single component
-        - Prior to React 16.8 we had to use class based components to use state
-        - Now we can use functional components with "hooks"
 
-        - You can use something like ContextAPI or 3rd party Redux to manage global states 
     
     React Hooks
         - These are functions that let us 'hook' into the React state and lifecycle features from function components 
@@ -105,11 +99,4 @@ React Components
     A good rule of thumb
         - if part of your UI is used often or is complex enough on its own
             - it is a good time to start abstracting them to components
-    
 
-    Props
-        It is recommended that you name props for components from their own point of view
-            - rather than from the app's point of view
-        
-        - ALL react components must act as pure functions with respect to their props
-            - they are read only & you must not modify the value of a prop

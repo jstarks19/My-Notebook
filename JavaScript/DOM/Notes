@@ -12,6 +12,26 @@ The DOCUMENT
         - also contains useful methods for accessing that content and modifying it 
     - to view the object => console.dir(document)
 
+Most Useful Methods (most of what you might need)
+    - classList         : gives access to the class of the element
+    - getAttribute      : returns a specified attribute
+    - setAttribute      : sets the specified attribute to the given value 
+    - appendChild
+    - append
+    - prepend
+    - removeChild
+    - remove
+    - createElement
+    - innerText         : returns ANY & ALL text between the element's tags
+    - textContent
+    - innerHTML
+    - value
+    - parentElement
+    - children
+    - nextSibling
+    - previousSibling
+    - style
+
 Selecting Elements
 
     - useful methods

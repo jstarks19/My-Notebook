@@ -3,6 +3,15 @@ State
     - state is similar to props, however it is private and fully controlled by the given component
     - it is the internal data specific to a given component
 
+    
+    State
+        - Components can have "state" which is basically just an object that determines how a component renders and behaves
+        - "App" or "Global" state refers to state that is available to the entire UI, not just a single component
+        - Prior to React 16.8 we had to use class based components to use state
+        - Now we can use functional components with "hooks"
+        - You can use something like ContextAPI or 3rd party Redux to manage global states 
+    
+    
     Component Class
         
         - you initialize state in the constructor
@@ -18,9 +27,4 @@ State
         State Methods
             - setState
                 - to be used to update the state of our components 
-                
-        LifeCycle Methods
-            - componentDidMount
-                - called after a component has been rendered
-            - componentWillUnmount
-                - to be used to clean up values on unmounting/destruction of a component
+    

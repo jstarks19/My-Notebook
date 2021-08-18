@@ -1,0 +1,69 @@
+Images
+    
+    
+    Responsive Images
+        
+        Two ways in which you can serve up images on the web
+            1) based on pixel density (dpi)
+                - 2x, 3x, retina displays 
+                - we can serve an image based on this
+            2) based on the width of the viewport
+                - loading in different versions of the same image based the viewport of your device
+                - tablets, smartphones, computer monitors, etc. 
+                - using lower quality images on high res devices can lead to issues with edge blurring
+                - by supplying smaller images at different viewports you also allow for reduced bandwidth
+                    - instead of sending a 100k file to a mobile device, you only send a 1k file
+    
+        What is srcset?
+            - a list of one or more strings separated by commas indicating a set of 
+              possible image sources for the user agent to use
+            - browsers are mostly capable of using srcset, but ones such as IE do not all support it
+                - because of this always include a default src attribute
+            ex.
+                Good for a set width
+                    <img src="img/img-500.jpg" 
+                        srcset="img/img-500.jpg,
+                                img/img-1000.jpg 2x,
+                                img/img-1500.jpg 3x"
+                        alt="">
+                         
+                More practical
+                    <img src="img/img-500.jpg" 
+                        srcset="img/img-500.jpg 500w,
+                                img/img-1000.jpg 1000w,
+                                img/img-1500.jpg 1500w"
+                        alt="">
+
+
+    
+    Formats & More
+
+
+
+        JPG
+            - a "lossy" format
+            - it will compress images at varying quality levels (user specified)
+            - does not support transparency
+            - file sizes are very small in comparison to other compression formats
+            - use cases
+                - photographs
+
+        PNG
+            - a "lossless" compression format
+            - no variance in quality as quality is preserved
+            - supports transparency
+            - file sizes are smaller than the original, but significantly larger than say JPG 
+            - use cases
+                - text, simple graphics, line art, and transparent images
+
+        GIF
+            - animated artwork
+            - use cases
+                - animations
+
+        SVG 
+
+        WebP
+            - can save w/ or w/out compression (lossy or lossless)
+            - lossless version of this will preserve transparency 
+            - file sizes are significantly smaller than JPG or PNG

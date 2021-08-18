@@ -48,9 +48,7 @@ Sass
                     color: red; 
                 }
     
-    Conditionals
-        - can use @if and @else to have conditional statments within our scss
-        - very useful and more programmatic 
+
 
     
     - if you have classes with the same base name, that are nested, you can use '&' syntax 
@@ -88,6 +86,11 @@ Sass
         }   
 
         usage: @include mixin-name(red, blue);
+
+    Conditionals
+        - can use @if and @else to have conditional statments within our scss
+        - very useful and more programmatic 
+
 
     Looping
         for directive
@@ -153,4 +156,5 @@ Sass
                 _index.scss
 
                 @forward "./file"
+
                 

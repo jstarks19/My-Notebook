@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <a href="./ref.html">Back to Ref</a>
-</body>
+  </head>
+  <body>
+    <div>
+      <p>Hello this is the Text</p>
+      <p>This is Other Text</p>
+      <p>This is Other Text</p>
+      <p>This is Other Text</p>
+      <p>This is Other Text</p>
+    </div>
+    <br />
+    <div>
+      <p onclick="console.log('hello')">Hello this is the Text</p>
+    </div>
+    <br />
+
+    <div>
+      <p>Hello this is the Text</p>
+    </div>
+  </body>
+
+  <style>
+    div ~ p {
+      background-color: purple;
+    }
+  </style>
 </html>

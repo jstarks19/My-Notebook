@@ -27,6 +27,7 @@ CSS Notes
         - generally
             - The more specific a selector is, the more precedence it has
             - Hierarchy
+            Inline
                 ID: Most Specific
                     Class: Normal
                         Element : Least Specific

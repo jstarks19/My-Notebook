@@ -235,29 +235,57 @@ Global Attributes
         - dictates whether or not a piece of content should be able to be edited by the user
             - true or false
     
-    contextmenu
-        - 
-    data-*
-    dir
-    draggable
-    enterkeyhint
-    hidden
-    id 
-    inputmode
-    is
-    itemid
-    itemprop
-    itemref
-    itemscope
-    itemtype
-    lang
-    nonce
-    part
-    slot 
-    spellcheck
-    style
-    tabindex
-    title
-    translate
+    ... REFER TO MDN
 
+
+
+Advanced Topics
+
+
+    - Meta Tags
+        - REALLY useful for SEO optimizations
+        - basically a must for page ranking properly 
+
+        SEO Meta Tags
+            
+            Must Haves
+
+                - Meta content type
+                    - necessary to declare the character set for your page
+                    - should be present on every page
+
+                    ex. <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+                - Title
+                    - contains the title of your page
+                    - one of the most important SEO tags
+                    - you should have a unique title on every page that describes the page
+
+                    ex. <title>Jason's Page</title>
+
+                - Meta description
+                    - used to describe the page to searchers on the results page
+                    - does not influence page rank, but is very important, as it will be the reason your page is clicked
+                    - should be kept below 160 characters & written to catch the user's attention
+
+                    ex. <meta name="description" content="This page is focused on doing stuff" />
+                
+                - Viewport
+                    - improves performance on mobile devices
+                    - if you don't include the mobile experience will be shit
+
+                    ex. <meta name=viewport content="width=device-width, initial-scale=1" />
+
+
+    - b vs. strong tags
+        - b is simply bolding the text
+            - it is not semantically converying information
+            - simply an aesthetic tag 
+        - strong also bolds the text
+            - strong is for providing urgency  
+            
     
+    - i vs. em
+        - result in the same output
+        - em is meant for emphasizing an important piece of text
+        - i is simply for italicizing 

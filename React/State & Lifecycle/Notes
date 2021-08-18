@@ -14,11 +14,13 @@ State
             - you can omit the constructor
         - should call super(props) in your component's constructor
             - this will 'register' this component as an actual React component
-
-        Methods
-            - componentDidMount
-                - to be used to set up state values on creation of a component
-            - componentWillUnmount
-                - to be used to clean up values on unmounting/destruction of a component
+        
+        State Methods
             - setState
                 - to be used to update the state of our components 
+                
+        LifeCycle Methods
+            - componentDidMount
+                - called after a component has been rendered
+            - componentWillUnmount
+                - to be used to clean up values on unmounting/destruction of a component

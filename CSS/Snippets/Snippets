@@ -1,0 +1,55 @@
+Some useful snippets I find that seem useful (even if I haven't used them lol)
+
+
+Snip 1
+==================================================================================
+  a {
+    position: absolute;
+    inset: 0;
+  }
+
+  - position absolute allows for the inset to happen
+  - inset sets top left right bottom to 0
+    - making the element take up the entire size of the container
+  - the a tag makes the entire containing element now a link
+  - a good use case would be making an entire block link to something elese
+    - (maybe a displayed row, or graphic)
+==================================================================================
+
+
+Snip 2
+==================================================================================
+
+  .container {
+    width: 20em;
+    aspect-ratio: 1 / 1; // 1 / 2, 16 / 9, etc.
+  }
+
+  - allows for a consistent aspect ratio for a given element
+  - this can be a nice way to maintain an aspect ratio for embedded images or iframe videos, etc. 
+  - not fully supported, but still, kickass
+
+==================================================================================
+
+
+Snip 3
+==================================================================================
+
+
+
+==================================================================================
+
+
+Snip 4
+==================================================================================
+
+
+
+==================================================================================
+
+Snip 5
+==================================================================================
+
+
+
+==================================================================================

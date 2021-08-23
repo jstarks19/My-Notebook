@@ -1,6 +1,25 @@
 Layout Out a React App
 
-    - It is a general convention to have a single top level component called App
-        - App is responsible for rendering all of the other components
 
-    - For every component, you should create a class called <Component name>.js
+    App
+        - It is a general convention to have a single top level component called App
+            - App is responsible for rendering all of the other components
+            - this is the general convention so best not to deviate too much 
+
+    Components
+        - Each React component should go in a seperate file
+            - the name of the file should be <Component Name>.js
+                - where component name is capitalized
+            - they can be placed in their own components folder, and further divided into subdirectories if needed
+        - Components extend Component, which is imported from React (unless using hooks)
+            - the component should be exported as the default object
+ 
+        
+    CSS Conventions
+        - generally you should make a CSS file for each component
+            - if component is Component.js, you should in turn make Component.css 
+        - import the css for the given component at the top of that component's js file
+        - label the main returned component div with className = <component name>
+            - every subclass within this component should be prefixed with the component name
+            i.e. Component
+                    - Component-title

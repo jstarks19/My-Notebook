@@ -1,0 +1,26 @@
+React Conditional Rendering
+
+
+    A big concept in react is rendering components/elements/styles conditionally
+        - what this means is using JS in your JSX to either allow a given value to be returned (rendered)
+
+    Four main ways to implement conditional rendering in React
+        1) Plain if else statements for return
+            - cannot use this in actual JSX, must be done prior to the return statement
+            - you basically use a conditional to determine if you return this piece of JSX, or that one
+            - not great for large returns, but makes sense for simple snippets
+
+        2) Conditional value / state 
+            - using a constant to store a piece of JSX based on a conditional 
+            - render that constant
+
+        3) Ternary Operator
+            - using the ternary operator to test a boolean condition
+            - allows for a simple else if in JSX w/out needing else and if 
+            - can be inserted into JSX with a set of curly braces
+
+        4) Short Circuit Operator
+            - using {value && piece of JSX} in order to conditionally output the piece of JSX
+            - the and operator functions as a short circuit, allowing for a piece of JSX to be rendered
+                - based on the truthy value of the left hand side of the expression 
+            - good for if statements that don't need an else case

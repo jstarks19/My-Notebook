@@ -1,0 +1,30 @@
+Forwarding Refs in React
+
+
+    - A technique used to pass a ref from a parent component to its children 
+    
+
+    Here are the main steps
+
+        1) The Parent component creates a ref within its constructor
+
+        2) This ref is attatched to a child component (CLASS)
+
+        3) Within the Child Component Class, we need to use the passed in ref
+            - we can do this with React.forwardRef
+                - this function takes in a functional component, and has params (props, ref)
+                - now we attatch the passed in ref to the element we are looking to reference
+            
+            ex. 
+
+            const FunctionalComp = React.forwardRef((props, ref) => {
+                return (
+                    <div>
+                        <input type="text" ref={ref} />
+                    </div>
+                )
+            })
+
+            export default FunctionalComp
+        
+        4) Now the Parent Component is able to access the element of the Child Component directly 

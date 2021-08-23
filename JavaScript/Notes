@@ -1,7 +1,25 @@
 
 Notes on key JS things to know
 
+What is JavaScript?
+    - A lightweight, interpreted (or JIT compiled), single-threaded programming language with first-class functions
+    - More specifically,
+        - It is a prototype-based, multi-paradigm, single-threaded, dynamic language, which supports multiple paradigms
+            Object-Oriented 
+                - based around the concepts of abstracting data into objects
+                - using inheritance, encapsulation, and polymorphism to manage these objects and relate them to one another
 
+            Imperative 
+                - modifying a program's state directly over time to get the results you expect 
+                
+            Declarative
+                - more about what you want to do, than how you want to do it
+                - usually easier to read
+            
+                Functional (a bit of a subset of Declarative style)
+                    - emphasis on 'pure' functions & immutability
+                    - functions as computations resulting in new data
+    
 JS Types
     Primitives
         - number
@@ -10,70 +28,11 @@ JS Types
         - boolean    type: boolean
         - null       type: object
         - undefined  type: undefined
+        - symbol     type: symbol
     Reference Types
         - object     type: object
         - array      type: object
         - function   type: object
-
-Function Types
-    Standard : binds this
-        function fun() {
-
-        }
-
-    Expression : binds this
-        let fun = function() {
-
-        }
-    
-    Arrow Functions : does not bind this
-        let fun = () => {
-
-        }
-        OR 
-        () => console.log('true')
-
-
-    a function declaration is hoisted, but a function expression is not
-
-
-String Methods
-    - can chain these methods together
-    - all inherit the same methods 
-    - some methods
-        - charAt()
-        - indexOf()
-        - toUpperCase()
-        - toLowerCase()
-        - trim() //remove leading & trailing whitespace
-        - slice() 
-            - str.slice(beginIndex[,optionalEndIndex])
-        - replace()
-            - str.replace(whatToReplace, whatToReplaceWith)
-        - repeat()
-            - str.repeat(count)
-
-Template Literals 
-    - using backticks to write strings
-    - can embed variables 
-        - let hello = `hello ${da}`;
-
-
-null vs. Undefined
-    - null : Intentional lack of value. It is assigned.
-    - undefined : I don't know what the value is. An unassigned variable.
-
-Math Object
-    - an Object with a number of available mathematic functions/constants 
-    - Math.
-        - round()
-        - abs()
-        - pow()
-        - floor()
-        - cos(), sin(), tan()
-        - PI 
-        - sqrt()
-        - random() : rand between 0 and 1
 
 Equality
     ==  : non-type equality
@@ -93,19 +52,20 @@ Truthy & Falsey
         - NaN 
 
 Arrays & Array Methods
-    - push: adds to back
-    - pop: removes from back
-    - shift: removes from front
-    - unshift: adds to front
-    - concat: merge arrays
-    - includes: look for a value
-    - indexOf: checks for a value, returns index if found, -1 if not
-    - join: creates a string from an array
-    - reverse: reverses an array
-    - slice: copies a portion of the array
-    - splice: removes/replaces elements
-    - sort: sorts an array 
+    - push      : adds to back
+    - pop       : removes from back
+    - shift     : removes from front
+    - unshift   : adds to front
+    - concat    : merge arrays
+    - includes  : look for a value
+    - indexOf   : checks for a value, returns index if found, -1 if not
+    - join      : creates a string from an array
+    - reverse   : reverses an array
+    - slice     : copies a portion of the array
+    - splice    : removes/replaces elements
+    - sort      : sorts an array 
         - arr.sort((a,b) => (a-b)) // ascending 
+        - based on a return of +, 0, -
 
 Callbacks
     - Functional JS
@@ -153,24 +113,37 @@ Destructuring
         - arr.map(({name, age, height}) => console.log(name,age,height));
 
 
-Code Path
-    - Lexer => Parser => AST => Interpreter => profiler => compiler => Optimized Code
-                                            => bytecode ==============^
-    In the chrome V8 engine
-        - Interpreter = 'ignition'
 
 
-Babel & TypeScript
-    - Babel : this is a JavaScript compiler that converts modern JS code into older legacy JS code
-    - TypeScript : this is a superset of JavaScript that compiles directly into JavaScript
-        - both of these are compilers, they convert one language to another
 
-Compiler & Interpreter
-    - Compilers : fast but strict, they make sure every line of your code is accurate and error free. 
-        - usually convert a language into one that can be executed much quicker
-    
-    - Interpreter : slow and loose, they only show errors on lines that produce errors during real time execution
-        - execute a code file line by line in real time (before your very eyes)
-    
-    - JIT Compiler : The compiler interpreter hybrid that was developed to efficiently run complicated JavaScript in the browser 
+MISC Notes about JS
+
+    null vs. Undefined
+        - null : Intentional lack of value. It is assigned.
+        - undefined : I don't know what the value is. An unassigned variable.
+        - weirdly enough, 
+            - null == undefined
+            - null !== undefined
+            - maybe not so weird though, since the == is a coercive equality and since both are falsy this should work
+            - and === is a strict (type) equality, and null has type object, while undefined has type undefined
+
+    Code Path
+        - Lexer => Parser => AST => Interpreter => profiler => compiler => Optimized Code
+                                                => bytecode ==============^
+        In the chrome V8 engine
+            - Interpreter = 'ignition'
+
+    Babel & TypeScript
+        - Babel : this is a JavaScript compiler that converts modern JS code into older legacy JS code
+        - TypeScript : this is a superset of JavaScript that compiles directly into JavaScript
+            - both of these are compilers, they convert one language to another
+
+    Compiler & Interpreter
+        - Compilers : fast but strict, they make sure every line of your code is accurate and error free. 
+            - usually convert a language into one that can be executed much quicker
         
+        - Interpreter : slow and loose, they only show errors on lines that produce errors during real time execution
+            - execute a code file line by line in real time (before your very eyes)
+        
+        - JIT Compiler : The compiler interpreter hybrid that was developed to efficiently run complicated JavaScript in the browser 
+            

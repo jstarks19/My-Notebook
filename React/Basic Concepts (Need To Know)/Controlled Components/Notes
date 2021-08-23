@@ -1,0 +1,12 @@
+Controlled Components
+
+    Controlled Components allow for the programmer to capture the state of input/form elements
+
+
+    - The main idea here is to keep track of a form's state within a component
+        - more specifically, it is about keeping track of an input's state in general
+        - when I say, keep track of state, I mean literally to have an onChange event on each input
+            - this way, you can handle updating the input state value in the onChange handler 
+            - this is useful as when you need to package and send data, say in a JSON format, it will be much easier to grab your values directly from your state
+    
+    - Other cool uses are for real time output of your input, such as a type along or searching on onChange

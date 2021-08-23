@@ -1,0 +1,73 @@
+Testing in JavaScript
+
+
+    - When we write our code, it is easy to fall into the trap of testing through logging
+    - In essence, we expect a result, log it, compare it to what we image, and move on
+        - the trap here is that if we continue this, how will we know that our invariants will remain the same as we continue to develop
+        - essentially, if we aren't retesting our previous code, it is not reasonable to assume it works the same as when we original tested it
+    - Enter testing! and testing frameworks!
+
+    - There are a few popular testing frameworks within JavaScript
+        - Jest
+        - Mocha
+        
+
+    - Let's learn about Jest
+        
+        Installing
+            $ npm i -D jest
+
+        Running the Tests
+            $ npx jest
+            $ npx jest --silent 
+                - will not print console.logs
+
+
+        File naming conventions
+            filename.test.js 
+
+        
+        Within our test file
+            - we import our function that we want to test
+            
+        To test a function
+            - The general syntax is to use a test function
+                - the first arg to test is the description string, where you describe the purpose of the test
+                - the second is a function which is the actual 'test' here
+                
+            - What is nice is that your tests will all run despite errors, each instance is isolated
+
+            
+            - Within our test case, we need to include an expect statement
+                - provided the output of our function
+                    - this will return an expectation object
+                - we can include as many of these at we would like in our code
+            
+            - In order to match the value in our expectation object, we need to include a 'matcher'
+                - very common matchers
+                    - toBe      : does exactly what it sounds like, makes sure that our expected output is what we expect it toBe 
+                    - toEqual   : can kind of trip you up with 'toBe' seemingly doing the same thing
+                                    - the difference is toEqual is used for objects or arrays, things that cannot really be strictly compared  
+                    - toMatch   : can pass it a regex
+                    - toContain : check if an array or object contains a specific value/key 
+                    - toBeNull  : check if the value returned is null
+                
+                - niche matchers w/ weird props
+                    - toThrow   : checks if the function threw an error on result
+                                    - note! you have to wrap the execution of the function in an arrow function
+                                    - this allows jest to 'capture' the error and send it to the matcher 
+
+
+            ex. 
+                test("description of what function is supposed to do", () => {
+                    expect(func(arg1, arg2).toBe(result));
+                })
+        
+        
+        Really handy niceties
+            - test.todo
+                - this only requires the description string and serves as a placeholder for a future test to write 
+            - test.skip
+                - will skip this specific test when executing your test suite 
+            - test.only
+                - will only run the specified test in the suite 

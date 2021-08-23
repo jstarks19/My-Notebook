@@ -1,0 +1,21 @@
+Block Element Modifier
+
+
+    - A style for writing HTML/CSS to help developers stay organized 
+
+    - BEM stands for Block Element Modifier
+
+        - Block
+            - the standalone entity that is meaningful on its own 
+        
+        - Element
+            - a part of a block that has no standalone meaning, and is semantically tied to its block
+        
+        - Modifier
+            - a flag on a block or element, used to change appearance or behavior 
+
+
+    - General Syntax
+        - Block     : class = "block"
+        - Element   : class = "block__element"
+        - Modifier  : class = "block--modifier"

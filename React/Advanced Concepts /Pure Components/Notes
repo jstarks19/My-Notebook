@@ -1,0 +1,29 @@
+Pure Components in React
+
+    - It is an imported object, so you must do
+        - import React, { PureComponent } from 'react'
+
+    - The class component then extends the PureComponent
+
+    Difference Between Pure & Regular Components
+
+        Regular Component
+            - A regular component does not implement the shouldComponentUpdate method
+                - it will always return true by default
+
+        Pure Component
+            -  Always implements shouldComponentUpdate 
+                - using a shallow comparison of both state and props
+            - Compares prevState w/ currentState & prevProps w/ currentProps
+            - Only updates when the comparison shows a difference 
+            
+            Shallow Comparison?
+                - primitives
+                    - are A and B the same type & have the same value
+                - complex types
+                    - are A and B referencing the same object
+
+            Why use Pure Components?
+                - they can provide a performance boost by preventing unecessary rerenders
+                - if you are mass updating a list and some of the components within that list are not changing, whby rerender them?
+                - or maybe data you fetched has not been updated at this point, no use in rerendering the data 

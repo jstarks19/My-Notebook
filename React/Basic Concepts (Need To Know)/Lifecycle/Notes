@@ -1,0 +1,129 @@
+Lifecycle
+
+
+
+
+    - Lifecycle, along with state is one of the MOST important concepts in React
+
+    - What is a lifecycle in React?
+        - Well a lifecycle is the stages a component goes through during it's time in our App 
+        - A component, goes through a number of stages in its 'lifecycle'
+            - These can be classified into 4 primary stages
+                1) Mounting 
+                    : When an instance of a component is being inserted into the DOM
+    
+                    Mounting Functions  
+                        - constructor(props)
+                            - called whenever a component is created
+                            - you need to call super(props)
+                                - unless you will not have access to them
+                            - constructor is the only location you should be directly writing to this.state fields
+
+                            - good for 
+                                - initializing state
+                                - binding of event handlers to 'this'
+                            - not good for
+                                - causing any sort of side effect
+                                - no HTTPS requests or the like
+
+                        - static getDerivedStateFromProps(props, state)
+                            - rarely used
+                            - the state of the component depends on changes in the props over time
+                            - you cannot use this.setState since it is a static method and is bound to the class itself
+                            - you must return the new version of the state from this method
+
+                            - good for
+                                - setting state on prop updates
+                            - not good for
+                                - causing any sort of side effect (HTTP requests)
+
+
+                        - render()
+                            - the only required method in a component
+                            - it is a 'pure' function meaning it will render the same UI given the same input
+                            - childrens lifecycle methods are also called here
+
+                            - good for 
+                                - reading the props & state, and returning JSX
+
+                            - not good for
+                                - changing state
+                                - interacting w/ the DOM
+                                - making AJAX calls
+
+
+                        - componentDidMount()
+                            - invoked immediately after a component and all of its children components have been rendered to the DOM
+
+                            - good for
+                                - causing side effects
+                                - interacting with the DOM
+                                - performing any sort of AJAX calls to load in data
+
+                    General Order of Execution w/ A child component
+                        Constructor Parent => GetDerivedStateFromErrors Parent => Render Parent =>
+                            Constructor Child => GetDerivedStateFromErrors Child => Render Child => ComponentDidMount Child
+                        ComponentDidMount Parent
+
+
+
+                2) Updating
+                    : When a component is being re-rendered as a result of changes to either its props or state
+
+                    Updating Functions
+                        - static getDerivedStateFromProps(props, state)
+                            - rarely used
+                            - method is called every time a component is rerendered
+                            - used to set state
+                            - should not cause side effects
+
+                        - shouldComponentUpdate( nextProps, nextState )
+                            - receives the updated props & state
+                            - dictates if the component should re-render or not
+                            - by default all Class components they receive will rerender on update of their state or props
+                                - you can prevent this behavior by returning false from this method 
+                            - useful for comparing the previous state & props w/ the new state & props 
+                                - and then based on this comparison, confirming if a rerender is necessary
+                            - good for performance optimization 
+                            - should not be causing side effects or setting state
+
+                        - render()
+                            - refer to 1) 
+
+                        - getSnapshotBeforeUpdate(prevProps, prevState)
+                            - called right before the changes from the virtual dom are reflected in the DOM
+                            - rarely use
+                            - good for capturing some DOM information
+                            - either returns null or value
+                            - if you return a value, it is passed as the third parameter for componentDidUpdate
+
+                        - componentDidUpdate(prevProps, prevState, snapshot)
+                            - called after the render is finished in the re-render cycles
+                            - useful for ensuring all of the components & subcomponents are rendered properly on this update
+                            - you can cause side effects here if you would like
+                                - most often you compare current props with previous props and decide whether or not to make the request/side effects
+                            
+
+                3) Unmounting
+                    : When a component is being removed from the DOM
+
+                    Unmounting Functions
+                        - componentWillUnmount()
+                            - invoked immediately before a component is unmounted and destroyed
+                            - useful for
+                                - cancelling any network requests
+                                - removing event handlers
+                                - cancelling any subscriptions
+                                - clearing timers
+                            - do not call setState
+                                - the component will be destroyed, no reason
+                
+                4) Error Handling
+                    : When there is an error for any component's lifecycle method
+                         or during the constructor of a child component
+                    
+                    Error Functions
+                        - static getDerivedStateFromError(error)
+                        - componentDidCatch(error, info)
+
+                            - when there is an error either during rendering, in a lifecycle method, or in a constructor of a child component 

@@ -1,0 +1,14 @@
+React Memo
+
+
+    - Wouldn't it be nice to utilize the PureComponent concept within functional components?
+        - yes..yes it would
+        - this is where React Memo comes into play
+
+    
+    - React memo is a way to add the pure component functionality to functional components
+
+    How to use it?
+        - create a functional component
+        - on export of your functional component, use: 
+            - export default React.memo(ComponentName)

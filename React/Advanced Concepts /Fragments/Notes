@@ -1,0 +1,20 @@
+React Fragments
+
+
+    - When returning JSX from components, you need to group every piece of JSX into one enclosing tag
+        - even if the content doesn't necessarily need to be grouped, you still need one element to wrap everything in when returning
+    
+    What does a fragment do?
+        - It allows you to group a number of children elements, without adding extra nodes to the DOM
+        - So you can return a grouping, without necessarily needing an enclosing element/node
+        - syntax
+            open    : <>    || <React.Fragment>
+            close   : </>   || </React.Fragment>
+        
+        - Will not add a new node to the DOM!
+        - can use the key attribute in a fragment tag (specifically, the React.Fragment tags)
+    
+    Practical Use Case
+        - making a table column it's own component
+            - embedding that column in the table row
+        - we can't have our column in a containing node, since it would be a child of the tr element

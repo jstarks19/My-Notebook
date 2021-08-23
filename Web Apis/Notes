@@ -1,0 +1,66 @@
+Web APIs
+
+
+    - Apis offered in client-side JavaScript
+
+    - Generally, these fall into two categories
+        1) Browser Apis
+            - built into your web browser
+            - expose data and functionality available within your web browser
+            - available to you from the start, provided you are writing in a browser
+
+
+            Common Browser Apis and Uses
+
+                Document Manipulation
+                    - think the DOM
+                
+                APIs for fetching data from a server
+                    - XMLHttpRequest
+                    - fetch Api
+                    - axios
+                
+                APIs for drawing and manipulating graphics
+                    - canvas
+                    - webgl
+                
+                Audio and Video Apis
+                    - HTMLMediaElement
+                    - Web Audio API
+                    - Web RTC           : Real Time Communication
+
+                Device APIs
+                    - Notification API
+                    - Vibration API 
+
+                Client-side storage APIs
+                    - Web Storage API
+                        - local & session storage
+                    - IndexedDB API
+
+
+
+        2) Third-Party Apis
+            - these are separate Apis provided by some outside source
+            - ex. Twitter API 
+    
+
+            Common Third-Party APIs
+                
+                Twitter API
+                
+                Map APIs
+                    - Mapquest
+                    - Google Maps API
+                
+                Facebook APIs
+                
+                Telegram APIs
+                
+                Youtube API
+
+                Pinterest API
+
+                Twilio API
+
+                Mastodon API

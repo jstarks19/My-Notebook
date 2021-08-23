@@ -1,12 +1,95 @@
 
 Protoypes
     - How objects inherit methods and properties from other objects
-    - Basically these are build in methods of a class/object that are not specific to this instance of the object
-    - You can add other methods and properties to an object, but their built-in methods are from their protoypes
-    - They are objects though, so every object has another object which is called __proto__ which references the prototype object
-    - Such a cool system  
+    - Basically these are built in methods & properties of a class/object that are not specific to this instance of the object
+    - You can add other methods and properties to an object, but their built-in methods & properties are from their protoypes
+    - They are objects though, so every single object has another object which is called __proto__ which references the prototype object
+    
+    - Think of a Protoype as the properties and methods associated with the blueprint of this object
+        - every instance of this object is built using this blueprint, and so every instance of the object has access to this protoype 
+
+    - Additionally, every single instance of an object, is a descendant of the root Object & thus has access to the Object's prototype
+        - this is why every single object in JS has access to methods such as
+            - hasOwnProperty
+            - isPrototypeOf
+            - constructor
+            - toString
+            - valueOf
+            - etc.
+
+    - The "prototype chain"
+        - the chaining of descending objects, each of which inherits the protoype of its ancestor
+        - this means when looking for a method or property, JavaScript will work it's way up the protoypal chain 
+        - null is the 'final link' in the protoype chain
+    
+    - The constructor function's prototype property does not refer to the prototype of the constructor itself
+        - rather it is the prototype of ALL instances of objects created through the constructor        
+
+    - Why would we even use a prototype? 
+        - could we not just define our functions within the constructor and have each instance gain access to them?
+            - Yes, but the key issue here is that each of our instances will have their own copy of the function, despite the fact that they do the same thing
+        - this is where the prototype comes in to save the day
+            - while we might want to keep our properties separate to each individual instance 
+            - if functionality is the same for the functions regardless of instance
+                - by putting the function on a function's prototype, all instances reference the same function
+                - drastically reducing space needed 
+
+    - What is a prototype used for at a whole?
+        - To share behavior of objects, not data 
 
 
-Extends & Super
-    - extends gives a Class the properties of another (it inherits those properties)
-    - call super(params) if you want to use a new constructor for an object that extends another
+
+Defining a constructor function
+
+        function ClassName() {
+
+        }
+
+    - the 'new' keyword
+        - calling this function with the 'new' key word
+            1) creates a new empty object {}
+            2) binds 'this' to the {} when moving through the ClassName function
+            3) calls the ClassName function where this === {} 
+            4) assigns any properties or methods defined using this, to our {}
+            5) returns that {} with all of the properties defined in the constructor function 
+
+    - since a function is an object, it also has a prototype object associated with it
+        - we can assign functionality to this prototype
+        - this then allows for all instances of className to have access to the prototype methods on the Class
+    
+        ClassName.prototype.sayHi = function() {
+            console.log('hello');
+        }
+
+Inheriting from Super classes using constructor Functions
+
+    Defining the Super Class
+
+        function SuperClass(name) {
+            this.name = name;
+        }
+        SuperClass.prototype.sayHi = function() {
+            console.log('hello');
+        }
+
+    Defining the Subclass
+        
+        function SubClass() {
+            SuperClass.call(this)                                    // Call the SuperClass constructor using this as our instance
+        }
+        SubClass.prototype = Object.create(SuperClass.prototype);    // Create a new prototype for our SubClass based on the prototype of the SuperClass 
+
+
+
+Using Object.create to define a new object with a given prototype
+
+    let objProto = {
+        hey: function() {
+            console.log("hi");
+        }
+    }
+
+    let newObj = Object.create(objProto);
+
+    // to add state to your new object
+    let newObj = Object.create(objProto, {name: {value: "OBJECT"}});

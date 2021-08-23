@@ -1,0 +1,42 @@
+React Refs
+
+
+    - A way to keep a reference to a specific HTML element within React
+    - A good use case for this would be focusing an input on page load, or changing an unrelated element on update of another
+
+    How to create a reference to an ELEMENT?
+
+        1) Within your class component, in the constructor, create a field/property for the ref
+            i.e. 
+                constructor(props) {
+                    super(props);
+                    this.inputRef = React.createRef()
+                }
+        
+        2) Now you have to attach your ref to the actual element 
+            - we do this with the reserved 'ref' attribute
+            i.e. 
+                <input type="text ref={this.inputRef} />
+
+        3) Now you can actually use your reference to your element
+            - note, in order to gain access to the actual element, you use the 'current' property of your reference
+            i.e. 
+                componentDidMount() {
+                    this.inputRef.current.focus();
+                }
+
+    How to create a reference to a CLASS COMPONENT?
+        
+        - scenario: you have a child component that you want to have a reference to (elements within the child component)
+
+        1) In the Parent component, create a ref as you would normally
+
+        2) In the JSX when you include the child component, also include a 'ref' attribute which points to the ref we made in the constructor
+
+        3) Now we can access the methods of the child component by simply using our reference and calling those methods
+
+        4) PROFIT!!!!
+
+
+        Note: the child MUST be a class component
+            - refs cannot be attatched in the same way to a functional component 

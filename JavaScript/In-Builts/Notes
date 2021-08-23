@@ -1,0 +1,46 @@
+JavaScript In-Built functions, objects, constants, etc.
+
+
+Built-in Functions
+    - eval()                : evaluates a piece of JS code
+    - isFinite()            : evaluates a number and returns the result of if it is finite or not
+    - isNan()               : evaluates a number and returns the result of if it is NaN or not
+    - parseFloat()          : parses a value as a floating point 
+    - parseInt()            : parses a value as an integer, second param for number base (2, 8, 10, 16)
+    - encodeURI()           : encodes certain disallowed URL characters 
+    - encodeURIComponent()
+    - decodeURI()           : decodes an encoded URI string
+    - decodeURIComponent()
+    
+
+Built-in Objects
+
+    Fundamental Objects
+        Object
+        Function
+            .call vs .apply
+                - calling the function in both cases
+                - need to pass in this to the first arg in both cases
+                - all remaining arguments are where the difference is
+                    - in call, you can use a comma seperated list of args after the this
+                    - in apply, it must be a list
+        Boolean
+        Symbol 
+
+    Numbers & Dates
+        Number 
+        BigInt
+        Math
+            - Useful Constants
+                - E, LN2, LN10, LOG2E, LOG10E, PI, SQRT1_2, SQRT2
+        Date
+            - use new Date() mainly
+            - also Date.now() is good for an immediate time/date 
+
+    Data Formats
+        JSON 
+
+
+    Errors
+        Error
+            - message and name are the big properties to know

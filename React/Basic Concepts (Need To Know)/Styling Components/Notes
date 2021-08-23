@@ -1,0 +1,22 @@
+Styling React Components
+
+
+    - There are a number of ways in which we can go about styling React Components
+        - Specifically, let's cover 4
+
+            1) CSS Stylesheets
+                - use a standard css stylesheet
+                - need to import the given stylesheet to your react project or 
+                    - you can also include it within your root HTML file, if you have one
+            2) Inline Styling
+                - styles that are applied inline to the element
+                - in order to use a style inline, in must be placed within a JS object
+                - unfortunately, since JS doesn't allow kebab-case, you must use the camel case versions of property names
+            3) CSS Modules
+                - available through react-scripts 
+            4) CSS in JS Libraries (Styled Components)
+
+        
+    - Some useful styling tips
+        - you can conditionally apply classes to your components
+            - VERY useful for highlights, modals, etc.

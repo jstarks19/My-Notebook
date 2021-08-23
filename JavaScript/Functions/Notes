@@ -1,0 +1,34 @@
+Functions in JavaScript
+
+
+- Functions are a way of encapsulating a small (or large) piece of code that can be called on when needed
+- they are modular in nature, meaning a very complex program can be composed of numerous small, simpler functions
+
+- In JavaScript, a function is simply an object, and a first-class object at that
+    - specifically, it is a Function object (a built-in object in JavaScript)
+        - being an object means that a function can have it's own methods and properties
+    - 'first-class' : you can treat it as a value (store it in a variable, send it into functions, etc.)
+
+
+
+Function Types
+    Standard : binds this
+        function fun() {
+
+        }
+
+    Expression : binds this
+        let fun = function() {
+
+        }
+    
+    Arrow Functions : does not bind this
+        let fun = () => {
+
+        }
+        OR 
+        () => console.log('true')
+
+
+    a function declaration is hoisted, but a function expression is not
+

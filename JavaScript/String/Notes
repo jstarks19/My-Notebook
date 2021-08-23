@@ -1,0 +1,28 @@
+Strings in JavaScript
+
+    - The String is a primitive type in JavaScript
+    
+    Notable features
+        - Strings are not mutable data structures
+
+
+    String Methods
+        - can chain these methods together
+        - all inherit the same methods 
+        - some methods
+            - charAt()
+            - indexOf()
+            - toUpperCase()
+            - toLowerCase()
+            - trim() //remove leading & trailing whitespace
+            - slice() 
+                - str.slice(beginIndex[,optionalEndIndex])
+            - replace()
+                - str.replace(whatToReplace, whatToReplaceWith)
+            - repeat()
+                - str.repeat(count)
+
+    Template Literals 
+        - using backticks to write strings
+        - can embed variables 
+            - let hello = `hello ${da}`;

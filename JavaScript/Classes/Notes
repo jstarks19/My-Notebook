@@ -1,0 +1,3 @@
+Extends & Super
+    - extends gives a Class the properties of another (it inherits those properties)
+    - call super(params) if you want to use a new constructor for an object that extends another

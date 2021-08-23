@@ -1,0 +1,42 @@
+Objects in JavaScript
+
+
+    - Objects are at the core of the JavaScript language and could be considered the primary data structure in the language
+
+    - JavaScript uses a 'prototype-based' object model rather than a class based object model
+        - What does this mean?
+            - In a class based system, classes define all of the properties for an instance of an object 
+                - the class is an abstraction
+                - the object is the instance of the class
+            - In a prototype based system, there is no distinction like this
+                - it has plain objects
+                - an object is given an associated prototype which provides initial methods & properties for the object
+                - this prototype can also be another object, giving the new object access to the other objects methods and properties
+
+
+    - In JavaScript, you also have a notion of classes (ES2015), but it is mainly sugar on top of the prototype system 
+        - so learn the prototype system before all else
+
+
+
+
+    Defining Objects in JavaScript
+
+        Object Literal
+            - the simplest way to define an object is with the object literal syntax '{}'
+
+        Object.create()
+            - using the Object.create() inbuilt function create an object 
+            - pass in the prototype as well as a property description 
+
+        Object Classes
+            - new to ES2015
+            - basically syntactic sugar on Function constructors and prototypes 
+        
+        Constructor functions
+            - using a constructor function to generate an object using the 'new' keyword    
+
+        Factory Functions
+            - basically using closures to define a set of properties and methods and only return the accessors 
+
+    

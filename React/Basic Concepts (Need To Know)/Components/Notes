@@ -33,7 +33,7 @@ React Components
                 - Historically, function components couldn't use important features like
                     - State
                     - Lifecycle Methods 
-                - With the introduction of Hooks, we can now write full-featured function components!!
+                - With the introduction of Hooks, we can now write full-featured functional components!!
 
         
         - every react component class we create needs to extend React.Component  

@@ -1,0 +1,91 @@
+Higher Order Component Pattern in React 
+    - HOC
+
+
+    Why is there a need for Higher Order Components?
+        - Often there is a need for multiple components to share the same functionality
+        - We could simply copy over our functions from component to component
+            - however, this is significant duplication for no real reason
+        - Enter Higher Order Components
+            - these allow for components to share common functionality w/out having significant code duplication
+    
+    What is a Higher Order Component
+        - A pattern in which a function takes a component as an argument & returns a new component 
+            - general structure looks like this
+                const NewComponent = higherOrderComponent( originalComponent )
+            - kind of like a decorator in that it adds properties and/or functionality to the component being passed in
+                - so you can think of the new component as an 'Enhanced' component 
+    
+        ex. 
+
+            ~~~~ withCounter.jsx ~~~~
+            import React from 'react';
+
+            const withCounter = WrappedComponent => {
+                class WithCounter extends React.Component {
+                    constructor(props) {
+                        super(props);
+                        this.state = {
+                            count: 0
+                        }
+                    }
+
+                    incrementCount = () => {
+                        this.setState(prevState => {
+                            return {count: prevState.count + 1};
+                        });
+                    }
+
+                    render() {
+                        return (
+                            <WrappedComponent count={this.state.count} onClick={this.incrementCount} />
+                        )
+                    }
+                }
+                return WithCounter;
+            }
+
+            export default WithCounter;
+            
+            ~~~~ ToAddCounter.jsx ~~~~
+            import React from 'react';
+            import withCounter from './withCounter';
+
+            class ToAddCounter extends React.Component {
+               render() {
+                   const { count, incrementCount} = this.props;
+                   return (
+                       <button onClick={incrementCount}>Clicked {count} Times</button>
+                   )
+               } 
+            }
+
+            export default withCounter(ToAddCounter);
+
+    Can also add some parameters to an HOC
+        - simply add them to the decorator function, and when calling the HOC in export, pass those params in 
+
+
+    Naming Convention
+        - Usually you would name the js file & HOC to 'withFunctionality' 
+            - where Functionality can be replaced with the actual functionality you are adding 
+        - The inner, new Component would be named the same, however in PascalCase
+
+
+    Common issue
+        - if we set a prop on our initial component (undecorated)
+            - and then try to access that prop within our component, we will not have access to it
+        - this is because the prop passed down, is being sent to our higher order component, not our initial component
+
+        How do we fix?
+            - in our higher order component, make sure to also include {... this.props} after any other props are set
+            i.e. 
+                render() {
+                    return (
+                        <WrappedComponent
+                            count={this.state.count},
+                            incrementCount={this.incrementCount},
+                            {... this.props},                           // THIS LINE RIGHT HERE
+                        />
+                    )
+                }

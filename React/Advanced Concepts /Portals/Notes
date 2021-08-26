@@ -1,0 +1,28 @@
+React Portals
+
+    - This is a way to render DOM nodes outside of the primary DOM root parent
+    
+
+    - Most/all of the content for your app is often rendered under the main #root HTML element
+        - portals give us a portal into the rest of the DOM 
+    
+    To use
+        - make sure to import ReactDOM from 'react-dom'
+        - now, when returning our component's JSX, instead return...
+
+            return ReactDOM.createPortal(<JSX>, document.getElementById("id"));
+        
+        - we return the ReactDOM.createPortal method
+            - where arg 1 is the JSX to return, and arg 2 is the selector/reference for the dom node
+            - technically, the 1st arg can be anything react knows how to render, so numbers, strings, jsx, etc. 
+
+
+    Why would we need them?
+        - a good use case would be a modal, that you need your user to interact with
+            - when rendering the modal, you want it to grey out the entire background, not just your app
+            - also, when you set fixed sizes on the modal, it can break the app's layout
+
+
+    One cool thing to note
+        - Portals still support event bubbling
+            - this means that interaction with an element rendered outside of the dom hierarchy will still propogate upwards in the Component hierarchy

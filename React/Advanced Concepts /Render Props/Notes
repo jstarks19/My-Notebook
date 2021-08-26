@@ -1,0 +1,47 @@
+Render Props Pattern in React
+
+
+
+Why is there a need for the Render Props Pattern?
+    - Like HOC, there is a need to share common functionality and properties among components
+    - Simply duplicating our code is not enough, so the RPP seeks to fix this
+
+What is the Render Props Pattern?
+    - the term 'render prop' refers to a technique used in React development for sharing code...
+    -> between React Components using a prop whose value is a function 
+
+    - basically, the idea is you create one component to handle the logic needed by others
+        - the parent component has a "render" prop (can be named anything tho) that is responsible...
+          -> for taking in the state and function, and passing it down to the other components
+    
+    - example
+
+    ~~~~ App.js ~~~~
+    ...
+    render() {
+        return(
+            <div>
+                <Counter 
+                    render={(count, incrementCount) => (
+                        <ClickCounter count={count} incrementCount={incrementCount} />
+                    )}
+                />
+            </div> 
+        )
+    }
+
+    ~~~~ Counter.js ~~~~
+    state: count
+    function: incrementCount
+    ...
+    
+
+    render() {
+        return {
+            <div>
+                this.props.render(this.state.count, this.incrementCount);
+            </div>
+        }
+    }
+
+

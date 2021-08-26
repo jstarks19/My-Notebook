@@ -1,0 +1,80 @@
+The Context API in React
+
+
+
+What is the need for the Context API?
+    - In general, the react component hierarchy is great
+        - it allows for unidirectional data flow, and a structure that makes for quick development...
+            -> and easy to understand relationships
+    - However, this hierarchy leads to annoyances, such as needing to pass certain props all the way...
+        -> down the hierarchal chain. Leading to many components receiving props they do not need...
+        -> and a polution of the props namespace
+
+    - The Context API provides a way to pass data through the component tree without having to pass props...
+        -> down manually at each level 
+    
+
+How do we use the Context API?
+    - Three main steps
+        1) Create the context
+            - create a separate JS file for the particular Context you are making
+                - i.e. 'userContext.js'
+            - create the context obj
+                - const UserContext = React.createContext();
+            - every context object created in this way gets a provider and consumer component
+                - const UserProvider = UserContext.Provider;
+                - const UserConsumer = UserContext.Consumer;
+            - export the context Provider and Consumer
+                - export {UserProvider, UserConsumer};
+
+        2) Provide a context value
+            - in your root file, or wherever you want to start providing context
+            - import your provider
+                - import UserProvider from './UserContext'
+            - wrap the child component in the UserProvider component
+                <UserProvider>
+                    <ChildComponent />
+                </UserProvider>
+            - add the value you want to pass down to the child component in the UserProvider as a prop
+                <UserProvider value="Jason">
+                    <ChildComponent />
+                </UserProvider>    
+            - now, the ChildComponent and all it's descendants have access to the value through a consumer 
+
+        3) Consume the context value
+            - in order to consume the context value, import the consumer
+                - import UserConsumer from './UserContext'
+            - wrap the display logic in the User Consumer, and add a function
+                ...
+                render() {
+                    return (
+                        <UserConsumer>
+                            {username => {
+                                return <div>Hello {username}</div>
+                            }}
+                        </UserConsumer>
+                    )
+                }
+
+More Details & Scenarios
+    - you can provide the createContext method an argument to serve as the default value for the Context created
+    - there is another way of consuming the context value
+        - you can export default the UserContext itself
+            - then in the component you want to use the context in
+                - you set a static value on the Component w/ Component.contextType = UserContext 
+            - now it will be available using this.context
+
+Consuming Multiple Contexts
+    function Content() {
+        return (
+            <ThemeContext.Consumer>
+                { theme => (
+                    <UserContext.Consumer>
+                        { user => (
+                            <ProfilePage user={user} theme={theme} />
+                        )}
+                    </UserContext.Consumer>
+                )}
+            </ThemeContext.Consumer>
+        )
+    }

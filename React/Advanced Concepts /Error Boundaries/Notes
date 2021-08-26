@@ -1,0 +1,27 @@
+Error Boundaries in React
+
+
+    - Remember our Error Handling Phase Methods
+        - static getDerivedStateFromError(error)
+        - componentDidCatch(error, info)
+
+    - From what we have seen, runtime errors will often put our application in a broken state
+        - React unmounts the whole component tree
+    
+    What is an Error Boundary?
+        - A class component that implements either one or both of the lifecycle methods
+            - getDerivedStateFromError or componentDidCatch
+        - The static method getDerivedStateFromError is used to render a fallback UI after an error is thrown
+        - The componentDidCatch method is used to log the present error information
+        - Allows you to gracefully handle Errors in React
+
+    To use an Error Boundary
+        - create a class component
+        - give it an error state (false initially)
+        - the class will become an 'ErrorBoundary' with the introduction of the getDerivedStateFromError or componentDidCatch methods
+        - on error, these methods will be called, and getDerivedStateFromError allows you to change the error state to true 
+        - based on the error state, you can render either props.children or a fallback error UI
+
+    Note
+        - in development mode, you will not see the results of the ErrorBoundary
+        - an ErrorBoundary will not catch errors in event handlers, those need a standard try/catch block 

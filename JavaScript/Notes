@@ -4,7 +4,7 @@ Notes on key JS things to know
 What is JavaScript?
     - A lightweight, interpreted (or JIT compiled), single-threaded programming language with first-class functions
     - More specifically,
-        - It is a prototype-based, multi-paradigm, single-threaded, dynamic language, which supports multiple paradigms
+        - It is a prototype-based, single-threaded, dynamic language, which supports multiple paradigms
             Object-Oriented 
                 - based around the concepts of abstracting data into objects
                 - using inheritance, encapsulation, and polymorphism to manage these objects and relate them to one another

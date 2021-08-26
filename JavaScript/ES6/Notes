@@ -25,3 +25,4 @@ EcmaScript 6 Additions
         10) Iterators & Generators & yield
         11) Promises, Promise Chaining, Promise all, Promise race
         12) Map & Set 
+        13) Spread syntax

@@ -3,7 +3,6 @@ AJAX
     - stands for Async JavaScript And XML
     - real-time network requests behind the scenes in JavaScript 
     - Today this is actually AJAJ (Async JS and JSON), but its still called AJAX
-        
 
 APIs
     - Application Programming Interfaces

@@ -34,7 +34,7 @@ Protoypes
                 - by putting the function on a function's prototype, all instances reference the same function
                 - drastically reducing space needed 
 
-    - What is a prototype used for at a whole?
+    - What is a prototype used for as a whole?
         - To share behavior of objects, not data 
 
 

@@ -32,6 +32,7 @@ React Hooks
                         3) Unmount (delete)
                     - you can use this to replace the whole
                         - componentDidMount
+                        - componentDidUpdate 
                         - componentWillUnmount
                     - since useEffect can be optionally passed a dependence array
                         - if you pass nothing in, it will only be called once on mount
@@ -53,15 +54,48 @@ React Hooks
 
 
                 3) useContext
+                    - A way to share state without needing to drill down state through props
+                    - You can share values universally across your application using context 
+                    - in order to use a context, you must follow a few steps
+                        1) create a context
+                            const myContext = React.createContext() 
+                        2) provide the context to a set of components by wrapping the components in a provider
+                            <myContext.Provider value={theValue}>
+                                // other components
+                            </myContext.Provider>
+                        3) use the useContext hook in order to grab out the value that was passed by the provider
+
+                    - when that value updates (the one passed by the provider), the component that takes in that value is rerendered  
 
             II) Additional Hooks
                 4) useReducer
+                    - similar to useStae & very similar to redux
+                    - why use it over multiple use states and a number of update functions
+                        - this makes sense, but in a project where there are many children all responsible for updating state
+                        - a better pattern is to pass down the dispatch function only, this gives the same api for all the children needing to update the main state 
+                        - an even better pattern is to use context and pass the context only to the children who need it 
+                    - further, if you have a single item/component that needs a lot of mutable functionality
+
+                    - use structure :
+                        - first argument = your actual reducer function 
+                        - second argument = your initial state
+                        - returns an array of state and the dispatch function
+                        ex. const [state, dispatch] = useReducer(appReducer, []);
+
+                    - reducer?
+                        - this is a function that is used to determine what your current state is
+                        - it is called upon by dispatching events in your application
+                        - it takes in two arguments: state, and action 
+                        - each of your dispatched events has an associated action, most often, that action is what is switched on in the reducer
+                            - more specifically, the action.type
+                        - based on the action issued, a switch case is hit, and then the state is updated through you returning the updated version
+
                 5) useCallback
                     - good for preventing a function from being created on every render
                 6) useMemo
                 7) useRef
-                    - used to store a refrence to another Component
-                    - can also be used to store primitive values
+                    - used to store a refrence to another Component or Element
+                    - can also be used to store primitive values 
                         - what's interesting is that you can directly update these values, unlike useState
                             - and the update does not cause rerenders
                     - check if a component is currently mounted 

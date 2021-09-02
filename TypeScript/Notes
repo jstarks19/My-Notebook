@@ -1,36 +1,45 @@
 TypeScript Basics
 
-
     TypeScript is a Superset of JavaScript
         - the main advantage of TS is it can highlight errors or unsafe patterns in existing JS
-
 
     Inferring Types
         - In general, TypeScript will infer types when declared & initialized 
         - Cannot reassign a variable to a different type after it has been d&i
 
+    What is the need for TypeScript?
+        - there is a lot of ambiguity in JavaScript
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     Interfaces
         - You can describe the shape of an Object using TypeScript's Interfaces
 
-        ex. 
-            
-            Object
-
-            let user = {
-                name: "Jason",
-                age: 22,
-            }
-
-
-            Interface
+        Interface
 
             interface User {
                 name: string;
                 age: number;
             }
 
-            TS Object w/ Interface
-            
+        TS Object w/ Interface
+        
             let user : User {
                 name: "Jason",
                 age: 22,
@@ -38,9 +47,7 @@ TypeScript Basics
 
         - You can also use this within classes, in order to more strictly enforce types  
 
-        ex. 
-            
-            Class
+        Class
 
             class User {
                 name: string;
@@ -51,10 +58,7 @@ TypeScript Basics
                     this.age = age;
                 }
             }
-        
-
-
-
+    
     Types & Interfaces
         - There are two main ways to declare a "Type"
             1. the type literal

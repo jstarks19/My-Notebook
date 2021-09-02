@@ -1,0 +1,55 @@
+
+React Router
+
+
+Installing React Router 
+    
+    $ npm i react-router-dom
+
+
+
+Hooks
+    - React Router comes with some hooks that allow you to access the state
+      of the router and perform some navigation from inside your components 
+
+    - The Hooks 
+
+        useHistory
+            - this hook allows us to access the HISTORY instance that you may use to navigate
+            - what is HISTORY?
+                - in react router, the history refers to the 'history package' which is one of 2 major dependencies of React Router
+                - it is an implementation of managing session history in JavaScript in various environments
+                
+                Some terms used for 'history':
+                    - "browser history" : DOM-specific implementation, useful in web browsers that support the HTML5 history API 
+                    - "hash history"    : DOM-specific implementation for legacy web browsers
+                    - "memory history"  : An in-memory history implementation, useful in testing and non-DOM environments like React Native
+                
+                - history objects have the following properties and methods
+                    Properties
+                        - length - (number) The number of entries in the history stack
+                        - action - (string) The current action (PUSH, REPLACE, or POP)
+                        - location - (object) The current location
+                            - can have the following properties
+                                pathname - (string) The path of the URL
+                                search - (string) The URL query string
+                                hash - (string) The URL hash fragment
+                                state - (object) location-specific state that was provided to 
+                                                ex. push(path, state) when this location was pushed onto the stack. (available in browser and memory history)
+                    Methods
+                        - push(path, [state])    : pushes a new entry onto the history stack
+                        - replace(path, [state]) : replaces the current entry on the history stack
+                        - go(n)                  : moves the pointer in the history stack by n entries      
+                        - goBack()               : equivalent to go(-1)
+                        - goForward()            : equivalent to go(1)
+                        - block(prompt)          : prevents navigation
+
+        useLocation
+
+
+        useParams
+
+
+        useRouteMatch
+
+    

@@ -17,7 +17,4 @@ let user : User = {
 class UserClass {
     name: string;
     age: number;
-
-
-    
 }

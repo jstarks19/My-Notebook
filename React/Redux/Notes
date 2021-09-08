@@ -1,0 +1,99 @@
+Redux
+
+As your apps grow larger, managing shared data becomes much more difficult
+    - Enter Redux
+    - Defined as a "predictable container for JavaScript applications"
+    - Helps to keep your applications predictable and easier to test
+    - Very often used with React
+
+
+Stores
+    Creating a Redux Store 
+        - In Redux, there is a single state object responsible for the entire state of your application
+        - This is the "Redux Store"
+        - Any time your application wants to update state, it must do so through the Redux Store
+
+        createStore(reducer)
+            - this is how you create a Redux store on the main Redux object 
+            - the method takes a 'reducer' as an argument, which is a function 
+            - this reducer function takes in state as an argument, and returns a new state 
+
+    Retrieving State
+        - You can retrieve state from a Redux store by using the getState() method
+        ex. 
+            const store = Redux.createStore();
+            const currState = store.getState();
+    
+    Registering a Store listener
+        - Often times you might want to listen for when actions are dispatched to your store
+        - In order to do this, you use the store.subscribe() method
+            - This gives you the ability to subscribe listener functions to the store
+            - These functions are then called when a new action is dispatched to your store 
+        - Good use for this is logging messages after dispatches  
+        ex. 
+            function logger() {
+                console.log('dispatched');
+            }
+            store.subscribe(logger);
+
+
+Actions
+
+    Defining a Redux Action
+        - In order to update the state for your project, you must dispatch actions
+        - An action is basically just a JS object containing info about an action event that has occurred
+        - An action can also contain related data (i.e. a username when a user logs in)
+        - Though this additional related data is OPTIONAL, the 'type' property is REQUIRED, meaning you must specify what type of action is occurring
+        ex.
+            const action = {type: "LOGIN", username: "Jason"};
+
+    Action Creators
+        - To submit an action to a store (and in turn cause an update) the action must be returned from a function
+        - The function which returns this action is referred to as an "Action Creator"
+        ex.  
+            function actionCreator() {
+                return action;
+            }
+    
+    Dispatching an Event
+        - In order to dispatch an event to a Redux store, you must use the "dispatch" function of the store object
+        - dispatch takes in one argument, the action itself, whether that be an object literal, or the result of the call to the Action Creator
+        ex. 
+            store.dispatch({type: 'LOGIN'}); 
+    
+
+Reducer Function 
+
+    Handling Actions in State
+        - The reducer function takes in a 2nd argument, 'action' which represents the action object being dispatched
+        - The reducer is solely responsible for taking in state and an action, and returning a new state, THAT IS IT
+            - should not be calling an API endpoint, or anything of that state
+        - Important to note also is that state is read-only and should be treated as such, always return a NEW state
+        - Most often, you use a 'switch' statement in order to handle multiple action types
+    
+    Use Consts for action types
+        - It is good practice in general to use constants to define your action types
+        - Then when defining new actions or in your switch statements, simply use the constant action types your defined
+
+    Composing Reducers
+        - It can be a tempting thought to make multiple stores to handle multiple aspects of your application
+            - However, this goes against the fundamental principle of 'single central state' that redux professes
+        - So in order to do this, you should divide the aspects of your application into multiple reducers
+            - These reducers are then composed into a 'root reducer' which is passed when creating your store
+        
+        ex. 
+            const rootReducer = Redux.combineReducers({
+                auth: authenticationReducer,
+                notes: notesReducer
+            });
+
+Middleware in Redux
+    
+    - At some point in your application, you will have to make asynchronous requests.
+    - How do we handle these in Redux?
+        - Redux has something called Redux Thunk Middleware
+        - To use it, you pass it as a second arg to the createStore function
+    - Then in your action creator, you must return a function
+        - this function takes in the dispatch function as a param
+        - in this function, you can make any async calls you might need to
+        - as well as dispatch any actions you might need to, either before or after your async calls 

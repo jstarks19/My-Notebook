@@ -1,0 +1,8 @@
+
+The main approach for installing Redux is through the Redux Toolkit
+    - it wraps around the Redux core and contains packages and functions that are essential for building Redux apps
+    - in general it,
+        - builds in best practices
+        - simplifies most Redux tasks
+        - prevents common mistakes
+        - makes it easier to write Redux apps

@@ -1,0 +1,86 @@
+Design Patterns
+
+    - Very good book for design patterns
+        - Design Patterns : Elements of Reusable Object-Oriented Software
+
+    Biggest Point: you need to make sure you use these in the right way and at the right time
+
+The main book is divided into three categories (based on different design schemes)
+
+    1) Creational Design Patterns   :   Patterns for creating objects
+        
+        Abstract Factory
+            - allows creation of objects without specifying their concrete type
+
+        Builder
+            - used to create complex objects
+        
+        Factory Method
+            - creates objects without specifying the exact class to create
+        
+        Prototype
+            - creating a new object from an existing object
+        
+        Singleton
+            - ensures only one instance of an object is created
+    
+    
+    2) Structural Design Patterns   :   Patterns for relating objects to one another
+
+        Adapter
+            - Allows for two incompatible classes to work together by wrapping an interface around one of the existing classes
+
+        Bridge
+            - decouples an abstraction so two classes can vary independently
+
+        Composite
+            - takes a group of objects into a single object
+
+        Decorator
+            - allows for an object's behavior to be extended at runtime
+
+        Facade
+            - providing a simple interface to a more complex underlying object
+
+        Flyweight
+            - reduces the cost of complex object models
+
+        Proxy 
+            - provides a placeholder interface to an underlying object to control access, reduce cost, or reduce complexity
+
+    3) Behavior Design Patterns     :   Patterns to help define how objects interact
+
+        Chain of Responsibility
+            - delegate commands to a chain of processing objects
+
+        Command
+            - creates objects which encapsulate actions and parameters
+
+        Interpreter
+            - implements a specialized language
+
+        Iterator
+            - accesses the elements of an object sequentially without exposing its underlying representation 
+
+        Mediator
+            - allows loose coupling between classes by being the only class that has detailed knowledge of their methods
+    
+        Memento
+            - provides the ability to restore an object to its previous state
+
+        Observer
+            - a publisher/subscriber pattern allowing for a number of observers to see an event
+
+        State
+            - allows an object to alter its behavior when an internal state changes
+
+        Strategy
+            - allows one of a family of algorithms to be selected on-the-fly at run-time
+
+        Template Method
+            - defines the skeleton of an algorithm as an abstract class, allowing for sub-classes to provide concrete behavior
+
+        Visitor
+            - separates an algorithm from an object structure by moving the hierarchy of methods into one object
+
+

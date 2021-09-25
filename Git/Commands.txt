@@ -1,11 +1,4 @@
-Git
-
-
-    "origin"    : this is both the default and convention for the remote repository 
-    "staging"   : the staging of a file, is basically "getting it ready" to be committed, it is in the waiting room 
-    "HEAD"      : the symbolic name for the currently checked out commit
-
-    Commands
+Git Commands
         
         BASIC BNBs
             $ git --version

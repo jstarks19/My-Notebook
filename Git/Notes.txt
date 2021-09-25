@@ -1,0 +1,58 @@
+Git
+
+    "origin"    : this is both the default and convention for the remote repository 
+    "staging"   : the staging of a file, is basically "getting it ready" to be committed, it is in the waiting room 
+    "HEAD"      : the symbolic name for the currently checked out commit
+
+
+Commits
+    - These are like snapshots of all the tracked files within your directory
+    - Git commits are generally pretty lightweight
+        - they do not re-copy the entire directory, rather they only track the changes
+    - Git maintains a history of commits as well
+        - this allows for the rolling back of commits
+    - Switching between commits is very very fast 
+
+Branches
+    - These are lightweight as well, basically just serving as simple pointers to a specific commit
+        - nothing more
+    - "Branch early, and Branch often"
+    - Since there is no memory overhead involved with making a ton of branches...
+        - it is generally advised to logically divide up your work using branches
+    - Creating a branch is basically saying 
+        : "I want all the commit history up to this point, but I don't want this code to interfere with the main"
+
+Merging
+    - Merging is our method for joining two different branches together
+    - Merging creates a 'special' commit, which has two separate parents (the branches we are merging)
+    - You must merge a given branch into your current one to replay the newly made changes
+
+Rebasing
+    - The second method of joining the work of two branches
+    - The idea is that rebasing will replay all of the changes in the branch you are rebasing to onto your own
+        - This has the advantage of creating a linear history for the series of commits
+        - It is helpful when needing to rollback commits, also it doesn't create a third commit 
+
+Relative Refs
+    - This is a way to refer to a specific commit without needing to directly use the hash value of said commit
+    - Appending the ^ onto the name of a branch or the relative HEAD will allow you to checkout one commit above the current one
+        - multiple ^'s will be treated as grandparents/great-grandparents
+    - Using the ~ with a value will give you a number of upward jumps, specified by you 
+
+Branch Forcing
+    - You can reassign what commit a branch is currently pointing to with branch forcing
+    - You do this by using 
+        $ git branch -f <branchName> HEAD<relative ref>
+
+Undoing Changes
+    - Low Level
+        - Staging individual file changes / unstaging / restaging 
+    - High Level
+        - Reversing the actual changes
+    
+    - Two primary methods (for high level), 'git reset' & 'git revert'
+        - git reset will rollback to a previous commit (you can use relative refs for ease of use)
+        - git revert is for non local resets
+            - this is because resetting is good for your own local changes, but if you are working on a remote repo, no one will see the reset taking place
+            - revert fixes this
+            - it also causes a new commit, but with changes applied in the reverse direction (ik weird)
